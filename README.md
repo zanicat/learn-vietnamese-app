@@ -10,3 +10,4 @@ open it in any browser (double-click, or `explorer.exe index.html` from WSL).
 - Audio uses the browser's built-in text-to-speech. For proper Vietnamese audio on
   Windows, install the Vietnamese voice: Settings → Time & Language → Speech →
   Add voices → Tiếng Việt.
+
