@@ -193,6 +193,18 @@
   .result-item .vi { font-family: var(--serif); font-size: 18px; font-weight: 700; }
   .result-item .en { color: var(--ink-2); font-size: 14px; text-align: right; }
 
+  /* ---------- composed phrases ---------- */
+  .piece-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .piece-chip {
+    display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px;
+    text-align: left; padding: 7px 12px; border-radius: 10px;
+    border: 1px dashed var(--line); background: var(--card); color: var(--ink);
+  }
+  button.piece-chip:hover { border-color: var(--accent); }
+  .piece-chip .vi { font-family: var(--serif); font-size: 15.5px; font-weight: 700; }
+  .piece-chip .en { font-size: 11.5px; color: var(--muted); }
+  .piece-plus { color: var(--muted); font-weight: 700; }
+
   /* ---------- word card ---------- */
   .word-card .headword {
     font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1.25;
@@ -614,15 +626,15 @@ function buildIndex(entries) {
     return {
       e: e,
       nvi: norm(e.vi),
-      nen: norm(e.en),
-      alts: (e.alt ? e.alt.split(";") : []).map(norm),
+      nen: canonEn(e.en),
+      alts: (e.alt ? e.alt.split(";") : []).map(canonEn),
       nnote: e.note ? norm(e.note) : ""
     };
   });
 }
 
 function searchEntries(index, query) {
-  var q = norm(query);
+  var q = canonEn(query);
   if (!q) return [];
   var scored = [];
   index.forEach(function (row) {
@@ -643,6 +655,466 @@ function searchEntries(index, query) {
   });
   scored.sort(function (a, b) { return b.s - a.s || a.e.vi.length - b.e.vi.length; });
   return scored.slice(0, 8);
+}
+
+/* =========================== phrase building =========================== */
+/* Builds full sentences out of phrasebook pieces. Vietnamese word order is
+   not English word order (“where is the toilet” = “nhà vệ sinh ở đâu?” —
+   thing first, question word last), so pieces are never just glued together:
+   each pattern below mirrors a construction the phrasebook itself
+   demonstrates, slots only accept words whose role is known, and anything
+   outside these patterns is refused instead of guessed. */
+
+/* which built-in entries may fill a slot, and how */
+var COMPOSE_ROLES = {
+  /* places — “X ở đâu?”, “Cho tôi đến X”, “Gần đây có X không?” */
+  "nha-ve-sinh": { t: "place" }, "cho": { t: "place" }, "sieu-thi": { t: "place" },
+  "khach-san": { t: "place" }, "san-bay": { t: "place" }, "ben-xe": { t: "place" },
+  "ga-tau": { t: "place" }, "benh-vien": { t: "place" }, "hieu-thuoc": { t: "place" },
+  "cong-an": { t: "place", vi: "đồn công an", gloss: "police station", aliases: ["police station"] },
+  /* dishes — orderable with “Cho tôi …”; clf = measure word by accent */
+  "pho": { t: "food", clf: { north: "bát", south: "tô" } },
+  "pho-bo": { t: "food", clf: { north: "bát", south: "tô" } },
+  "pho-ga": { t: "food", clf: { north: "bát", south: "tô" } },
+  "banh-mi": { t: "food" },
+  "com": { t: "food", clf: { north: "suất", south: "phần" } },
+  "bun-cha": { t: "food", clf: { north: "suất", south: "phần" } },
+  "nem-ran": { t: "food", clf: { north: "suất", south: "phần" } },
+  "goi-cuon": { t: "food", clf: { north: "cái", south: "cái" } },
+  "trung": { t: "food", clf: { north: "quả", south: "trái" } },
+  /* drinks */
+  "ca-phe": { t: "drink" },
+  "ca-phe-sua-da": { t: "drink", aliases: ["iced coffee"] },
+  "ca-phe-den": { t: "drink" }, "tra-da": { t: "drink" },
+  "sinh-to": { t: "drink" }, "nuoc-mia": { t: "drink" },
+  "nuoc": { t: "drink", clf: { north: "chai", south: "chai" } },
+  "nuoc-suoi": { t: "drink", clf: { north: "chai", south: "chai" } },
+  "bia": { t: "drink", clf: { north: "chai", south: "chai" } },
+  /* mass foods — “Tôi muốn ăn X” works, “Cho tôi một X” doesn't */
+  "thit": { t: "mass" }, "ca": { t: "mass" }, "rau": { t: "mass" },
+  /* things you can point at, price, or ask for */
+  "cai-nay": { t: "thing", aliases: ["this", "it"] },
+  "cai-kia": { t: "thing", aliases: ["that"] },
+  "ban-do": { t: "thing" }, "xe-may": { t: "thing" },
+  "dua": { t: "thing", fixedOrder: { vi: "Cho tôi xin đôi đũa.", en: "May I have a pair of chopsticks?" } },
+  "thuc-don": { t: "thing", fixedOrder: { vi: "Cho tôi xem thực đơn.", en: "Could I see the menu?" } },
+  /* adjectives — “X quá!”, “rất X”, “không X”; feel: safe after “Tôi …”;
+     less: things an order can dial down with “ít …” */
+  "cay": { t: "adj", less: true },
+  "nong": { t: "adj", feel: true }, "lanh": { t: "adj", feel: true },
+  "met": { t: "adj", feel: true }, "vui": { t: "adj", feel: true },
+  "buon": { t: "adj", feel: true }, "doi": { t: "adj", feel: true },
+  "khat-nuoc": { t: "adj", feel: true },
+  "dep": { t: "adj" }, "tot": { t: "adj" }, "xau": { t: "adj" },
+  "lon": { t: "adj" }, "nho": { t: "adj" }, "re": { t: "adj" },
+  "xa": { t: "adj" }, "gan": { t: "adj" },
+  "de-thuong": { t: "adj" }, "dep-trai": { t: "adj" },
+  "ngon-qua": { t: "adj", vi: "ngon", gloss: "delicious", aliases: ["delicious", "tasty", "yummy"] },
+  "dat-qua": { t: "adj", vi: "đắt", gloss: "expensive", aliases: ["expensive"] },
+  "gioi-qua": { t: "adj", vi: "giỏi", gloss: "good at it", aliases: ["skilled"] },
+  "it-ngot": { t: "adj", vi: "ngọt", gloss: "sweet", aliases: ["sweet"], less: true },
+  /* order add-ons — “không X” / “ít X” */
+  "it-da": { t: "addon", vi: "đá", gloss: "ice", aliases: ["ice"], less: true },
+  "duong": { t: "addon", vi: "đường", gloss: "sugar", aliases: ["sugar"], less: true, noEnKeys: true }
+};
+
+/* normalize the English casual forms search and patterns both see:
+   “where's” → “where is”, “im” → “i am”, “don't” → “do not”, … */
+function canonEn(s) {
+  var c = " " + norm(s) + " ";
+  [[" i m ", " i am "], [" im ", " i am "], [" don t ", " do not "], [" dont ", " do not "],
+   [" doesn t ", " does not "], [" where s ", " where is "], [" wheres ", " where is "],
+   [" i ll ", " i will "], [" ill have ", " i will have "], [" i d ", " i would "],
+   [" id like ", " i would like "], [" what s ", " what is "], [" whats ", " what is "],
+   [" it s ", " it is "], [" i wanna ", " i want to "], [" gimme ", " give me "]
+  ].forEach(function (p) { c = c.split(p[0]).join(p[1]); });
+  return c.replace(/\s+/g, " ").trim();
+}
+
+function composeGloss(en) {
+  return en.replace(/\(.*?\)/g, " ").split("/")[0].replace(/\s+/g, " ").trim();
+}
+
+var COMPOSE_LEX = null, COMPOSE_VI_LEX = null;
+function composeItems() {
+  if (COMPOSE_LEX) return;
+  COMPOSE_LEX = {}; COMPOSE_VI_LEX = {};
+  Object.keys(COMPOSE_ROLES).forEach(function (id) {
+    var e = entryById(id);
+    if (!e) return;
+    var r = COMPOSE_ROLES[id];
+    var item = { id: id, t: r.t, role: r,
+      vi: r.vi || e.vi.replace(/…/g, "").trim(),
+      gloss: r.gloss || composeGloss(e.en) };
+    var keys = [norm(item.vi), norm(e.vi)];
+    if (!r.noEnKeys) {
+      e.en.replace(/\(.*?\)/g, " ").split("/").forEach(function (p) { keys.push(norm(p)); });
+      (e.alt ? e.alt.split(";") : []).forEach(function (a) { keys.push(norm(a)); });
+    }
+    (r.aliases || []).forEach(function (a) { keys.push(norm(a)); });
+    keys.forEach(function (k) { if (k && !COMPOSE_LEX[k]) COMPOSE_LEX[k] = item; });
+    COMPOSE_VI_LEX[item.vi.toLowerCase()] = item;
+    COMPOSE_VI_LEX[e.vi.replace(/…/g, "").trim().toLowerCase()] = item;
+  });
+}
+
+function composeResolve(text) {
+  composeItems();
+  var t = norm(text).replace(/^(?:the |a |an |some |my )+/, "").replace(/ please$/, "").trim();
+  if (!t) return null;
+  var hit = COMPOSE_LEX[t];
+  if (!hit && t.slice(-1) === "s") hit = COMPOSE_LEX[t.slice(0, -1)];
+  return hit || null;
+}
+
+var COMPOSE_NUM = { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7,
+  eight: 8, nine: 9, ten: 10, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6,
+  "7": 7, "8": 8, "9": 9, "10": 10 };
+var COMPOSE_NUM_ENTRY = { 1: "mot", 2: "hai", 3: "ba", 4: "bon", 5: "nam-5",
+  6: "sau", 7: "bay", 8: "tam", 9: "chin", 10: "muoi-10" };
+var COMPOSE_NUM_VI = { 1: "một", 2: "hai", 3: "ba", 4: "bốn", 5: "năm",
+  6: "sáu", 7: "bảy", 8: "tám", 9: "chín", 10: "mười" };
+var COMPOSE_NUM_EN = { 1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+  6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten" };
+
+function capFirst(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+function compPiece(id, vi, gloss) {
+  var e = id ? entryById(id) : null;
+  return { id: e ? id : null,
+    vi: vi || (e ? e.vi.replace(/…/g, "").trim() : ""),
+    gloss: gloss || (e ? composeGloss(e.en) : "") };
+}
+function slotPiece(item) { return { id: item.id, vi: item.vi, gloss: item.gloss }; }
+
+function compOk(pattern, vi, en, pieces, note) {
+  return { ok: true, pattern: pattern, vi: vi, en: en, pieces: pieces, note: note || "" };
+}
+function compFail(pattern, message) {
+  return { ok: false, pattern: pattern, message: message };
+}
+function failUnknown(pattern, slotText) {
+  return compFail(pattern, "I can build “" + pattern + "”, but I don’t know “" +
+    slotText.trim() + "” yet, so I won’t guess.");
+}
+function failType(pattern, item, needs) {
+  return compFail(pattern, "I know “" + item.vi + "” (" + item.gloss + "), but it’s not " +
+    needs + ", so I can’t promise “" + pattern + "” comes out correct with it.");
+}
+
+/* ordering: [lead] [number] [measure of] item [to go] [no/less add-on] [please] */
+var COMPOSE_ORDER_LEADS = ["can i have", "could i have", "can i get", "could i get",
+  "may i have", "i will have", "i will take", "give me", "i would like", "i want"];
+function composeOrder(c) {
+  var pat = "Cho tôi … (I’ll have …)";
+  var s = c, lead = null, strong = false, i;
+  for (i = 0; i < COMPOSE_ORDER_LEADS.length; i++) {
+    if (s.indexOf(COMPOSE_ORDER_LEADS[i] + " ") === 0) {
+      lead = COMPOSE_ORDER_LEADS[i]; s = s.slice(lead.length + 1); break;
+    }
+  }
+  if (lead === "i want" || lead === "i would like") {
+    if (s.indexOf("to ") === 0) return null;   /* “I want to eat…” — not an order */
+  } else if (lead) strong = true;
+  var please = false, togo = false, mod = null, mm;
+  if ((mm = s.match(/^(.+?),? please$/))) { s = mm[1]; please = true; }
+  if ((mm = s.match(/^(.+?),?(?: to go| to take away| takeaway| take away| take out)$/))) { s = mm[1]; togo = true; }
+  if ((mm = s.match(/^(.+?)(?:,? with)?,? (no|without|less) (.+)$/))) {
+    var kind = mm[2] === "less" ? "less" : "no";
+    var modItem = composeResolve(mm[3]);
+    if (modItem && !(modItem.t === "addon" || modItem.t === "adj")) modItem = null;
+    if (modItem && kind === "less" && !modItem.role.less) modItem = null;
+    if (modItem) { s = mm[1]; mod = { kind: kind, item: modItem }; }
+    else {
+      var baseTry = composeResolve(mm[1]);
+      if (baseTry && (baseTry.t === "food" || baseTry.t === "drink")) {
+        return compFail(pat, "I can order “" + baseTry.vi + "”, but I don’t know how to say “" +
+          kind + " " + mm[3].trim() + "” in Vietnamese, so I won’t guess.");
+      }
+    }
+  }
+  var num = 0, toks = s.split(" ");
+  if (COMPOSE_NUM[toks[0]]) { num = COMPOSE_NUM[toks[0]]; toks.shift(); }
+  var rest = toks.join(" ").replace(/^(?:the |a |an |some )/, "")
+    .replace(/^(?:bowls?|cups?|glass(?:es)?|bottles?|portions?|servings?|orders?) of /, "");
+  if (!strong && !num && !please && !togo && !mod) return null;
+  var item = composeResolve(rest);
+  if (!item) return (strong || num || togo || mod) ? failUnknown(pat, rest) : null;
+  if (item.role.fixedOrder && num <= 1 && !togo && !mod) {
+    return compOk(pat, item.role.fixedOrder.vi, item.role.fixedOrder.en,
+      [compPiece("cho-toi", "cho tôi", "give me / let me"), slotPiece(item)],
+      "A set phrase — the natural way to ask for this one.");
+  }
+  if (item.t !== "food" && item.t !== "drink")
+    return failType(pat, item, "a dish or drink I know how to order");
+  if (!num) num = 1;
+  var clf = item.role.clf ? item.role.clf[accent()] : null;
+  var vi = "Cho tôi " + COMPOSE_NUM_VI[num] + " " + (clf ? clf + " " : "") + item.vi +
+    (togo ? " mang về" : "") +
+    (mod ? ", " + (mod.kind === "no" ? "không" : "ít") + " " + mod.item.vi + " nhé" : "") + ".";
+  var en = (num > 1 ? num + " × " + item.gloss : "One " + item.gloss) +
+    (togo ? ", to go" : "") + (mod ? ", " + mod.kind + " " + mod.item.gloss : "") + ", please.";
+  var pieces = [compPiece("cho-toi", "cho tôi", "give me / let me"), compPiece(COMPOSE_NUM_ENTRY[num])];
+  if (clf) pieces.push({ id: null, vi: clf, gloss: "measure word (" + (accent() === "south" ? "southern" : "northern") + ")" });
+  pieces.push(slotPiece(item));
+  if (togo) pieces.push(compPiece("mang-ve"));
+  if (mod) {
+    pieces.push(mod.kind === "no" ? compPiece("khong") : { id: null, vi: "ít", gloss: "a little / less" });
+    pieces.push(slotPiece(mod.item));
+    pieces.push(compPiece("nhe"));
+  }
+  return compOk(pat, vi, en, pieces,
+    "Cho tôi (“give me”) + amount + item is the standard polite way to order — no extra “please” needed.");
+}
+
+function composeEn(raw) {
+  var c = canonEn(raw);
+  if (c.length < 3) return null;
+  var m, item, pat;
+
+  /* Where is X? */
+  if ((m = c.match(/^where(?: is| are| can i find)? (.+)$/))) {
+    pat = "… ở đâu? (where is …?)";
+    item = composeResolve(m[1]);
+    if (!item) return failUnknown(pat, m[1]);
+    if (item.t !== "place") return failType(pat, item, "a place");
+    return compOk(pat, capFirst(item.vi) + " ở đâu?", "Where is the " + item.gloss + "?",
+      [slotPiece(item), compPiece("o-dau", "ở đâu?", "at where?")],
+      "Vietnamese names the thing first, then asks ở đâu (literally “at where?”) — the reverse of English.");
+  }
+
+  /* How long to X? */
+  if ((m = c.match(/^how long(?: does it take| will it take)?(?: to get| to go)? to (.+)$/))) {
+    pat = "Đi … mất bao lâu? (how long to …?)";
+    item = composeResolve(m[1]);
+    if (!item) return failUnknown(pat, m[1]);
+    if (item.t !== "place") return failType(pat, item, "a place");
+    return compOk(pat, "Đi " + item.vi + " mất bao lâu?",
+      "How long does it take to get to the " + item.gloss + "?",
+      [compPiece("di"), slotPiece(item), compPiece("bao-lau", "mất bao lâu?", "takes how long?")],
+      "đi (go) + place + mất bao lâu (“takes how long?”).");
+  }
+
+  /* Take me to X */
+  if ((m = c.match(/^(?:please )?(?:take|bring|drive) (?:me|us) to (.+?)(?: please)?$/))) {
+    pat = "Cho tôi đến … (take me to …)";
+    item = composeResolve(m[1]);
+    if (!item) return failUnknown(pat, m[1]);
+    if (item.t !== "place") return failType(pat, item, "a place");
+    return compOk(pat, "Cho tôi đến " + item.vi + ".", "Take me to the " + item.gloss + ", please.",
+      [compPiece("cho-toi", "cho tôi", "give me / let me"), compPiece("den"), slotPiece(item)],
+      "Cho tôi đến… (“let me get to…”) is the standard polite taxi request.");
+  }
+
+  /* I want to go to X */
+  if ((m = c.match(/^i (?:want|would like) to go to (.+)$/))) {
+    pat = "Tôi muốn đi … (I want to go to …)";
+    item = composeResolve(m[1]);
+    if (!item) return failUnknown(pat, m[1]);
+    if (item.t !== "place") return failType(pat, item, "a place");
+    return compOk(pat, "Tôi muốn đi " + item.vi + ".", "I want to go to the " + item.gloss + ".",
+      [compPiece("toi"), compPiece("muon"), compPiece("di"), slotPiece(item)], "");
+  }
+
+  /* Do you have X? / Is there X (near here)? */
+  if ((m = c.match(/^(?:do you (?:guys )?have|have you got|got|is there|are there) (.+)$/))) {
+    pat = "có … không? (do you have / is there …?)";
+    var rest = m[1], near = false, nm = rest.match(/^(.*?)(?: near here| nearby| near by| around here| close by)$/);
+    if (nm) { rest = nm[1]; near = true; }
+    item = composeResolve(rest);
+    if (!item) return failUnknown(pat, rest);
+    if (item.t === "place" || near) {
+      if (item.t !== "place") return failType(pat, item, "a place");
+      return compOk(pat, "Gần đây có " + item.vi + " không?", "Is there a " + item.gloss + " near here?",
+        [compPiece("gan", "gần đây", "near here"), compPiece("co-have"), slotPiece(item), compPiece("khong")],
+        "The yes/no question wraps có … không (“exists … no?”) around the thing.");
+    }
+    if (item.t === "food" || item.t === "drink" || item.t === "thing" || item.t === "mass") {
+      return compOk(pat, "Ở đây có " + item.vi + " không?", "Do you have " + item.gloss + " here?",
+        [compPiece("o-day", "ở đây", "here"), compPiece("co-have"), slotPiece(item), compPiece("khong")],
+        "có … không? wraps around the thing — literally “here has … no?”");
+    }
+    return failType(pat, item, "something I can ask about this way");
+  }
+
+  /* How much is X? */
+  if ((m = c.match(/^how much(?: is| are| does| do| for)?(?: it)? (.+?)( cost)?$/))) {
+    pat = "… bao nhiêu tiền? (how much is …?)";
+    item = composeResolve(m[1]);
+    if (!item) return failUnknown(pat, m[1]);
+    if (item.t === "place" || item.t === "adj" || item.t === "addon")
+      return failType(pat, item, "a thing you can put a price on");
+    return compOk(pat, capFirst(item.vi) + " bao nhiêu tiền?", "How much is the " + item.gloss + "?",
+      [slotPiece(item), compPiece("bao-nhieu-tien", "bao nhiêu tiền?", "how much money?")],
+      "Thing first, then bao nhiêu tiền — the same order as … ở đâu?");
+  }
+
+  /* ordering */
+  var order = composeOrder(c);
+  if (order) return order;
+
+  /* I want to eat/drink X */
+  if ((m = c.match(/^i (?:want|would like)(?: to (eat|drink|have|try))? (.+)$/))) {
+    pat = "Tôi muốn … (I want …)";
+    item = composeResolve(m[2]);
+    if (!item) return failUnknown(pat, m[2]);
+    var eatable = item.t === "food" || item.t === "mass", drinkable = item.t === "drink";
+    if (!eatable && !drinkable) return failType(pat, item, "a food or drink");
+    if (m[1] === "eat" && drinkable)
+      return compFail(pat, "“" + item.vi + "” is a drink — Vietnamese would uống (drink) it, not ăn (eat) it. Try “I want to drink " + item.gloss + "”.");
+    if (m[1] === "drink" && eatable)
+      return compFail(pat, "“" + item.vi + "” is food — Vietnamese would ăn (eat) it, not uống (drink) it. Try “I want to eat " + item.gloss + "”.");
+    return compOk(pat, "Tôi muốn " + (drinkable ? "uống" : "ăn") + " " + item.vi + ".",
+      "I want to " + (drinkable ? "drink" : "eat") + " " + item.gloss + ".",
+      [compPiece("toi-muon", "tôi muốn", "I want"), compPiece(drinkable ? "uong" : "an"), slotPiece(item)],
+      "muốn takes a verb: muốn ăn (want to eat), muốn uống (want to drink).");
+  }
+
+  /* I (don't) like / love X */
+  if ((m = c.match(/^i (do not )?(?:really )?(like|love)(?: eating| drinking| to eat| to drink)? (.+)$/))) {
+    pat = "Tôi thích … (I like …)";
+    item = composeResolve(m[3]);
+    if (!item) return failUnknown(pat, m[3]);
+    if (item.t === "adj" || item.t === "addon")
+      return failType(pat, item, "a thing (I can only build “I like” + a noun)");
+    if (m[1]) return compOk(pat, "Tôi không thích " + item.vi + ".", "I don’t like " + item.gloss + ".",
+      [compPiece("toi"), compPiece("khong"), compPiece("thich"), slotPiece(item)],
+      "không before the verb makes it negative.");
+    if (m[2] === "love") return compOk(pat, "Tôi rất thích " + item.vi + ".", "I really like " + item.gloss + ".",
+      [compPiece("toi"), compPiece("rat"), compPiece("thich"), slotPiece(item)],
+      "rất (very) in front of thích turns “like” into “really like”.");
+    return compOk(pat, "Tôi thích " + item.vi + ".", "I like " + item.gloss + ".",
+      [compPiece("toi"), compPiece("thich"), slotPiece(item)], "");
+  }
+
+  /* I'm (not/so) X */
+  if ((m = c.match(/^i (?:am|feel) (not )?(so |very |really |too )?(.+)$/))) {
+    pat = "Tôi … (I’m …)";
+    item = composeResolve(m[3]);
+    if (!item) return failUnknown(pat, m[3]);
+    if (!(item.t === "adj" && item.role.feel))
+      return failType(pat, item, "a feeling word I can safely put after Tôi");
+    if (m[1]) return compOk(pat, "Tôi không " + item.vi + ".", "I’m not " + item.gloss + ".",
+      [compPiece("toi"), compPiece("khong"), slotPiece(item)],
+      "No “to be” needed — Tôi + adjective is a full sentence; không negates it.");
+    if (m[2] && m[2].trim() === "very") return compOk(pat, "Tôi rất " + item.vi + ".", "I’m very " + item.gloss + ".",
+      [compPiece("toi"), compPiece("rat"), slotPiece(item)],
+      "No “to be” needed — Tôi + rất + adjective.");
+    if (m[2]) return compOk(pat, "Tôi " + item.vi + " quá!", "I’m so " + item.gloss + "!",
+      [compPiece("toi"), slotPiece(item), compPiece("qua-intensifier")],
+      "No “to be” needed — and quá goes after the adjective.");
+    return compOk(pat, "Tôi " + item.vi + ".", "I’m " + item.gloss + ".",
+      [compPiece("toi"), slotPiece(item)],
+      "No “to be” before adjectives — Tôi + adjective is a complete sentence.");
+  }
+
+  /* so X! / very X */
+  if ((m = c.match(/^(so|too|very|really|super) (.+)$/))) {
+    pat = "… quá! / rất … (so / very …)";
+    item = composeResolve(m[2]);
+    if (!item) return failUnknown(pat, m[2]);
+    if (item.t !== "adj") return failType(pat, item, "a describing word");
+    if (m[1] === "very") return compOk(pat, "Rất " + item.vi + ".", "Very " + item.gloss + ".",
+      [compPiece("rat"), slotPiece(item)],
+      "rất goes before the adjective; quá goes after it, with feeling.");
+    return compOk(pat, capFirst(item.vi) + " quá!", "So " + item.gloss + "!",
+      [slotPiece(item), compPiece("qua-intensifier")],
+      "quá comes after the adjective — adjective + quá! is an instant exclamation.");
+  }
+
+  /* no X / not X — order add-ons */
+  if ((m = c.match(/^(?:no|not|without) (.+)$/))) {
+    pat = "không … (no / not …)";
+    if (/^thanks?( you)?$/.test(m[1]))
+      return compOk(pat, "Không, cảm ơn.", "No, thank you.",
+        [compPiece("khong"), compPiece("cam-on")], "");
+    item = composeResolve(m[1]);
+    if (!item) return failUnknown(pat, m[1]);
+    if (item.t !== "adj" && item.t !== "addon")
+      return failType(pat, item, "a describing word or an add-on like ice or sugar");
+    return compOk(pat, "không " + item.vi, "no " + item.gloss + " / not " + item.gloss,
+      [compPiece("khong"), slotPiece(item)],
+      "An order add-on, not a full sentence — tack it on: “…, không " + item.vi + " nhé.”");
+  }
+
+  /* less X */
+  if ((m = c.match(/^(?:less|a little less|easy on the|light on the) (.+)$/))) {
+    pat = "ít … (less …)";
+    item = composeResolve(m[1]);
+    if (!item) return failUnknown(pat, m[1]);
+    if (!item.role.less) return failType(pat, item, "something orders usually dial down (spicy, sweet, ice, sugar)");
+    return compOk(pat, "ít " + item.vi, "less " + item.gloss,
+      [{ id: null, vi: "ít", gloss: "a little / less" }, slotPiece(item)],
+      "An order add-on: “…, ít " + item.vi + " nhé.”");
+  }
+
+  return null;
+}
+
+/* Vietnamese-side recognition of the same patterns (needs accent marks —
+   without them tones are ambiguous, and we don't guess) */
+function composeViQ(raw) {
+  composeItems();
+  var q = String(raw).toLowerCase().replace(/[?!.…]+\s*$/, "").replace(/\s+/g, " ").trim();
+  var m, item;
+  if ((m = q.match(/^(.+?) ở đâu$/))) {
+    item = COMPOSE_VI_LEX[m[1].trim()];
+    if (!item) return null;
+    return compOk("… ở đâu?", capFirst(item.vi) + " ở đâu?", "Where is the " + item.gloss + "?",
+      [slotPiece(item), compPiece("o-dau", "ở đâu?", "at where?")],
+      "Thing first, then ở đâu — you built it exactly right.");
+  }
+  if ((m = q.match(/^cho tôi (?:xin )?(?:(một|hai|ba|bốn|năm|sáu|bảy|tám|chín|mười) )?(.+)$/))) {
+    var n = ({ "một": 1, "hai": 2, "ba": 3, "bốn": 4, "năm": 5, "sáu": 6, "bảy": 7, "tám": 8, "chín": 9, "mười": 10 })[m[1]] || 1;
+    item = COMPOSE_VI_LEX[m[2].replace(/^(?:bát|tô|cốc|ly|chai|suất|phần|cái|quả|trái|đôi) /, "").trim()];
+    if (!item || (item.t !== "food" && item.t !== "drink")) return null;
+    var clf = item.role.clf ? item.role.clf[accent()] : null;
+    return compOk("Cho tôi …", "Cho tôi " + COMPOSE_NUM_VI[n] + " " + (clf ? clf + " " : "") + item.vi + ".",
+      (n > 1 ? n + " × " + item.gloss : "One " + item.gloss) + ", please.",
+      [compPiece("cho-toi", "cho tôi", "give me"), compPiece(COMPOSE_NUM_ENTRY[n]), slotPiece(item)],
+      "Cho tôi + amount + item — the standard way to order.");
+  }
+  if ((m = q.match(/^tôi muốn (?:(ăn|uống) )?(.+)$/))) {
+    item = COMPOSE_VI_LEX[m[2].trim()];
+    if (!item || (item.t !== "food" && item.t !== "drink" && item.t !== "mass")) return null;
+    var drink = item.t === "drink";
+    if (m[1] === "ăn" && drink)
+      return compFail("Tôi muốn …", "“" + item.vi + "” is a drink — say Tôi muốn uống " + item.vi + " (uống = drink), not ăn (eat).");
+    if (m[1] === "uống" && !drink)
+      return compFail("Tôi muốn …", "“" + item.vi + "” is food — say Tôi muốn ăn " + item.vi + " (ăn = eat), not uống (drink).");
+    return compOk("Tôi muốn …", "Tôi muốn " + (drink ? "uống" : "ăn") + " " + item.vi + ".",
+      "I want to " + (drink ? "drink" : "eat") + " " + item.gloss + ".",
+      [compPiece("toi-muon", "tôi muốn", "I want"), compPiece(drink ? "uong" : "an"), slotPiece(item)], "");
+  }
+  if ((m = q.match(/^rất (.+)$/))) {
+    item = COMPOSE_VI_LEX[m[1].trim()];
+    if (!item || item.t !== "adj") return null;
+    return compOk("rất …", "Rất " + item.vi + ".", "Very " + item.gloss + ".",
+      [compPiece("rat"), slotPiece(item)], "");
+  }
+  if ((m = q.match(/^(.+?) quá$/))) {
+    item = COMPOSE_VI_LEX[m[1].trim()];
+    if (!item || item.t !== "adj") return null;
+    return compOk("… quá!", capFirst(item.vi) + " quá!", "So " + item.gloss + "!",
+      [slotPiece(item), compPiece("qua-intensifier")], "");
+  }
+  if ((m = q.match(/^không (.+)$/))) {
+    item = COMPOSE_VI_LEX[m[1].trim()];
+    if (!item || (item.t !== "adj" && item.t !== "addon")) return null;
+    return compOk("không …", "không " + item.vi, "no " + item.gloss + " / not " + item.gloss,
+      [compPiece("khong"), slotPiece(item)],
+      "An order add-on: “…, không " + item.vi + " nhé.”");
+  }
+  return null;
+}
+
+function composePhrase(raw) {
+  if (!raw || !DICT.entries.length) return null;
+  try {
+    var r = isVietnameseText(raw) ? composeViQ(raw) : composeEn(raw);
+    if (r) r.raw = String(raw).trim();
+    return r;
+  } catch (e) { return null; }
 }
 
 /* =========================== spaced repetition =========================== */
@@ -766,7 +1238,7 @@ function streakDays(log, now) {
 var DICT = { packs: [], entries: [] };
 var INDEX = [];
 var view = { tab: "learn", packId: null, teachId: null, backTo: null,
-  query: "", queue: [], current: null, revealed: false, sessionDone: 0 };
+  query: "", fullSearch: false, queue: [], current: null, revealed: false, sessionDone: 0 };
 
 function allEntries() {
   var custom = Object.keys(store.data.custom).map(function (k) { return store.data.custom[k]; });
@@ -962,9 +1434,57 @@ function teachCardHTML(e, opts) {
   return html;
 }
 
+/* ---------------------- composed-phrase rendering ---------------------- */
+
+function hitListHTML(hits) {
+  return '<div class="result-list">' + hits.map(function (h) {
+    return '<button class="result-item" data-teach="' + esc(h.e.id) + '" type="button">' +
+      '<span class="vi">' + esc(h.e.vi) + '</span><span class="en">' + esc(h.e.en) + "</span></button>";
+  }).join("") + "</div>";
+}
+
+function altHitsHTML(hits) {
+  if (!hits.length) return "";
+  return '<div style="margin-top:14px"><p class="eyebrow">From the phrasebook</p>' + hitListHTML(hits) + "</div>";
+}
+
+function pieceChipsHTML(pieces) {
+  return '<div class="piece-row">' + pieces.map(function (p, i) {
+    var inner = '<span class="vi">' + esc(p.vi) + '</span><span class="en">' + esc(p.gloss) + "</span>";
+    var chip = p.id
+      ? '<button class="piece-chip" data-teach="' + esc(p.id) + '" type="button">' + inner + "</button>"
+      : '<span class="piece-chip">' + inner + "</span>";
+    return (i ? '<span class="piece-plus">+</span>' : "") + chip;
+  }).join("") + "</div>";
+}
+
+function composedCardHTML(c) {
+  var html = '<div class="card word-card stack">';
+  html += '<div><p class="eyebrow">Built for you from phrasebook pieces</p>' +
+    '<div class="head-row"><div><h1 class="headword">' + esc(c.vi) + "</h1>" +
+    '<p class="gloss">' + esc(c.en) + "</p></div>" + audioBtnsHTML(c.vi) + "</div></div>";
+  html += '<div><p class="eyebrow">Say it (' + accentShort() + " accent) — tap a tone to see how it moves</p>" +
+    syllablesHTML(c.vi) + "</div>";
+  html += '<div><p class="eyebrow">How it’s built — tap a piece to learn it</p>' + pieceChipsHTML(c.pieces) +
+    (c.note ? '<p class="hint">' + esc(c.note) + "</p>" : "") + "</div>";
+  html += '<div class="word-actions"><button class="btn primary" data-act="custom-card" data-vi="' +
+    esc(c.vi) + '" data-en="' + esc(c.en) + '" type="button">Make it a flashcard</button></div>';
+  return html + "</div>";
+}
+
+function composeFailHTML(c, hits) {
+  return '<div class="card stack">' +
+    '<div><p class="eyebrow">I recognize the pattern — but I won’t guess</p>' +
+    "<h3>" + esc(c.message) + "</h3>" +
+    '<p class="sub">Vietnamese word order and grammar shift when words combine, so I only build sentences I can vouch for. ' +
+    "If you get the right Vietnamese from a friend or a translator, save it and I’ll work out the tones and pronunciation:</p></div>" +
+    '<button class="btn primary" data-act="custom-card" data-en="' + esc(c.raw || "") + '" type="button">Make my own card</button>' +
+    "</div>" + altHitsHTML(hits);
+}
+
 /* ------------------------------ learn tab ------------------------------ */
 
-var TRY_CHIPS = ["thank you", "phở", "iced coffee", "where is the bathroom", "delicious", "chào anh"];
+var TRY_CHIPS = ["thank you", "where is the bathroom", "two beers", "i'm so hungry", "delicious", "chào anh"];
 
 function renderLearn() {
   var html = "";
@@ -974,6 +1494,8 @@ function renderLearn() {
       "<h2>Chào bạn! 👋</h2>" +
       '<p class="sub">Type any word or phrase you want to learn — in English or Vietnamese. ' +
       "You'll get the meaning, the tones (the melody of each syllable), and a real-life example. " +
+      "You can also combine things you've learned — try “where is the pharmacy” or “two beers” — " +
+      "and the app will build the full sentence with correct Vietnamese word order. " +
       "Then add it to your deck and the app will quiz you at just the right moments so it sticks.</p>" +
       '<p class="sub">New to the six tones? Start with the <button class="link-btn" data-act="tone-guide" type="button">two-minute tone guide</button>.</p>' +
       "</div>";
@@ -994,13 +1516,14 @@ function renderLearn() {
     var e = entryById(view.teachId);
     if (e) $("#learn-results").innerHTML = teachCardHTML(e, { back: !!view.query });
   } else if (view.query) {
-    showSearchResults(view.query);
+    showSearchResults(view.query, view.fullSearch);
   }
   var input = $("#search-input");
   input.addEventListener("input", function () {
     view.query = input.value;
     view.teachId = null;
-    showSearchResults(input.value);
+    view.fullSearch = false;
+    showSearchResults(input.value, false);
   });
   $("#search-form").addEventListener("submit", function (ev) {
     ev.preventDefault();
@@ -1008,32 +1531,28 @@ function renderLearn() {
   });
 }
 
-function showSearchResults(q) {
+function showSearchResults(q, full) {
   var box = $("#learn-results");
   if (!box) return;
   if (!q || norm(q).length < 2) { box.innerHTML = ""; return; }
   var hits = searchEntries(INDEX, q);
-  if (hits.length === 0) { box.innerHTML = notFoundHTML(q, false); return; }
-  box.innerHTML = '<div class="result-list">' + hits.map(function (h) {
-    return '<button class="result-item" data-teach="' + esc(h.e.id) + '" type="button">' +
-      '<span class="vi">' + esc(h.e.vi) + '</span><span class="en">' + esc(h.e.en) + "</span></button>";
-  }).join("") + "</div>";
+  /* an exact phrasebook entry always wins; otherwise try building the phrase */
+  var comp = (hits.length && hits[0].s >= 92) ? null : composePhrase(q);
+  if (comp && comp.ok) { box.innerHTML = composedCardHTML(comp) + altHitsHTML(hits); return; }
+  if (comp && full) { box.innerHTML = composeFailHTML(comp, hits); return; }
+  if (hits.length === 0) { box.innerHTML = notFoundHTML(q, !!full); return; }
+  box.innerHTML = hitListHTML(hits);
 }
 
 function submitSearch(q) {
   view.query = q;
+  view.teachId = null;
+  view.fullSearch = true;
   if (norm(q).length < 1) return;
   var hits = searchEntries(INDEX, q);
-  if (hits.length > 0 && hits[0].s >= 62) {
-    view.teachId = hits[0].e.id;
-    renderLearn();
-  } else if (hits.length > 0) {
-    renderLearn();
-  } else {
-    view.teachId = null;
-    renderLearn();
-    $("#learn-results").innerHTML = notFoundHTML(q, true);
-  }
+  var comp = (hits.length && hits[0].s >= 92) ? null : composePhrase(q);
+  if (!comp && hits.length > 0 && hits[0].s >= 62) view.teachId = hits[0].e.id;
+  renderLearn();
 }
 
 function notFoundHTML(q, full) {
@@ -1534,8 +2053,11 @@ if (typeof document !== "undefined" && document.getElementById) {
 /* expose internals for tests (harmless in browser) */
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { TONES, TONE_MAP, toneInfo, accent, store, detone, analyzeSyllable, analyzePhrase,
-    isVietnameseText, norm, buildIndex, searchEntries, newCard, rateCard,
-    previewIntervals, dueCards, streakDays, respellRime, dayKey };
+    isVietnameseText, norm, canonEn, buildIndex, searchEntries, newCard, rateCard,
+    previewIntervals, dueCards, streakDays, respellRime, dayKey,
+    composePhrase,
+    _loadDict: function (d) { DICT = d; store.load(); rebuildIndex(); },
+    _setAccent: function (a) { store.data.settings.accent = a; } };
 }
 
 </script>

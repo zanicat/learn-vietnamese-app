@@ -5,6 +5,17 @@ open it in any browser (double-click, or `explorer.exe index.html` from WSL).
 
 - Your flashcard deck and review history are saved in the browser's localStorage —
   same browser + same file location = progress persists across sessions.
+- **Phrase building:** searches that combine known pieces ("where is the
+  pharmacy", "two beers", "I'm so hungry", "coffee no ice") are composed into
+  full sentences with correct Vietnamese word order — each supported sentence
+  pattern mirrors a construction the phrasebook itself demonstrates, and slots
+  only accept words whose grammatical role is known. Combinations outside
+  those vetted patterns are refused with an explanation instead of guessed,
+  because gluing dictionary entries together does not produce correct
+  Vietnamese. This is deliberately client-side and offline: the app deploys
+  to public GitHub Pages, so any translation API key would be visible in the
+  source, and keyless machine-translation endpoints can't say "I don't know" —
+  they'd silently return wrong Vietnamese.
 - No server, no accounts. To back up progress, use Progress-tab data before
   "Erase all progress"; to move machines, just re-add words.
 - **Accent:** phonetic guides, tone contours, and the tone guide teach
