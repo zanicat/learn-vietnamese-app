@@ -1,0 +1,1414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Từng từ — Vietnamese, word by word</title>
+<style>
+  :root {
+    --paper: #F6F3EA;
+    --card: #FDFBF4;
+    --card-2: #F0ECDF;
+    --ink: #26322B;
+    --ink-2: #5C6B60;
+    --muted: #8B978C;
+    --line: #E2DECF;
+    --accent: #B0402C;
+    --on-accent: #FFF6EE;
+    --accent-wash: rgba(176, 64, 44, 0.07);
+    --jade: #2E7B5F;
+    --jade-wash: rgba(46, 123, 95, 0.10);
+    --shadow: 0 1px 2px rgba(38, 50, 43, 0.06), 0 4px 16px rgba(38, 50, 43, 0.05);
+    --t-ngang: #2a78d6; --t-sac: #1baf7a; --t-huyen: #eda100;
+    --t-hoi: #008300; --t-nga: #4a3aa7; --t-nang: #e34948;
+    --bar: #2a78d6;
+    --grade-again: #d03b3b; --grade-hard: #c96a24; --grade-good: #2E7B5F; --grade-easy: #2a78d6;
+    --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #141815;
+      --card: #1D231F;
+      --card-2: #242B26;
+      --ink: #E9E6D8;
+      --ink-2: #A9B3A6;
+      --muted: #75816F;
+      --line: #2E352F;
+      --accent: #D9704F;
+      --on-accent: #1A120E;
+      --accent-wash: rgba(217, 112, 79, 0.11);
+      --jade: #66B896;
+      --jade-wash: rgba(102, 184, 150, 0.12);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+      --t-ngang: #3987e5; --t-sac: #199e70; --t-huyen: #c98500;
+      --t-hoi: #008300; --t-nga: #9085e9; --t-nang: #e66767;
+      --bar: #3987e5;
+      --grade-again: #e05c5c; --grade-hard: #d98a4a; --grade-good: #66B896; --grade-easy: #3987e5;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #F6F3EA; --card: #FDFBF4; --card-2: #F0ECDF;
+    --ink: #26322B; --ink-2: #5C6B60; --muted: #8B978C; --line: #E2DECF;
+    --accent: #B0402C; --on-accent: #FFF6EE; --accent-wash: rgba(176, 64, 44, 0.07);
+    --jade: #2E7B5F; --jade-wash: rgba(46, 123, 95, 0.10);
+    --shadow: 0 1px 2px rgba(38, 50, 43, 0.06), 0 4px 16px rgba(38, 50, 43, 0.05);
+    --t-ngang: #2a78d6; --t-sac: #1baf7a; --t-huyen: #eda100;
+    --t-hoi: #008300; --t-nga: #4a3aa7; --t-nang: #e34948;
+    --bar: #2a78d6;
+    --grade-again: #d03b3b; --grade-hard: #c96a24; --grade-good: #2E7B5F; --grade-easy: #2a78d6;
+  }
+  :root[data-theme="dark"] {
+    --paper: #141815; --card: #1D231F; --card-2: #242B26;
+    --ink: #E9E6D8; --ink-2: #A9B3A6; --muted: #75816F; --line: #2E352F;
+    --accent: #D9704F; --on-accent: #1A120E; --accent-wash: rgba(217, 112, 79, 0.11);
+    --jade: #66B896; --jade-wash: rgba(102, 184, 150, 0.12);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+    --t-ngang: #3987e5; --t-sac: #199e70; --t-huyen: #c98500;
+    --t-hoi: #008300; --t-nga: #9085e9; --t-nang: #e66767;
+    --bar: #3987e5;
+    --grade-again: #e05c5c; --grade-hard: #d98a4a; --grade-good: #66B896; --grade-easy: #3987e5;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  button { font: inherit; color: inherit; cursor: pointer; background: none; border: none; padding: 0; }
+  button:focus-visible, input:focus-visible, a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  input { font: inherit; color: inherit; }
+
+  #app { max-width: 640px; margin: 0 auto; padding: 0 16px 96px; }
+
+  /* ---------- header ---------- */
+  .top {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 22px 2px 10px; gap: 12px;
+  }
+  .brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .brand-vi { font-family: var(--serif); font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
+  .brand-vi .dot { color: var(--accent); }
+  .brand-sub { font-size: 13px; color: var(--muted); }
+  .streak-chip {
+    font-size: 13px; color: var(--ink-2); white-space: nowrap;
+    padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px;
+    background: var(--card);
+  }
+  .streak-chip strong { color: var(--accent); font-variant-numeric: tabular-nums; }
+
+  /* ---------- tabs ---------- */
+  .tabs {
+    position: sticky; top: 0; z-index: 20;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
+    background: var(--card-2); border: 1px solid var(--line);
+    padding: 4px; border-radius: 12px; margin-bottom: 20px;
+  }
+  .tabs::before {
+    content: ""; position: absolute; inset: -24px -16px 100% -16px;
+    background: var(--paper); z-index: -1;
+  }
+  .tab-btn {
+    position: relative; text-align: center; padding: 8px 4px; border-radius: 9px;
+    font-size: 14.5px; font-weight: 500; color: var(--ink-2);
+  }
+  .tab-btn[aria-selected="true"] { background: var(--card); color: var(--ink); box-shadow: var(--shadow); font-weight: 600; }
+  .tab-btn .due-badge {
+    position: absolute; top: 2px; right: 6px;
+    min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px;
+    background: var(--accent); color: var(--on-accent);
+    font-size: 11px; font-weight: 700; line-height: 18px;
+    font-variant-numeric: tabular-nums;
+  }
+  .tab-btn .due-badge:empty { display: none; }
+
+  /* ---------- generic ---------- */
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 20px; box-shadow: var(--shadow);
+  }
+  .stack > * + * { margin-top: 14px; }
+  h2 { font-size: 19px; margin: 0 0 4px; text-wrap: balance; }
+  h3 { font-size: 16px; margin: 0; }
+  .sub { color: var(--ink-2); font-size: 14px; margin: 0; }
+  .eyebrow {
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 6px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    border-radius: 10px; padding: 9px 16px; font-size: 15px; font-weight: 600;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink);
+    transition: transform 0.06s ease;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .btn.ghost { background: transparent; }
+  .btn.small { padding: 6px 12px; font-size: 13.5px; border-radius: 8px; }
+  .btn[disabled] { opacity: 0.45; cursor: default; }
+  .link-btn { color: var(--accent); font-weight: 600; font-size: 14px; }
+  .icon { width: 17px; height: 17px; flex: none; }
+
+  /* ---------- learn / search ---------- */
+  .hero-q {
+    font-family: var(--serif); font-size: 22px; font-weight: 700; margin: 4px 0 12px;
+    text-wrap: balance;
+  }
+  .search-row { display: flex; gap: 8px; }
+  .search-row input {
+    flex: 1; min-width: 0; background: var(--card); border: 1.5px solid var(--line);
+    border-radius: 12px; padding: 12px 16px; font-size: 16.5px;
+  }
+  .search-row input::placeholder { color: var(--muted); }
+  .search-row input:focus { border-color: var(--accent); outline: none; }
+  .hint { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .try-chip {
+    font-size: 13.5px; padding: 5px 12px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink-2);
+  }
+  .try-chip:hover { border-color: var(--accent); color: var(--ink); }
+
+  .result-list { display: flex; flex-direction: column; gap: 8px; }
+  .result-item {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    text-align: left; width: 100%;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 16px;
+  }
+  .result-item:hover { border-color: var(--accent); }
+  .result-item .vi { font-family: var(--serif); font-size: 18px; font-weight: 700; }
+  .result-item .en { color: var(--ink-2); font-size: 14px; text-align: right; }
+
+  /* ---------- word card ---------- */
+  .word-card .headword {
+    font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1.25;
+    letter-spacing: -0.01em; margin: 2px 0 0; text-wrap: balance;
+  }
+  .word-card .gloss { font-size: 17px; color: var(--ink-2); margin: 2px 0 0; }
+  .word-card .lit { font-size: 13.5px; color: var(--muted); font-style: italic; margin-top: 2px; }
+  .head-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .audio-btns { display: flex; gap: 6px; flex: none; margin-top: 6px; }
+  .audio-btn {
+    width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--line);
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--card-2); color: var(--ink-2);
+  }
+  .audio-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .audio-btn.slow { font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; }
+
+  .syllables { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .syl {
+    border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px 9px;
+    background: var(--card-2); text-align: center; min-width: 78px;
+  }
+  .syl .syl-vi { font-family: var(--serif); font-size: 20px; font-weight: 700; line-height: 1.2; }
+  .syl .syl-say { font-size: 13px; color: var(--ink-2); margin-top: 1px; }
+  .syl .syl-tone {
+    display: inline-flex; align-items: center; gap: 5px; margin-top: 7px;
+    font-size: 11.5px; font-weight: 600; color: var(--ink-2);
+    border-radius: 999px; padding: 2px 8px 2px 5px;
+    border: 1px solid var(--line); background: var(--card);
+  }
+  .syl .syl-tone svg { display: block; }
+
+  .example {
+    border-left: 3px solid var(--jade); background: var(--jade-wash);
+    border-radius: 0 10px 10px 0; padding: 10px 14px;
+  }
+  .example .ex-vi { font-family: var(--serif); font-size: 17px; font-weight: 600; }
+  .example .ex-en { font-size: 14px; color: var(--ink-2); margin-top: 1px; }
+  .note-box { font-size: 14px; color: var(--ink-2); }
+  .note-box strong { color: var(--ink); }
+  .word-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .in-deck { color: var(--jade); font-size: 14px; font-weight: 600; display: inline-flex; gap: 6px; align-items: center; }
+
+  /* ---------- tone guide ---------- */
+  .tone-table { display: flex; flex-direction: column; gap: 10px; }
+  .tone-row {
+    display: grid; grid-template-columns: 64px 56px 1fr; gap: 12px; align-items: center;
+    border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; background: var(--card);
+  }
+  .tone-row .tone-word { font-family: var(--serif); font-size: 24px; font-weight: 700; text-align: center; }
+  .tone-row .tone-desc { font-size: 13.5px; color: var(--ink-2); }
+  .tone-row .tone-desc strong { color: var(--ink); font-size: 14px; }
+  .tone-row .play-mini { color: var(--muted); }
+  .tone-row .play-mini:hover { color: var(--accent); }
+
+  /* ---------- review ---------- */
+  .review-stage { text-align: center; padding: 28px 20px 24px; }
+  .review-count { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: 0.06em; }
+  .prompt-label { font-size: 12px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin-top: 14px; }
+  .prompt-main { font-family: var(--serif); font-size: 30px; font-weight: 700; margin: 8px 0 2px; text-wrap: balance; line-height: 1.3; }
+  .prompt-sub { color: var(--ink-2); font-size: 15px; }
+  .answer-zone { margin-top: 18px; border-top: 1px dashed var(--line); padding-top: 18px; text-align: left; }
+  .grade-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
+  .grade-btn {
+    border-radius: 10px; padding: 10px 4px 8px; border: 1px solid var(--line);
+    background: var(--card); display: flex; flex-direction: column; gap: 1px; align-items: center;
+  }
+  .grade-btn .g-label { font-weight: 700; font-size: 14.5px; }
+  .grade-btn .g-when { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .grade-btn[data-grade="0"] .g-label { color: var(--grade-again); }
+  .grade-btn[data-grade="1"] .g-label { color: var(--grade-hard); }
+  .grade-btn[data-grade="2"] .g-label { color: var(--grade-good); }
+  .grade-btn[data-grade="3"] .g-label { color: var(--grade-easy); }
+  .grade-btn:hover { border-color: var(--muted); }
+  .done-banner { text-align: center; padding: 36px 20px; }
+  .done-banner .big { font-family: var(--serif); font-size: 28px; font-weight: 700; }
+
+  /* ---------- packs ---------- */
+  .pack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 480px) { .pack-grid { grid-template-columns: 1fr; } }
+  .pack-card {
+    text-align: left; border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px; background: var(--card); display: flex; flex-direction: column; gap: 4px;
+  }
+  .pack-card:hover { border-color: var(--accent); }
+  .pack-card .pack-name { font-weight: 700; font-size: 15.5px; }
+  .pack-card .pack-desc { font-size: 13px; color: var(--ink-2); }
+  .pack-card .pack-meta { font-size: 12px; color: var(--muted); margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .pack-card .pack-bar { height: 4px; border-radius: 2px; background: var(--card-2); overflow: hidden; margin-top: 4px; }
+  .pack-card .pack-bar i { display: block; height: 100%; background: var(--jade); border-radius: 2px; }
+
+  .pack-list { display: flex; flex-direction: column; gap: 8px; }
+  .pack-row {
+    display: flex; align-items: center; gap: 12px;
+    border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; background: var(--card);
+  }
+  .pack-row .pr-main { flex: 1; min-width: 0; text-align: left; }
+  .pack-row .pr-vi { font-family: var(--serif); font-size: 17px; font-weight: 700; }
+  .pack-row .pr-en { font-size: 13.5px; color: var(--ink-2); }
+  .pack-row .pr-add {
+    flex: none; width: 34px; height: 34px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--ink-2);
+    display: inline-flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 600;
+  }
+  .pack-row .pr-add:hover { color: var(--accent); border-color: var(--accent); }
+  .pack-row .pr-add.added { color: var(--jade); border-color: transparent; background: var(--jade-wash); cursor: default; }
+
+  /* ---------- progress ---------- */
+  .tile-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  @media (max-width: 520px) { .tile-row { grid-template-columns: 1fr 1fr; } }
+  .tile { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--card); }
+  .tile .t-num { font-size: 26px; font-weight: 700; line-height: 1.15; }
+  .tile .t-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .chart-wrap { margin-top: 6px; }
+  .chart-title { font-size: 13px; font-weight: 600; color: var(--ink-2); margin-bottom: 8px; }
+  .bars { display: flex; align-items: flex-end; gap: 6px; height: 88px; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; height: 100%; }
+  .bar-col .bar-v { font-size: 11px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .bar-col .bar { width: 100%; max-width: 34px; background: var(--bar); border-radius: 4px 4px 0 0; min-height: 2px; }
+  .bar-col .bar.zero { background: var(--card-2); }
+  .bar-col .bar-d { font-size: 11px; color: var(--muted); }
+  .baseline { border-top: 1px solid var(--line); margin-top: 0; }
+  .word-list-mini { display: flex; flex-direction: column; gap: 6px; }
+  .wl-row { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 5px; }
+  .wl-row:last-child { border-bottom: none; }
+  .wl-row .wl-vi { font-family: var(--serif); font-weight: 600; font-size: 15px; }
+  .wl-row .wl-stage { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+  /* ---------- modal ---------- */
+  .modal-scrim {
+    position: fixed; inset: 0; background: rgba(15, 20, 16, 0.45); z-index: 50;
+    display: flex; align-items: flex-end; justify-content: center; padding: 16px;
+  }
+  @media (min-width: 520px) { .modal-scrim { align-items: center; } }
+  .modal {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
+    max-width: 560px; width: 100%; max-height: 86vh; overflow-y: auto; padding: 22px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+  }
+  .modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+  .modal-close { color: var(--muted); font-size: 22px; line-height: 1; padding: 2px 6px; }
+  .modal-close:hover { color: var(--ink); }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-2); margin-bottom: 4px; }
+  .field input {
+    width: 100%; background: var(--card); border: 1.5px solid var(--line);
+    border-radius: 10px; padding: 10px 13px; font-size: 16px;
+  }
+  .field input:focus { border-color: var(--accent); outline: none; }
+
+  /* ---------- toast ---------- */
+  #toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(8px);
+    background: var(--ink); color: var(--paper); font-size: 14px; font-weight: 600;
+    padding: 10px 18px; border-radius: 999px; opacity: 0; pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease; z-index: 60; max-width: 90vw;
+    text-align: center;
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .empty { text-align: center; color: var(--muted); padding: 28px 16px; font-size: 14.5px; }
+  .divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+  .footnote { font-size: 12.5px; color: var(--muted); margin-top: 20px; text-align: center; }
+  .footnote button { color: var(--ink-2); text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+
+<div id="app">
+  <header class="top">
+    <div class="brand">
+      <span class="brand-vi">Từng từ<span class="dot">.</span></span>
+      <span class="brand-sub">Vietnamese, word by word</span>
+    </div>
+    <span class="streak-chip" id="streak-chip" hidden></span>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab-btn" role="tab" data-tab="learn" aria-selected="true">Learn</button>
+    <button class="tab-btn" role="tab" data-tab="review" aria-selected="false">Review<span class="due-badge" id="due-badge"></span></button>
+    <button class="tab-btn" role="tab" data-tab="packs" aria-selected="false">Packs</button>
+    <button class="tab-btn" role="tab" data-tab="progress" aria-selected="false">Progress</button>
+  </nav>
+
+  <main id="view"></main>
+
+  <p class="footnote">
+    Everything is saved in this browser — come back any day and your deck will be waiting.
+    <button id="tone-guide-link" type="button">Tone guide</button>
+  </p>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script type="application/json" id="dict-data">
+{"packs":[{"id":"greetings","name":"Greetings & politeness","desc":"Say hello, thank people, and sound friendly"},{"id":"basics","name":"Survival phrases","desc":"Get unstuck when you don't understand"},{"id":"food","name":"Food & drink","desc":"Order pho, bánh mì, and coffee like a local"},{"id":"numbers","name":"Numbers & money","desc":"Count, pay, and bargain"},{"id":"directions","name":"Getting around","desc":"Taxis, directions, and finding places"},{"id":"shopping","name":"Shopping","desc":"Markets, sizes, and just looking"},{"id":"time","name":"Time & days","desc":"Today, tomorrow, and telling time"},{"id":"people","name":"People & pronouns","desc":"The famous Vietnamese pronoun system"},{"id":"words","name":"Core words","desc":"High-frequency verbs and adjectives"},{"id":"smalltalk","name":"Small talk","desc":"Compliments and friendly questions"},{"id":"emergency","name":"Emergency & health","desc":"Help, hospitals, and pharmacies"}],"entries":[{"id":"xin-chao","vi":"xin chào","en":"hello","alt":"hi;hey;greetings","pack":"greetings","ex":["Xin chào! Tôi tên là Ben.","Hello! My name is Ben."],"note":"The safe, all-purpose greeting — works with anyone, any time of day. In everyday speech Vietnamese people more often say chào + a pronoun: chào anh, chào chị, chào em."},{"id":"chao-anh","vi":"chào anh","en":"hello (to a man a bit older than you)","alt":"hi sir","pack":"greetings","ex":["Chào anh, anh khỏe không?","Hello, how are you?"],"note":"anh literally means 'older brother'. Use it for a man around your age or slightly older — including waiters and taxi drivers."},{"id":"chao-chi","vi":"chào chị","en":"hello (to a woman a bit older than you)","pack":"greetings","ex":["Chào chị, chị khỏe không?","Hello, how are you?"],"note":"chị literally means 'older sister'. Use it for a woman around your age or slightly older."},{"id":"chao-em","vi":"chào em","en":"hello (to someone younger than you)","pack":"greetings","ex":["Chào em, em tên là gì?","Hi, what's your name?"],"note":"em is for anyone clearly younger than you, of either gender — including younger café staff."},{"id":"tam-biet","vi":"tạm biệt","en":"goodbye","alt":"bye","pack":"greetings","ex":["Tạm biệt, hẹn gặp lại!","Goodbye, see you again!"],"note":"A bit formal. In casual speech people often just say chào (+ pronoun) for goodbye too, or bai bai."},{"id":"hen-gap-lai","vi":"hẹn gặp lại","en":"see you again","alt":"see you later","pack":"greetings","lit":"promise meet again","ex":["Tạm biệt! Hẹn gặp lại ngày mai.","Bye! See you again tomorrow."]},{"id":"cam-on","vi":"cảm ơn","en":"thank you","alt":"thanks","pack":"greetings","ex":["Cảm ơn chị nhiều!","Thank you so much!"],"note":"Also spelled cám ơn. Adding the right pronoun makes it warmer: cảm ơn anh / cảm ơn chị. Add ạ at the end for extra politeness."},{"id":"cam-on-nhieu","vi":"cảm ơn nhiều","en":"thank you very much","alt":"thanks a lot","pack":"greetings","lit":"thank much","ex":["Cảm ơn nhiều nhé!","Thanks a lot!"]},{"id":"khong-co-gi","vi":"không có gì","en":"you're welcome","alt":"no problem;dont mention it","pack":"greetings","lit":"there is nothing","ex":["Cảm ơn anh! — Không có gì.","Thank you! — You're welcome."]},{"id":"xin-loi","vi":"xin lỗi","en":"sorry / excuse me","alt":"apologize;pardon","pack":"greetings","ex":["Xin lỗi, cho tôi hỏi một chút.","Excuse me, may I ask something?"],"note":"Covers both 'sorry' and 'excuse me (to get attention)'."},{"id":"khong-sao","vi":"không sao","en":"no problem / it's okay","alt":"its fine;never mind","pack":"greetings","lit":"no matter","ex":["Xin lỗi nhé! — Không sao!","Sorry! — No worries!"],"note":"The universal 'it's all good'. You will hear this constantly."},{"id":"vang","vi":"vâng","en":"yes (polite, northern)","pack":"greetings","ex":["Vâng, đúng rồi ạ.","Yes, that's right."],"note":"Polite 'yes' in the North. In the South people say dạ instead."},{"id":"da","vi":"dạ","en":"yes (polite, southern) / polite 'mm-hm'","pack":"greetings","ex":["Dạ, em hiểu rồi.","Yes, I understand."],"note":"Southerners use dạ for polite yes. Everywhere, it's also a respectful way to acknowledge someone older."},{"id":"khong","vi":"không","en":"no / not","pack":"greetings","ex":["Không, cảm ơn.","No, thank you."],"note":"Also the question word at the end of yes/no questions: Bạn khỏe không? — Are you well?"},{"id":"lam-on","vi":"làm ơn","en":"please (asking a favor)","pack":"greetings","lit":"do a favor","ex":["Làm ơn nói chậm lại.","Please speak more slowly."],"note":"Stronger than English 'please' — used when genuinely asking a favor. Everyday politeness comes from pronouns and particles like ạ and nhé instead."},{"id":"a-particle","vi":"ạ","en":"polite particle (end of sentence)","pack":"greetings","ex":["Cảm ơn ạ!","Thank you (respectfully)!"],"note":"Drop ạ at the end of anything you say to someone older and you instantly sound more polite. One letter, huge effect."},{"id":"ban-khoe-khong","vi":"Bạn khỏe không?","en":"How are you?","alt":"how are you doing","pack":"greetings","lit":"you healthy no?","ex":["Chào chị! Chị khỏe không?","Hello! How are you?"],"note":"Swap bạn for the right pronoun: Anh khỏe không? Chị khỏe không?"},{"id":"toi-khoe","vi":"Tôi khỏe, cảm ơn.","en":"I'm fine, thank you.","alt":"im good","pack":"greetings","ex":["Tôi khỏe, cảm ơn. Còn bạn?","I'm fine, thanks. And you?"],"note":"Còn bạn? = 'and you?' — an easy way to keep the exchange going."},{"id":"rat-vui-duoc-gap-ban","vi":"Rất vui được gặp bạn","en":"Nice to meet you","alt":"pleased to meet you","pack":"greetings","lit":"very happy get meet you","ex":["Rất vui được gặp anh!","Very nice to meet you!"]},{"id":"ban-ten-la-gi","vi":"Bạn tên là gì?","en":"What's your name?","pack":"greetings","lit":"you name is what?","ex":["Chào em, em tên là gì?","Hi, what's your name?"]},{"id":"toi-ten-la","vi":"Tôi tên là…","en":"My name is…","pack":"greetings","ex":["Tôi tên là Wilson.","My name is Wilson."]},{"id":"chuc-ngu-ngon","vi":"Chúc ngủ ngon","en":"Good night","pack":"greetings","lit":"wish sleep delicious","ex":["Chúc ngủ ngon nhé!","Good night!"],"note":"Yes — ngon 'delicious' is also used for sleep. Sleep deliciously!"},{"id":"chao-buoi-sang","vi":"Chào buổi sáng","en":"Good morning","pack":"greetings","ex":["Chào buổi sáng! Cà phê không?","Good morning! Coffee?"],"note":"Understood everywhere but a bit textbook — a simple chào anh/chị is more natural at any hour."},{"id":"toi-khong-hieu","vi":"Tôi không hiểu","en":"I don't understand","pack":"basics","ex":["Xin lỗi, tôi không hiểu.","Sorry, I don't understand."],"note":"Your most important phrase as a beginner. Say it with a smile."},{"id":"toi-hieu-roi","vi":"Tôi hiểu rồi","en":"I understand (now)","alt":"got it;i see","pack":"basics","ex":["À, tôi hiểu rồi!","Ah, now I get it!"],"note":"rồi = 'already' — it marks that something has happened. You'll hear it everywhere."},{"id":"noi-tieng-anh","vi":"Bạn nói tiếng Anh không?","en":"Do you speak English?","pack":"basics","lit":"you speak language English no?","ex":["Xin lỗi, anh nói tiếng Anh không?","Excuse me, do you speak English?"]},{"id":"noi-duoc-mot-chut","vi":"Tôi nói được một chút tiếng Việt","en":"I speak a little Vietnamese","pack":"basics","lit":"I speak able one little language Viet","ex":["Tôi nói được một chút tiếng Việt thôi.","I only speak a little Vietnamese."],"note":"Guaranteed to earn you a delighted 'Giỏi quá!' (so good!)."},{"id":"noi-cham-lai","vi":"Nói chậm lại được không?","en":"Can you speak more slowly?","alt":"slow down","pack":"basics","lit":"speak slow again able no?","ex":["Xin lỗi, nói chậm lại được không?","Sorry, could you speak more slowly?"]},{"id":"noi-lai","vi":"Bạn nói lại được không?","en":"Can you say that again?","alt":"repeat please","pack":"basics","lit":"you speak again able no?","ex":["Xin lỗi, chị nói lại được không?","Sorry, could you say that again?"]},{"id":"cai-nay-la-gi","vi":"Cái này là gì?","en":"What is this?","pack":"basics","lit":"thing this is what?","ex":["Cái này là gì? — Đó là bánh cuốn.","What's this? — That's bánh cuốn (rice rolls)."]},{"id":"tieng-viet","vi":"tiếng Việt","en":"Vietnamese (language)","pack":"basics","lit":"language Viet","ex":["Tôi đang học tiếng Việt.","I'm learning Vietnamese."]},{"id":"tieng-anh","vi":"tiếng Anh","en":"English (language)","pack":"basics","lit":"language England","ex":["Chị nói tiếng Anh giỏi quá!","You speak English so well!"]},{"id":"toi-la-nguoi-my","vi":"Tôi là người Mỹ","en":"I'm American","pack":"basics","lit":"I am person America","ex":["Tôi là người Mỹ, đến từ California.","I'm American, from California."],"note":"Swap the country: người Anh (British), người Úc (Australian), người Canada."},{"id":"ban-den-tu-dau","vi":"Bạn đến từ đâu?","en":"Where are you from?","pack":"basics","lit":"you come from where?","ex":["Anh đến từ đâu? — Tôi đến từ Mỹ.","Where are you from? — I'm from the US."]},{"id":"toi-den-tu-my","vi":"Tôi đến từ Mỹ","en":"I'm from the US","pack":"basics","lit":"I come from America","ex":["Tôi đến từ Mỹ.","I come from America."]},{"id":"toi-khong-biet","vi":"Tôi không biết","en":"I don't know","pack":"basics","ex":["Xin lỗi, tôi không biết.","Sorry, I don't know."]},{"id":"duoc","vi":"được","en":"okay / can / it works","alt":"alright;possible","pack":"basics","ex":["Được không? — Được!","Is that okay? — Okay!"],"note":"One of the most versatile words in Vietnamese: 'can', 'may', 'okay', 'fine'. Tack được không? onto anything to ask 'is that possible?'"},{"id":"cho-mot-chut","vi":"Chờ một chút","en":"Wait a moment","alt":"hold on;just a second","pack":"basics","lit":"wait one little","ex":["Chờ một chút nhé!","Hold on a second!"],"note":"You'll also hear đợi một chút — same meaning."},{"id":"khong-biet-noi","vi":"Tiếng Việt nói thế nào?","en":"How do you say it in Vietnamese?","pack":"basics","lit":"language Viet speak how?","ex":["'Delicious' tiếng Việt nói thế nào? — Ngon!","How do you say 'delicious' in Vietnamese? — Ngon!"]},{"id":"pho","vi":"phở","en":"pho (noodle soup)","alt":"noodle soup","pack":"food","ex":["Cho tôi một bát phở bò.","One bowl of beef pho, please."],"note":"Note the tone: phở has the dipping hỏi tone. Say it flat and you might be saying phố (street) or phô (to show off)."},{"id":"pho-bo","vi":"phở bò","en":"beef pho","pack":"food","ex":["Phở bò tái, ít hành.","Rare-beef pho, easy on the onions."],"note":"tái = rare beef, chín = well-done brisket."},{"id":"pho-ga","vi":"phở gà","en":"chicken pho","pack":"food","ex":["Một phở gà mang về.","One chicken pho to go."]},{"id":"banh-mi","vi":"bánh mì","en":"banh mi (baguette sandwich) / bread","alt":"sandwich;bread","pack":"food","ex":["Một bánh mì thịt, không rau mùi.","One meat banh mi, no cilantro."],"note":"Also just means 'bread'. A legacy of the French baguette, made gloriously Vietnamese."},{"id":"com","vi":"cơm","en":"cooked rice / a rice meal","alt":"rice","pack":"food","ex":["Cho tôi một suất cơm gà.","One chicken-rice, please."],"note":"cơm means both rice and a meal. Ăn cơm chưa? ('eaten rice yet?') is a common friendly greeting."},{"id":"bun-cha","vi":"bún chả","en":"bun cha (grilled pork with noodles)","pack":"food","ex":["Bún chả ở Hà Nội ngon nhất.","Bun cha is best in Hanoi."],"note":"Hanoi's signature lunch — the dish Obama and Anthony Bourdain ate together."},{"id":"goi-cuon","vi":"gỏi cuốn","en":"fresh spring rolls","alt":"summer rolls","pack":"food","lit":"salad roll","ex":["Gỏi cuốn tôm, hai cái.","Shrimp fresh rolls, two please."]},{"id":"nem-ran","vi":"nem rán","en":"fried spring rolls","pack":"food","ex":["Nem rán ăn với nước mắm.","Fried rolls are eaten with fish sauce."],"note":"Northern name. In the South they're chả giò."},{"id":"ca-phe","vi":"cà phê","en":"coffee","pack":"food","ex":["Đi uống cà phê không?","Want to go for coffee?"],"note":"From French café. Vietnamese coffee culture is world-class — an invitation to cà phê is an invitation to sit and talk for hours."},{"id":"ca-phe-sua-da","vi":"cà phê sữa đá","en":"iced milk coffee","alt":"vietnamese iced coffee","pack":"food","lit":"coffee milk ice","ex":["Cho tôi một cà phê sữa đá.","One iced milk coffee, please."],"note":"The national drink: strong coffee over condensed milk and ice. Order it word-by-word: coffee–milk–ice."},{"id":"ca-phe-den","vi":"cà phê đen","en":"black coffee","pack":"food","lit":"coffee black","ex":["Cà phê đen nóng, ít đường.","Hot black coffee, little sugar."]},{"id":"tra-da","vi":"trà đá","en":"iced tea","pack":"food","lit":"tea ice","ex":["Cho xin một trà đá.","An iced tea, please."],"note":"Often free and bottomless at street food places. The unofficial drink of Vietnamese sidewalks."},{"id":"nuoc","vi":"nước","en":"water","pack":"food","ex":["Cho tôi một chai nước.","A bottle of water, please."],"note":"Also means 'country' — nước Việt Nam. Water and homeland share a word."},{"id":"nuoc-suoi","vi":"nước suối","en":"bottled water","alt":"mineral water","pack":"food","lit":"spring water","ex":["Hai chai nước suối lạnh.","Two cold bottles of water."]},{"id":"bia","vi":"bia","en":"beer","pack":"food","ex":["Cho tôi hai chai bia.","Two bottles of beer, please."],"note":"Bia hơi = fresh draft beer, a Hanoi institution at ~30 cents a glass. Cheers is Một, hai, ba, dô!"},{"id":"nuoc-mia","vi":"nước mía","en":"sugarcane juice","pack":"food","ex":["Nước mía mát lắm!","Sugarcane juice is so refreshing!"]},{"id":"sinh-to","vi":"sinh tố","en":"fruit smoothie","pack":"food","ex":["Sinh tố xoài, ít đường.","Mango smoothie, less sugar."]},{"id":"cho-toi","vi":"Cho tôi…","en":"I'll have… / please give me…","alt":"can i have;give me","pack":"food","lit":"give me","ex":["Cho tôi một bánh mì và một cà phê.","I'll have a banh mi and a coffee."],"note":"THE ordering pattern. Cho tôi + thing = 'give me (that thing), please'. Polite as-is — no extra 'please' needed."},{"id":"toi-muon","vi":"Tôi muốn…","en":"I want…","alt":"i would like","pack":"food","ex":["Tôi muốn thử món này.","I want to try this dish."]},{"id":"mot-suat","vi":"một suất","en":"one portion / one serving","pack":"food","ex":["Cho tôi một suất bún chả.","One serving of bun cha, please."],"note":"Northern. In the South you'll hear một phần."},{"id":"mang-ve","vi":"mang về","en":"takeaway / to go","alt":"take out","pack":"food","lit":"carry back","ex":["Một cà phê sữa đá mang về.","One iced milk coffee to go."]},{"id":"an-o-day","vi":"ăn ở đây","en":"eat here (dine in)","pack":"food","lit":"eat at here","ex":["Ăn ở đây hay mang về?","Eating here or takeaway?"],"note":"This is the question staff will ask YOU — now you'll recognize it."},{"id":"thuc-don","vi":"thực đơn","en":"menu","pack":"food","ex":["Cho tôi xem thực đơn.","Could I see the menu?"],"note":"Many street spots have no menu — the dish name on the sign IS the menu. You'll also hear the English word 'menu'."},{"id":"ngon-qua","vi":"Ngon quá!","en":"So delicious!","alt":"tasty;yummy","pack":"food","lit":"delicious too-much","ex":["Ngon quá! Cho tôi thêm một bát.","So good! One more bowl, please."],"note":"The single best thing to say to any cook in Vietnam."},{"id":"cay","vi":"cay","en":"spicy","alt":"hot spicy","pack":"food","ex":["Món này cay không?","Is this dish spicy?"]},{"id":"khong-cay","vi":"không cay","en":"not spicy","alt":"no chili;mild","pack":"food","ex":["Không cay nhé!","Not spicy, please!"],"note":"Add nhé to make it a friendly request. Also useful: ít cay — just a little spicy."},{"id":"chay","vi":"chay","en":"vegetarian","alt":"vegan","pack":"food","ex":["Tôi ăn chay.","I'm vegetarian."],"note":"Quán chay = vegetarian restaurant. Buddhist-style vegetarian food is everywhere, especially on the 1st and 15th of the lunar month."},{"id":"di-ung","vi":"Tôi bị dị ứng với…","en":"I'm allergic to…","alt":"allergy","pack":"food","ex":["Tôi bị dị ứng với đậu phộng.","I'm allergic to peanuts."],"note":"đậu phộng = peanuts (lạc in the North), tôm = shrimp, hải sản = seafood."},{"id":"dua","vi":"đũa","en":"chopsticks","pack":"food","ex":["Cho tôi xin đôi đũa.","May I have a pair of chopsticks?"]},{"id":"tinh-tien","vi":"Tính tiền!","en":"The check, please!","alt":"bill please;check","pack":"food","lit":"calculate money","ex":["Em ơi, tính tiền!","Excuse me, the check please!"],"note":"Call it out — no one brings the bill until you ask. Pair with ơi to get attention politely."},{"id":"em-oi","vi":"em ơi","en":"excuse me! (calling younger staff)","alt":"waiter;hey","pack":"food","ex":["Em ơi, cho anh một trà đá!","Excuse me, one iced tea!"],"note":"ơi is the calling particle — totally polite. Use anh ơi / chị ơi for staff older than you. Shouting across the room is normal and expected."},{"id":"no-roi","vi":"Tôi no rồi","en":"I'm full","pack":"food","lit":"I full already","ex":["Tôi no rồi, cảm ơn chị!","I'm full, thank you!"]},{"id":"doi","vi":"đói","en":"hungry","pack":"food","ex":["Tôi đói quá! Đi ăn thôi.","I'm starving! Let's go eat."]},{"id":"khat-nuoc","vi":"khát nước","en":"thirsty","pack":"food","lit":"thirsty water","ex":["Tôi khát nước quá.","I'm so thirsty."]},{"id":"it-ngot","vi":"ít ngọt","en":"less sweet","pack":"food","lit":"little sweet","ex":["Sinh tố xoài, ít ngọt nhé.","Mango smoothie, less sweet please."],"note":"Drinks are often very sweet by default — this phrase is a lifesaver. ít đường = less sugar works too."},{"id":"it-da","vi":"ít đá","en":"little ice","pack":"food","ex":["Cà phê sữa, ít đá.","Milk coffee, easy on the ice."]},{"id":"them","vi":"thêm","en":"more / to add","alt":"extra;another","pack":"food","ex":["Cho tôi thêm rau.","More herbs, please."],"note":"thêm một... nữa = 'one more...': Thêm một bia nữa!"},{"id":"rau","vi":"rau","en":"vegetables / fresh herbs","pack":"food","ex":["Ăn phở phải có rau thơm.","Pho needs fresh herbs."]},{"id":"thit","vi":"thịt","en":"meat","pack":"food","ex":["Bánh mì thịt nướng.","Grilled-meat banh mi."],"note":"thịt bò beef · thịt gà chicken · thịt lợn pork (heo in the South)."},{"id":"ca","vi":"cá","en":"fish","pack":"food","ex":["Tôi không ăn cá.","I don't eat fish."],"note":"Rising tone! Flat cà is eggplant/tomato (cà chua), as in cà phê it's just a sound."},{"id":"trung","vi":"trứng","en":"egg","pack":"food","ex":["Bánh mì trứng, hai quả trứng.","Egg banh mi, two eggs."]},{"id":"bat","vi":"bát","en":"bowl","pack":"food","ex":["Một bát phở, một bát cơm.","One bowl of pho, one bowl of rice."],"note":"Northern. Southerners say tô: một tô phở."},{"id":"coc","vi":"cốc","en":"glass / cup","pack":"food","ex":["Hai cốc bia hơi!","Two glasses of draft beer!"],"note":"Northern. Southerners say ly: một ly cà phê."},{"id":"mot","vi":"một","en":"one (1)","pack":"numbers","ex":["Cho tôi một cà phê.","One coffee, please."]},{"id":"hai","vi":"hai","en":"two (2)","pack":"numbers","ex":["Hai người, một bàn.","Two people, one table."]},{"id":"ba","vi":"ba","en":"three (3)","pack":"numbers","ex":["Một, hai, ba, dô!","One, two, three, cheers!"],"note":"Also means 'dad' in the South. Context makes it clear."},{"id":"bon","vi":"bốn","en":"four (4)","pack":"numbers","ex":["Bốn người ăn.","Four people eating."]},{"id":"nam-5","vi":"năm","en":"five (5)","pack":"numbers","ex":["Năm nghìn đồng.","Five thousand dong."],"note":"Exactly the same word as năm 'year'. Sáu năm = six years; năm sáu = fifty-six-ish confusion — context sorts it out."},{"id":"sau","vi":"sáu","en":"six (6)","pack":"numbers","ex":["Sáu giờ tối.","Six in the evening."]},{"id":"bay","vi":"bảy","en":"seven (7)","pack":"numbers","ex":["Bảy ngày một tuần.","Seven days a week."]},{"id":"tam","vi":"tám","en":"eight (8)","pack":"numbers","ex":["Tám giờ sáng.","Eight in the morning."]},{"id":"chin","vi":"chín","en":"nine (9)","pack":"numbers","ex":["Chín mươi nghìn.","Ninety thousand."],"note":"Also means 'ripe/cooked' — phở chín is well-done-beef pho."},{"id":"muoi-10","vi":"mười","en":"ten (10)","pack":"numbers","ex":["Mười nghìn đồng.","Ten thousand dong."]},{"id":"muoi-mot","vi":"mười một","en":"eleven (11)","pack":"numbers","ex":["Mười một giờ.","Eleven o'clock."],"note":"Teens are mười + digit. Watch 15: it's mười lăm (năm changes to lăm)."},{"id":"hai-muoi","vi":"hai mươi","en":"twenty (20)","pack":"numbers","ex":["Hai mươi nghìn.","Twenty thousand."],"note":"From 20 up, mười softens to mươi. 21 = hai mươi mốt (một→mốt), 25 = hai mươi lăm."},{"id":"mot-tram","vi":"một trăm","en":"one hundred (100)","pack":"numbers","ex":["Một trăm phần trăm!","One hundred percent!"],"note":"Một trăm phần trăm — 'bottoms up!' at any drinking table."},{"id":"mot-nghin","vi":"một nghìn","en":"one thousand (1,000)","pack":"numbers","ex":["Bánh mì hai mươi nghìn.","The banh mi is twenty thousand."],"note":"Southern: một ngàn. Prices drop the đồng: 'hai mươi nghìn' = 20,000₫ ≈ $0.80."},{"id":"muoi-nghin","vi":"mười nghìn","en":"ten thousand (10,000)","pack":"numbers","ex":["Trà đá mười nghìn thôi.","The iced tea is only ten thousand."],"note":"Your everyday price unit. Locals shorten it: 'mười' or even '10k'."},{"id":"mot-tram-nghin","vi":"một trăm nghìn","en":"one hundred thousand (100,000)","pack":"numbers","ex":["Tất cả một trăm nghìn.","Altogether one hundred thousand."],"note":"≈ $4. The green 100k note is the workhorse of your wallet."},{"id":"mot-trieu","vi":"một triệu","en":"one million (1,000,000)","pack":"numbers","ex":["Khách sạn một triệu một đêm.","The hotel is a million a night."],"note":"≈ $40. Being a 'millionaire' is easy in Vietnam."},{"id":"bao-nhieu-tien","vi":"Bao nhiêu tiền?","en":"How much (money)?","alt":"how much does it cost;price","pack":"numbers","lit":"how-much money?","ex":["Cái này bao nhiêu tiền?","How much is this one?"],"note":"Often shortened to just Bao nhiêu? Point at the thing and ask."},{"id":"tien","vi":"tiền","en":"money","pack":"numbers","ex":["Tôi không có tiền lẻ.","I don't have small change."]},{"id":"dat-qua","vi":"Đắt quá!","en":"Too expensive!","pack":"numbers","ex":["Đắt quá! Giảm giá đi.","Too expensive! Lower it a bit."],"note":"Step one of bargaining, always with a smile. Southern version: Mắc quá!"},{"id":"re","vi":"rẻ","en":"cheap","pack":"numbers","ex":["Rẻ hơn được không?","Can you make it cheaper?"],"note":"hơn after an adjective = 'more/-er': rẻ hơn cheaper, đẹp hơn prettier."},{"id":"giam-gia","vi":"Giảm giá được không?","en":"Can you lower the price?","alt":"discount","pack":"numbers","lit":"reduce price possible no?","ex":["Mua hai cái, giảm giá được không?","If I buy two, can you drop the price?"]},{"id":"tien-thua","vi":"tiền thừa","en":"change (money back)","pack":"numbers","lit":"money leftover","ex":["Anh ơi, tiền thừa của tôi.","Excuse me, my change."],"note":"Southern: tiền thối. Small notes look alike — the 20k and 500k are both blue-ish. Check twice!"},{"id":"the","vi":"Trả bằng thẻ được không?","en":"Can I pay by card?","alt":"credit card","pack":"numbers","lit":"pay by card possible no?","ex":["Ở đây trả bằng thẻ được không?","Can I pay by card here?"],"note":"Cafés and street food are cash or QR-transfer country. Everyone pays by bank-app QR code now."},{"id":"tien-mat","vi":"tiền mặt","en":"cash","pack":"numbers","lit":"money face","ex":["Chỉ nhận tiền mặt thôi.","Cash only."]},{"id":"o-dau","vi":"…ở đâu?","en":"Where is…?","alt":"where","pack":"directions","lit":"at where?","ex":["Nhà vệ sinh ở đâu?","Where's the restroom?"],"note":"Name the thing first, then ở đâu: Chợ ở đâu? Khách sạn ở đâu?"},{"id":"nha-ve-sinh","vi":"nhà vệ sinh","en":"restroom / toilet","alt":"bathroom;wc","pack":"directions","lit":"house hygiene","ex":["Xin lỗi, nhà vệ sinh ở đâu?","Excuse me, where's the restroom?"],"note":"'Toilet' and 'WC' are also universally understood."},{"id":"ben-trai","vi":"bên trái","en":"on the left","alt":"left","pack":"directions","lit":"side left","ex":["Quán cà phê bên trái.","The café is on the left."]},{"id":"ben-phai","vi":"bên phải","en":"on the right","alt":"right","pack":"directions","lit":"side right","ex":["Khách sạn bên phải.","The hotel is on the right."]},{"id":"re-trai","vi":"rẽ trái","en":"turn left","pack":"directions","ex":["Đến ngã tư, rẽ trái.","At the intersection, turn left."],"note":"Northern. Southern: quẹo trái."},{"id":"re-phai","vi":"rẽ phải","en":"turn right","pack":"directions","ex":["Rẽ phải ở đèn đỏ.","Turn right at the light."]},{"id":"di-thang","vi":"đi thẳng","en":"go straight","pack":"directions","ex":["Đi thẳng khoảng hai trăm mét.","Go straight about 200 meters."]},{"id":"dung-lai","vi":"Dừng lại!","en":"Stop!","alt":"stop here","pack":"directions","ex":["Dừng lại ở đây ạ.","Stop here, please."],"note":"Essential in taxis. Gentler: Cho tôi xuống đây — let me off here."},{"id":"o-day","vi":"ở đây","en":"here","pack":"directions","ex":["Dừng ở đây được rồi.","Stopping here is fine."]},{"id":"dang-kia","vi":"đằng kia","en":"over there","pack":"directions","ex":["Chợ ở đằng kia.","The market is over there."]},{"id":"gan","vi":"gần","en":"near","alt":"close","pack":"directions","ex":["Gần đây có quán phở không?","Is there a pho place near here?"],"note":"gần đây = near here. A golden pattern: Gần đây có ... không?"},{"id":"xa","vi":"xa","en":"far","pack":"directions","ex":["Có xa không? — Không xa lắm.","Is it far? — Not very far."]},{"id":"khach-san","vi":"khách sạn","en":"hotel","pack":"directions","lit":"guest house","ex":["Cho tôi về khách sạn.","Take me back to the hotel, please."]},{"id":"san-bay","vi":"sân bay","en":"airport","pack":"directions","lit":"yard fly","ex":["Cho tôi ra sân bay.","To the airport, please."]},{"id":"ben-xe","vi":"bến xe","en":"bus station","pack":"directions","ex":["Bến xe Mỹ Đình ở đâu?","Where is My Dinh bus station?"]},{"id":"ga-tau","vi":"ga tàu","en":"train station","pack":"directions","ex":["Ga Hà Nội cách đây bao xa?","How far is Hanoi station from here?"],"note":"ga comes from French gare. The north–south Reunification Express is a classic trip."},{"id":"xe-may","vi":"xe máy","en":"motorbike","alt":"scooter","pack":"directions","lit":"vehicle machine","ex":["Thuê xe máy một ngày bao nhiêu?","How much to rent a motorbike for a day?"],"note":"The bloodstream of Vietnam — 70+ million of them."},{"id":"xe-buyt","vi":"xe buýt","en":"bus","pack":"directions","ex":["Xe buýt số mấy đến Hồ Gươm?","Which bus goes to Hoan Kiem Lake?"]},{"id":"taxi","vi":"taxi","en":"taxi","pack":"directions","pron":"tắc-xi → tak see","ex":["Gọi taxi giúp tôi được không?","Could you call me a taxi?"],"note":"Written like English, said tắc-xi. Grab (the app) is how most people ride now."},{"id":"duong","vi":"đường","en":"street / road","pack":"directions","ex":["Đường này tên là gì?","What's this street called?"],"note":"Also means 'sugar' — same spelling, same tone! Ít đường in a café = less sugar, not fewer roads."},{"id":"ban-do","vi":"bản đồ","en":"map","pack":"directions","ex":["Chỉ cho tôi trên bản đồ được không?","Can you show me on the map?"]},{"id":"cham-thoi","vi":"Chậm thôi ạ!","en":"Slowly, please! (to a driver)","alt":"slow down driving","pack":"directions","lit":"slow only please","ex":["Anh ơi, chậm thôi ạ!","Please slow down!"],"note":"For motorbike-taxi rides you'll be glad you know this one."},{"id":"bao-lau","vi":"Đi mất bao lâu?","en":"How long does it take?","pack":"directions","lit":"go lose how long?","ex":["Đi sân bay mất bao lâu?","How long to the airport?"]},{"id":"mua","vi":"mua","en":"to buy","pack":"shopping","ex":["Tôi muốn mua cái này.","I'd like to buy this."]},{"id":"ban-sell","vi":"bán","en":"to sell","pack":"shopping","ex":["Cô ơi, cái này bán thế nào?","Ma'am, how are you selling this? (how much?)"],"note":"Rising tone bán = sell. Flat bàn = table. Bạn (friend) has the heavy tone. Three words, one spelling family!"},{"id":"cai-nay","vi":"cái này","en":"this one","pack":"shopping","ex":["Cái này bao nhiêu tiền?","How much is this one?"],"note":"cái is the general classifier for things — point and say cái này and you can shop anywhere."},{"id":"cai-kia","vi":"cái kia","en":"that one","pack":"shopping","ex":["Không phải cái này, cái kia.","Not this one — that one."]},{"id":"lon","vi":"lớn","en":"big","alt":"large","pack":"shopping","ex":["Có cỡ lớn hơn không?","Do you have a bigger size?"],"note":"In the North you'll also hear to: áo này to quá — this shirt's too big."},{"id":"nho","vi":"nhỏ","en":"small","pack":"shopping","ex":["Cho tôi cỡ nhỏ.","Small size, please."]},{"id":"mau-do","vi":"màu đỏ","en":"red (color)","pack":"shopping","ex":["Tôi thích cái màu đỏ.","I like the red one."]},{"id":"mau-xanh","vi":"màu xanh","en":"blue / green (color)","pack":"shopping","ex":["Màu xanh da trời hay xanh lá cây?","Sky blue or leaf green?"],"note":"xanh covers BOTH blue and green. Specify: xanh da trời 'sky xanh' = blue, xanh lá cây 'leaf xanh' = green."},{"id":"chi-xem-thoi","vi":"Tôi chỉ xem thôi","en":"I'm just looking","alt":"just browsing","pack":"shopping","lit":"I only look only","ex":["Tôi chỉ xem thôi, cảm ơn chị.","Just looking, thank you."],"note":"Deploy early and often in markets — it works like a charm."},{"id":"cho","vi":"chợ","en":"market","pack":"shopping","ex":["Chợ đêm mở lúc mấy giờ?","What time does the night market open?"],"note":"Nặng tone — short and low. Chờ (falling) means 'to wait'. Wait at the market: chờ ở chợ."},{"id":"sieu-thi","vi":"siêu thị","en":"supermarket","pack":"shopping","lit":"super market","ex":["Siêu thị gần nhất ở đâu?","Where's the nearest supermarket?"]},{"id":"hom-nay","vi":"hôm nay","en":"today","pack":"time","ex":["Hôm nay trời đẹp quá!","Beautiful weather today!"]},{"id":"ngay-mai","vi":"ngày mai","en":"tomorrow","pack":"time","ex":["Hẹn gặp lại ngày mai!","See you tomorrow!"]},{"id":"hom-qua","vi":"hôm qua","en":"yesterday","pack":"time","ex":["Hôm qua tôi ăn phở.","Yesterday I ate pho."]},{"id":"bay-gio","vi":"bây giờ","en":"now","pack":"time","ex":["Bây giờ tôi phải đi.","I have to go now."]},{"id":"may-gio-roi","vi":"Mấy giờ rồi?","en":"What time is it?","pack":"time","lit":"how-many hour already?","ex":["Xin lỗi, mấy giờ rồi ạ?","Excuse me, what time is it?"]},{"id":"gio","vi":"giờ","en":"hour / o'clock","pack":"time","ex":["Ba giờ chiều.","Three in the afternoon."],"note":"Time = number + giờ + part of day: bảy giờ sáng 7am, tám giờ tối 8pm."},{"id":"phut","vi":"phút","en":"minute","pack":"time","ex":["Chờ năm phút nhé.","Wait five minutes, okay?"]},{"id":"buoi-sang","vi":"buổi sáng","en":"morning","pack":"time","ex":["Buổi sáng tôi uống cà phê.","In the morning I drink coffee."]},{"id":"buoi-chieu","vi":"buổi chiều","en":"afternoon","pack":"time","ex":["Buổi chiều đi chợ.","Going to the market in the afternoon."]},{"id":"buoi-toi","vi":"buổi tối","en":"evening","pack":"time","ex":["Buổi tối ăn gì?","What's for dinner tonight?"]},{"id":"thu-hai","vi":"thứ hai","en":"Monday","pack":"time","lit":"the second","ex":["Thứ hai tôi bay về Mỹ.","Monday I fly back to the States."],"note":"Days are numbered from Sunday: Monday is 'day two' (thứ hai), Tuesday thứ ba… Saturday thứ bảy. Wednesday is thứ tư (not *thứ bốn)."},{"id":"chu-nhat","vi":"chủ nhật","en":"Sunday","pack":"time","lit":"lord's day","ex":["Chủ nhật quán đóng cửa.","The shop is closed on Sunday."],"note":"The one day with a name, from Catholic missionaries — 'the Lord's day'."},{"id":"cuoi-tuan","vi":"cuối tuần","en":"weekend","pack":"time","lit":"end week","ex":["Cuối tuần này bạn làm gì?","What are you doing this weekend?"]},{"id":"tuan","vi":"tuần","en":"week","pack":"time","ex":["Tôi ở đây hai tuần.","I'm here for two weeks."]},{"id":"thang","vi":"tháng","en":"month","pack":"time","ex":["Tháng này là tháng bảy.","This month is July."],"note":"Months are numbered too: tháng một January … tháng mười hai December."},{"id":"nam-year","vi":"năm","en":"year","pack":"time","ex":["Chúc mừng năm mới!","Happy New Year!"],"note":"Same word as 'five'! Năm mới = new year; Tết is THE new year (lunar)."},{"id":"ngay","vi":"ngày","en":"day","pack":"time","ex":["Một ngày đẹp trời.","A beautiful day."]},{"id":"toi","vi":"tôi","en":"I / me (neutral)","pack":"people","ex":["Tôi là người Mỹ.","I am American."],"note":"The safe, neutral 'I' for a learner. Vietnamese has no fixed 'I' and 'you' — people call themselves and each other by family terms based on relative age. Tôi keeps you neutral while you learn."},{"id":"ban","vi":"bạn","en":"you (peer) / friend","pack":"people","ex":["Bạn tên là gì?","What's your name?"],"note":"Literally 'friend'. Fine for people your own age; for anyone older, switch to anh/chị."},{"id":"anh","vi":"anh","en":"older brother → you/he (slightly older man)","pack":"people","ex":["Anh ơi, cho em hỏi!","Excuse me (to an older man), a question!"],"note":"The heart of Vietnamese address: everyone is family. A man slightly older than you is 'older brother' — as 'you' and as 'he'."},{"id":"chi","vi":"chị","en":"older sister → you/she (slightly older woman)","pack":"people","ex":["Chị ơi, tính tiền!","Excuse me (to an older woman), the bill!"],"note":"Use for women around your age or a bit older. When unsure between chị and em for a woman, chị is the safer, more respectful guess."},{"id":"em","vi":"em","en":"younger sibling → you (younger person)","pack":"people","ex":["Em ăn cơm chưa?","Have you (younger) eaten yet?"],"note":"Anyone clearly younger, either gender. Also what YOU call yourself when talking to someone older: Em cảm ơn anh!"},{"id":"ong","vi":"ông","en":"grandfather → sir (elderly man)","alt":"mr","pack":"people","ex":["Chào ông ạ!","Hello, sir!"],"note":"For men your grandparents' age. Also 'Mr.' in formal settings: ông Nam."},{"id":"ba-grandma","vi":"bà","en":"grandmother → madam (elderly woman)","alt":"mrs","pack":"people","ex":["Cảm ơn bà ạ!","Thank you, madam!"],"note":"Falling tone bà = grandmother. Flat ba = three (or 'dad' in the South). The tone IS the meaning."},{"id":"chu","vi":"chú","en":"uncle → you (man your parents' age)","pack":"people","ex":["Chú ơi, sân bay đi lối nào?","Uncle, which way to the airport?"],"note":"For men noticeably older than you but not elderly — taxi drivers of a certain age approve of a respectful chú."},{"id":"co-aunt","vi":"cô","en":"aunt → you (woman your parents' age); teacher","pack":"people","ex":["Cô ơi, cho cháu một bánh mì!","Auntie, one banh mi please!"],"note":"Also what students call a female teacher. When addressing a chú or cô, call yourself cháu (niece/nephew)."},{"id":"chung-ta","vi":"chúng ta","en":"we (including you)","pack":"people","ex":["Chúng ta đi ăn thôi!","Let's go eat!"],"note":"Vietnamese has two 'we': chúng ta includes the listener, chúng tôi excludes them ('we, but not you')."},{"id":"ho","vi":"họ","en":"they / them","pack":"people","ex":["Họ là bạn của tôi.","They are my friends."],"note":"Also means 'family name' — họ của bạn là gì? What's your surname?"},{"id":"nguoi","vi":"người","en":"person / people","pack":"people","ex":["Người Việt Nam rất thân thiện.","Vietnamese people are very friendly."],"note":"người + country = nationality: người Việt, người Mỹ, người Nhật."},{"id":"viet-nam","vi":"Việt Nam","en":"Vietnam","pack":"people","ex":["Tôi yêu Việt Nam!","I love Vietnam!"],"note":"Nặng tone then flat: vee-ET (clipped) nahm. Say it low and crisp on the first syllable."},{"id":"nuoc-my","vi":"nước Mỹ","en":"the USA / America","pack":"people","lit":"country America","ex":["Nước Mỹ xa Việt Nam lắm.","America is very far from Vietnam."],"note":"Mỹ alone usually suffices: người Mỹ, đồ Mỹ (American stuff)."},{"id":"an","vi":"ăn","en":"to eat","pack":"words","ex":["Bạn ăn cơm chưa?","Have you eaten yet?"],"note":"Ăn cơm chưa? is a greeting, like 'how's it going?' — the expected answer is Rồi! (already) even if you're starving."},{"id":"uong","vi":"uống","en":"to drink","pack":"words","ex":["Uống gì không?","Want something to drink?"]},{"id":"di","vi":"đi","en":"to go","pack":"words","ex":["Đi thôi!","Let's go!"],"note":"Đi thôi! and Đi đi! ('go ahead, go!') are everyday exclamations. Also softens commands: Ăn đi! — dig in!"},{"id":"den","vi":"đến","en":"to come / arrive","pack":"words","ex":["Khi nào bạn đến?","When do you arrive?"]},{"id":"ve","vi":"về","en":"to return / go home","pack":"words","ex":["Tôi về đây!","I'm heading home!"],"note":"về nhà = go home; mang về = take away (carry home). A word full of homesickness."},{"id":"thich","vi":"thích","en":"to like","pack":"words","ex":["Tôi thích phở lắm.","I really like pho."]},{"id":"yeu","vi":"yêu","en":"to love","pack":"words","ex":["Anh yêu em.","I love you (man to woman)."],"note":"Pronouns carry the romance: Anh yêu em (he→her), Em yêu anh (she→him). Choose wisely!"},{"id":"muon","vi":"muốn","en":"to want","pack":"words","ex":["Bạn muốn gì?","What do you want?"]},{"id":"can","vi":"cần","en":"to need","pack":"words","ex":["Tôi cần một taxi.","I need a taxi."]},{"id":"biet","vi":"biết","en":"to know","pack":"words","ex":["Tôi biết rồi!","I know!"]},{"id":"noi","vi":"nói","en":"to speak / say","pack":"words","ex":["Nói tiếng Việt khó không?","Is speaking Vietnamese hard?"]},{"id":"nghe","vi":"nghe","en":"to listen / hear","pack":"words","ex":["Nghe hay quá!","That sounds great!"],"note":"Nghe nói… = 'I heard that…' — the classic gossip opener."},{"id":"xem","vi":"xem","en":"to look at / watch","pack":"words","ex":["Cho tôi xem một chút.","Let me have a look."]},{"id":"lam","vi":"làm","en":"to do / make / work","pack":"words","ex":["Bạn làm nghề gì?","What do you do (for work)?"]},{"id":"o-live","vi":"ở","en":"to live at / be at","pack":"words","ex":["Tôi ở Hà Nội.","I live in Hanoi."],"note":"One tiny word for at/in/live: Tôi ở đây — I'm here."},{"id":"co-have","vi":"có","en":"to have / there is","pack":"words","ex":["Anh có trà đá không?","Do you have iced tea?"],"note":"The pattern có … không? ('is there…?') unlocks hundreds of questions: Có wifi không? Có phòng không?"},{"id":"tot","vi":"tốt","en":"good","pack":"words","ex":["Rất tốt!","Very good!"]},{"id":"xau","vi":"xấu","en":"bad / ugly","pack":"words","ex":["Thời tiết hôm nay xấu quá.","The weather today is awful."]},{"id":"nong","vi":"nóng","en":"hot","pack":"words","ex":["Hôm nay nóng quá!","It's so hot today!"],"note":"Weather AND temperature of food/drinks: cà phê nóng = hot coffee."},{"id":"lanh","vi":"lạnh","en":"cold","pack":"words","ex":["Nước lạnh, không đá.","Cold water, no ice."]},{"id":"met","vi":"mệt","en":"tired","pack":"words","ex":["Hôm nay tôi mệt quá.","I'm so tired today."]},{"id":"vui","vi":"vui","en":"happy / fun","pack":"words","ex":["Vui quá!","So fun!"],"note":"Rất vui được gặp bạn — very happy to meet you."},{"id":"buon","vi":"buồn","en":"sad","pack":"words","ex":["Đừng buồn nhé.","Don't be sad, okay?"],"note":"Also 'to feel like': buồn ngủ sleepy, buồn cười funny (feel like laughing)."},{"id":"dep","vi":"đẹp","en":"beautiful","alt":"pretty","pack":"words","ex":["Đẹp quá!","So beautiful!"],"note":"Works on views, clothes, people, weather (trời đẹp), and days (một ngày đẹp trời)."},{"id":"qua-intensifier","vi":"quá","en":"so / too (after adjective)","pack":"words","ex":["Ngon quá! Đẹp quá! Nóng quá!","So tasty! So pretty! So hot!"],"note":"Adjective + quá = instant exclamation. The single highest-value grammar pattern for a beginner."},{"id":"rat","vi":"rất","en":"very (before adjective)","pack":"words","ex":["Rất ngon.","Very delicious."],"note":"rất goes BEFORE (rất ngon), quá goes AFTER with feeling (ngon quá!)."},{"id":"va","vi":"và","en":"and","pack":"words","ex":["Cà phê và bánh mì.","Coffee and a banh mi."]},{"id":"nhe","vi":"nhé","en":"okay? / softening particle","pack":"words","ex":["Không cay nhé!","Not spicy, okay?"],"note":"Turns requests friendly: Chờ một chút nhé. Hẹn gặp lại nhé! Sprinkle it on."},{"id":"bao-nhieu-tuoi","vi":"Bạn bao nhiêu tuổi?","en":"How old are you?","pack":"smalltalk","lit":"you how-many age?","ex":["Em bao nhiêu tuổi?","How old are you?"],"note":"Not rude in Vietnam — it's practically required, because age decides which pronouns you both use."},{"id":"toi-tuoi","vi":"Tôi … tuổi","en":"I'm … years old","pack":"smalltalk","ex":["Tôi hai mươi lăm tuổi.","I'm twenty-five years old."]},{"id":"de-thuong","vi":"dễ thương","en":"cute","alt":"adorable","pack":"smalltalk","lit":"easy to love","ex":["Em bé dễ thương quá!","What a cute baby!"]},{"id":"dep-trai","vi":"đẹp trai","en":"handsome","pack":"smalltalk","lit":"beautiful boy","ex":["Anh ấy đẹp trai quá!","He's so handsome!"],"note":"Street vendors will call you đẹp trai/xinh gái (pretty girl) to sell you things. It works."},{"id":"gioi-qua","vi":"Giỏi quá!","en":"So good (at something)! / impressive!","alt":"well done;skilled","pack":"smalltalk","ex":["Bạn nói tiếng Việt à? Giỏi quá!","You speak Vietnamese? Amazing!"],"note":"What everyone will say when you use any Vietnamese at all. Reply: Không, tôi mới học thôi — no, I'm just starting."},{"id":"troi-oi","vi":"Trời ơi!","en":"Oh my god!","alt":"omg;oh my","pack":"smalltalk","lit":"heavens!","ex":["Trời ơi, nóng quá!","Good lord, it's hot!"],"note":"The all-purpose exclamation of surprise, delight, or despair. You'll be saying it within a week."},{"id":"troi","vi":"trời","en":"sky / weather / heavens","pack":"smalltalk","ex":["Hôm nay trời đẹp.","The weather is nice today."],"note":"Trời does triple duty: the sky, the weather, and 'heavens!' in exclamations."},{"id":"gia-dinh","vi":"gia đình","en":"family","pack":"smalltalk","ex":["Gia đình bạn có mấy người?","How many people in your family?"],"note":"Family questions come early and warmly in Vietnamese small talk — they're friendliness, not nosiness."},{"id":"an-com-chua","vi":"Ăn cơm chưa?","en":"Have you eaten yet? (friendly greeting)","pack":"smalltalk","lit":"eat rice yet?","ex":["Chào em! Ăn cơm chưa?","Hey! Eaten yet?"],"note":"A greeting, not lunch logistics — like 'how are you?'. Standard answer: Rồi! (already) or Chưa! (not yet)."},{"id":"khong-co-chi","vi":"Không có chi!","en":"Don't mention it! (southern)","pack":"smalltalk","ex":["Cảm ơn nha! — Không có chi!","Thanks! — Don't mention it!"],"note":"Southern twin of không có gì. Hear it all over Saigon."},{"id":"cuu-toi-voi","vi":"Cứu tôi với!","en":"Help me!","alt":"help","pack":"emergency","ex":["Cứu tôi với!","Help!"],"note":"For real emergencies. For everyday help, say Giúp tôi với — 'give me a hand'."},{"id":"giup-toi","vi":"Giúp tôi với","en":"Please help me","alt":"can you help me","pack":"emergency","lit":"help me with","ex":["Anh ơi, giúp tôi với!","Excuse me, could you help me?"],"note":"với at the end makes it an appeal — 'come help me out'."},{"id":"cap-cuu","vi":"cấp cứu","en":"emergency / ambulance","pack":"emergency","lit":"urgent rescue","ex":["Gọi cấp cứu đi!","Call an ambulance!"],"note":"Emergency numbers in Vietnam: 113 police, 114 fire, 115 ambulance."},{"id":"cong-an","vi":"công an","en":"police","pack":"emergency","ex":["Đồn công an ở đâu?","Where is the police station?"],"note":"công an is the official term; you'll also hear cảnh sát."},{"id":"benh-vien","vi":"bệnh viện","en":"hospital","pack":"emergency","lit":"sickness institute","ex":["Cho tôi đến bệnh viện.","Take me to the hospital, please."]},{"id":"hieu-thuoc","vi":"hiệu thuốc","en":"pharmacy","alt":"drugstore;chemist","pack":"emergency","lit":"shop medicine","ex":["Gần đây có hiệu thuốc không?","Is there a pharmacy near here?"],"note":"Northern; nhà thuốc in the South. The green cross sign is universal. Pharmacists can handle most minor troubles."},{"id":"toi-bi-om","vi":"Tôi bị ốm","en":"I'm sick","alt":"ill;unwell","pack":"emergency","ex":["Hôm nay tôi bị ốm.","I'm sick today."],"note":"Northern; Southern says Tôi bị bệnh. bị marks that something bad happened to you."},{"id":"dau","vi":"đau","en":"to hurt / painful","alt":"pain;ache","pack":"emergency","ex":["Tôi bị đau bụng.","I have a stomachache."],"note":"đau + body part: đau đầu headache, đau bụng stomachache, đau họng sore throat."},{"id":"bac-si","vi":"bác sĩ","en":"doctor","pack":"emergency","ex":["Tôi cần gặp bác sĩ.","I need to see a doctor."]}]}
+</script>
+<script>
+"use strict";
+/* Từng từ — Vietnamese, word by word.
+   Single-file app: phrasebook + tone analyzer + spaced repetition.
+   All state lives in localStorage under KEY. */
+
+/* ============================== tones ============================== */
+
+var TONES = {
+  ngang: { vn: "ngang", en: "level",  mark: "no mark (a)",   cls: "t-ngang",
+    how: "Mid pitch, held flat — like reciting items in a list.",
+    path: "M4,8 L24,8" },
+  sac:   { vn: "sắc",  en: "rising",  mark: "rising mark (á)", cls: "t-sac",
+    how: "Start mid and rise sharply — like the surprised English “what?”",
+    path: "M5,12 L23,4" },
+  huyen: { vn: "huyền", en: "falling", mark: "falling mark (à)", cls: "t-huyen",
+    how: "Start low-ish and glide gently down, relaxed and a little breathy — like a let-down “ohh.”",
+    path: "M5,6 L23,12" },
+  hoi:   { vn: "hỏi",  en: "dipping", mark: "hook above (ả)", cls: "t-hoi",
+    how: "Dip down, then swoop back up — like a doubtful “huh?” (In fast Hanoi speech it often just falls low.)",
+    path: "M5,5 C10,14 17,14 23,6" },
+  nga:   { vn: "ngã",  en: "broken rising", mark: "tilde (ã)", cls: "t-nga",
+    how: "Rise with a catch in the throat in the middle — like “uh-oh” squeezed into one syllable. (Southern speakers say it like the dipping tone.)",
+    path: "M4,11 L11,7 M16,8 L24,3" },
+  nang:  { vn: "nặng", en: "heavy",   mark: "dot below (ạ)",  cls: "t-nang",
+    how: "Short, low, and cut off abruptly with a tight throat — a heavy little thud.",
+    path: "M5,10 L13,13" , dot: true }
+};
+var TONE_ORDER = ["ngang", "sac", "huyen", "hoi", "nga", "nang"];
+var TONE_DEMO = { ngang: ["ma", "ghost"], sac: ["má", "cheek / mom"], huyen: ["mà", "but"],
+  hoi: ["mả", "grave"], nga: ["mã", "horse (in words)"], nang: ["mạ", "rice seedling"] };
+
+/* vowel letter × tone lookup: char -> { base, tone } */
+var TONE_MAP = {};
+(function () {
+  var rows = {
+    a: "a á à ả ã ạ", "ă": "ă ắ ằ ẳ ẵ ặ", "â": "â ấ ầ ẩ ẫ ậ",
+    e: "e é è ẻ ẽ ẹ", "ê": "ê ế ề ể ễ ệ", i: "i í ì ỉ ĩ ị",
+    o: "o ó ò ỏ õ ọ", "ô": "ô ố ồ ổ ỗ ộ", "ơ": "ơ ớ ờ ở ỡ ợ",
+    u: "u ú ù ủ ũ ụ", "ư": "ư ứ ừ ử ữ ự", y: "y ý ỳ ỷ ỹ ỵ"
+  };
+  Object.keys(rows).forEach(function (base) {
+    rows[base].split(" ").forEach(function (ch, i) {
+      TONE_MAP[ch] = { base: base, tone: TONE_ORDER[i] };
+      var up = ch.toUpperCase();
+      if (up !== ch) TONE_MAP[up] = { base: base, tone: TONE_ORDER[i] };
+    });
+  });
+})();
+
+/* ====================== pronunciation respeller ====================== */
+/* Northern (Hanoi) approximations. The tone guide covers N/S differences. */
+
+var ONSETS = [
+  ["ngh", "ng"], ["ng", "ng"], ["nh", "ny"], ["gh", "g"], ["gi", "z"],
+  ["kh", "kh"], ["ph", "f"], ["th", "t"], ["tr", "ch"], ["ch", "ch"],
+  ["qu", "kw"], ["đ", "d"], ["d", "z"], ["r", "z"], ["x", "s"], ["s", "s"],
+  ["c", "k"], ["k", "k"], ["g", "g"], ["b", "b"], ["h", "h"], ["l", "l"],
+  ["m", "m"], ["n", "n"], ["p", "p"], ["t", "t"], ["v", "v"]
+];
+
+var RIMES = {
+  "a": "ah", "ac": "ahk", "ach": "ak", "ai": "eye", "am": "ahm", "an": "ahn",
+  "ang": "ahng", "anh": "ang", "ao": "ow", "ap": "ahp", "at": "aht",
+  "au": "ow", "ay": "eye",
+  "ăc": "ak", "ăm": "am", "ăn": "an", "ăng": "ang", "ăp": "ap", "ăt": "at",
+  "âc": "uhk", "âm": "uhm", "ân": "uhn", "âng": "uhng", "âp": "uhp",
+  "ât": "uht", "âu": "oh", "ây": "ay",
+  "e": "eh", "ec": "ehk", "em": "em", "en": "en", "eng": "eng", "eo": "eh-oo",
+  "ep": "ep", "et": "et",
+  "ê": "ay", "êch": "ayk", "êm": "aym", "ên": "ayn", "ênh": "ayng",
+  "êp": "ayp", "êt": "ayt", "êu": "ay-oo",
+  "i": "ee", "ia": "ee-uh", "ich": "ik", "iêc": "ee-uhk", "iêm": "ee-uhm",
+  "iên": "ee-uhn", "iêng": "ee-uhng", "iêp": "ee-uhp", "iêt": "ee-uht",
+  "iêu": "ee-oo", "im": "eem", "in": "een", "inh": "ing", "ip": "eep",
+  "it": "eet", "iu": "ew",
+  "o": "aw", "oa": "wah", "oac": "wahk", "oai": "why", "oan": "wahn",
+  "oang": "wahng", "oanh": "wang", "oat": "waht", "oay": "why",
+  "oc": "awk", "oe": "weh", "oi": "oy", "om": "awm", "on": "awn",
+  "ong": "awng", "op": "awp", "ot": "awt",
+  "ô": "oh", "ôc": "ohk", "ôi": "oy", "ôm": "ohm", "ôn": "ohn",
+  "ông": "ohng", "ôp": "ohp", "ôt": "oht",
+  "ơ": "uh", "ơi": "uh-ee", "ơm": "uhm", "ơn": "uhn", "ơp": "uhp", "ơt": "uht",
+  "u": "oo", "ua": "oo-uh", "uân": "wuhn", "uât": "wuht", "uc": "ook",
+  "uê": "way", "ui": "oo-ee", "um": "oom", "un": "oon", "ung": "oong",
+  "uơ": "woo-uh", "uôc": "oo-uhk", "uôi": "oo-oy", "uôm": "oo-uhm",
+  "uôn": "oo-uhn", "uông": "oo-uhng", "uôt": "oo-uht", "up": "oop",
+  "ut": "oot", "uy": "wee", "uyên": "wee-uhn", "uyêt": "wee-uht",
+  "uynh": "wing", "uyt": "weet",
+  "ư": "oo", "ưa": "oo-uh", "ưc": "ook", "ưi": "oo-ee", "ưng": "oong",
+  "ươ": "oo-uh", "ươc": "oo-uhk", "ươi": "oo-uh-ee", "ươm": "oo-uhm",
+  "ươn": "oo-uhn", "ương": "oo-uhng", "ươp": "oo-uhp", "ươt": "oo-uht",
+  "ươu": "oo-oo", "ưt": "oot", "ưu": "ew",
+  "y": "ee", "yê": "ee-uh", "yêm": "ee-uhm", "yên": "ee-uhn", "yêt": "ee-uht",
+  "yêu": "ee-oo"
+};
+
+var FALLBACK_CHARS = { a: "ah", "ă": "a", "â": "uh", e: "eh", "ê": "ay",
+  i: "ee", o: "aw", "ô": "oh", "ơ": "uh", u: "oo", "ư": "oo", y: "ee",
+  c: "k", j: "j", w: "w", z: "z" };
+
+/* strip tone marks from one syllable, remember the tone */
+function detone(syl) {
+  var out = "", tone = "ngang";
+  for (var i = 0; i < syl.length; i++) {
+    var ch = syl[i], hit = TONE_MAP[ch];
+    if (hit) {
+      out += hit.base;
+      if (hit.tone !== "ngang") tone = hit.tone;
+    } else out += ch;
+  }
+  return { base: out, tone: tone };
+}
+
+function respellRime(rime) {
+  if (RIMES[rime]) return RIMES[rime];
+  var out = "";
+  for (var i = 0; i < rime.length; i++) {
+    var rest = rime.slice(i);
+    if (rest.indexOf("ng") === 0) { out += "ng"; i += 1; continue; }
+    if (rest.indexOf("nh") === 0) { out += "ng"; i += 1; continue; }
+    if (rest.indexOf("ch") === 0) { out += "k"; i += 1; continue; }
+    var ch = rime[i];
+    out += FALLBACK_CHARS[ch] || ch;
+  }
+  return out;
+}
+
+/* analyze one syllable -> { vi, base, tone, say } */
+function analyzeSyllable(raw) {
+  var vi = raw.trim();
+  var dt = detone(vi.toLowerCase());
+  var base = dt.base, tone = dt.tone;
+  var onset = "", rime = base;
+  if (base !== "gi") { /* "gì" is onset gi + implicit i */
+    for (var i = 0; i < ONSETS.length; i++) {
+      var pair = ONSETS[i];
+      if (base.indexOf(pair[0]) === 0) {
+        /* "gi" + consonant or bare vowel-start guard */
+        var rest = base.slice(pair[0].length);
+        if (pair[0] === "gi" && rest === "") break; /* handled below */
+        onset = pair[1]; rime = rest;
+        break;
+      }
+    }
+  }
+  if (base === "gi") { onset = "z"; rime = "i"; }
+  if (rime === "" && onset) { rime = "uh"; } /* degenerate, shouldn't happen */
+  var say = onset + respellRime(rime);
+  return { vi: vi, base: base, tone: tone, say: say };
+}
+
+function isVietnameseText(s) {
+  for (var i = 0; i < s.length; i++) {
+    var ch = s[i].toLowerCase();
+    if (ch === "đ" || ch === "ơ" || ch === "ư" || ch === "ă" || ch === "â" ||
+        ch === "ê" || ch === "ô") return true;
+    var hit = TONE_MAP[ch];
+    if (hit && hit.tone !== "ngang") return true;
+    if (hit && "ăâêôơư".indexOf(hit.base) >= 0) return true;
+  }
+  return false;
+}
+
+/* split phrase into analyzable syllables (words), keeping punctuation out */
+function analyzePhrase(vi) {
+  return vi.split(/[\s]+/).map(function (w) {
+    return w.replace(/[.,!?…“”‘’'"()–—:;\/\\]/g, "");
+  }).filter(function (w) { return w.length > 0; }).map(analyzeSyllable);
+}
+
+/* ============================== search ============================== */
+
+function stripDiacritics(s) {
+  var out = "";
+  for (var i = 0; i < s.length; i++) {
+    var ch = s[i], hit = TONE_MAP[ch];
+    out += hit ? hit.base : ch;
+  }
+  return out.normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/đ/g, "d").replace(/Đ/g, "D");
+}
+
+function norm(s) {
+  return stripDiacritics(String(s).toLowerCase())
+    .replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function buildIndex(entries) {
+  return entries.map(function (e) {
+    return {
+      e: e,
+      nvi: norm(e.vi),
+      nen: norm(e.en),
+      alts: (e.alt ? e.alt.split(";") : []).map(norm),
+      nnote: e.note ? norm(e.note) : ""
+    };
+  });
+}
+
+function searchEntries(index, query) {
+  var q = norm(query);
+  if (!q) return [];
+  var scored = [];
+  index.forEach(function (row) {
+    var s = 0;
+    if (row.nvi === q) s = 100;
+    else if (row.nen === q || row.alts.indexOf(q) >= 0) s = 92;
+    else if (row.nvi.indexOf(q + " ") === 0 || (q.length >= 3 && row.nvi.indexOf(q) === 0)) s = 70;
+    else {
+      var word = new RegExp("(^| )" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "( |$)");
+      if (word.test(row.nen)) s = 62;
+      else if (row.alts.some(function (a) { return word.test(a); })) s = 58;
+      else if (word.test(row.nvi)) s = 55;
+      else if (q.length >= 3 && row.nen.indexOf(q) >= 0) s = 35;
+      else if (q.length >= 4 && row.nvi.indexOf(q) >= 0) s = 30;
+      else if (q.length >= 4 && row.nnote.indexOf(q) >= 0) s = 12;
+    }
+    if (s > 0) scored.push({ s: s, e: row.e });
+  });
+  scored.sort(function (a, b) { return b.s - a.s || a.e.vi.length - b.e.vi.length; });
+  return scored.slice(0, 8);
+}
+
+/* =========================== spaced repetition =========================== */
+
+var MIN = 60 * 1000, DAY = 24 * 60 * 60 * 1000;
+var LEARN_STEP = 10 * MIN;
+
+function newCard(entryId, now) {
+  return { id: entryId, added: now, state: "new", step: 0,
+    ease: 2.5, ivl: 0, reps: 0, lapses: 0, due: now };
+}
+
+/* grade: 0 again · 1 hard · 2 good · 3 easy */
+function rateCard(card, grade, now) {
+  var c = card;
+  c.reps += 1;
+  if (c.state === "new") c.state = "learn";
+  if (c.state === "learn") {
+    if (grade === 0) { c.step = 0; c.due = now + LEARN_STEP; }
+    else if (grade === 1) { c.due = now + LEARN_STEP; }
+    else if (grade === 2) {
+      if (c.step === 0) { c.step = 1; c.due = now + LEARN_STEP; }
+      else { c.state = "review"; c.ivl = 1; c.due = now + DAY; }
+    } else { c.state = "review"; c.ivl = 3; c.due = now + 3 * DAY; }
+  } else { /* review */
+    if (grade === 0) {
+      c.lapses += 1; c.state = "learn"; c.step = 1;
+      c.ease = Math.max(1.3, c.ease - 0.2);
+      c.ivl = Math.max(1, Math.round(c.ivl * 0.3));
+      c.due = now + LEARN_STEP;
+    } else if (grade === 1) {
+      c.ease = Math.max(1.3, c.ease - 0.15);
+      c.ivl = Math.max(c.ivl + 1, Math.round(c.ivl * 1.2));
+      c.due = now + c.ivl * DAY;
+    } else if (grade === 2) {
+      c.ivl = Math.max(c.ivl + 1, Math.round(c.ivl * c.ease));
+      c.due = now + c.ivl * DAY;
+    } else {
+      c.ease += 0.15;
+      c.ivl = Math.max(c.ivl + 2, Math.round(c.ivl * c.ease * 1.3));
+      c.due = now + c.ivl * DAY;
+    }
+  }
+  return c;
+}
+
+/* what would happen — for the little labels under Again/Hard/Good/Easy */
+function previewIntervals(card, now) {
+  return [0, 1, 2, 3].map(function (g) {
+    var ghost = JSON.parse(JSON.stringify(card));
+    rateCard(ghost, g, now);
+    var delta = ghost.due - now;
+    if (delta < 60 * MIN) return Math.round(delta / MIN) + "m";
+    if (delta < 36 * 60 * MIN) return "1d";
+    return Math.round(delta / DAY) + "d";
+  });
+}
+
+function dueCards(cards, now, aheadMs) {
+  var horizon = now + (aheadMs || 0);
+  return Object.keys(cards).map(function (k) { return cards[k]; })
+    .filter(function (c) { return c.due <= horizon; })
+    .sort(function (a, b) {
+      var la = a.state !== "review" ? 0 : 1, lb = b.state !== "review" ? 0 : 1;
+      return la - lb || a.due - b.due;
+    });
+}
+
+/* ============================== storage ============================== */
+
+var KEY = "tungtu-v1";
+var store = {
+  data: null,
+  load: function () {
+    var fallback = { cards: {}, custom: {}, log: {}, settings: { dir: "ev" } };
+    try {
+      var raw = localStorage.getItem(KEY);
+      this.data = raw ? JSON.parse(raw) : fallback;
+      if (!this.data.cards) this.data.cards = {};
+      if (!this.data.custom) this.data.custom = {};
+      if (!this.data.log) this.data.log = {};
+      if (!this.data.settings) this.data.settings = { dir: "ev" };
+    } catch (e) { this.data = fallback; }
+    return this.data;
+  },
+  save: function () {
+    try { localStorage.setItem(KEY, JSON.stringify(this.data)); }
+    catch (e) { /* storage full or blocked — keep running in memory */ }
+  }
+};
+
+function dayKey(ts) {
+  var d = new Date(ts);
+  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") +
+    "-" + String(d.getDate()).padStart(2, "0");
+}
+
+function logReview(now) {
+  var k = dayKey(now);
+  store.data.log[k] = (store.data.log[k] || 0) + 1;
+  store.save();
+}
+
+function streakDays(log, now) {
+  var n = 0, t = now;
+  if (!log[dayKey(t)]) t -= DAY;           /* today not started yet? count from yesterday */
+  while (log[dayKey(t)]) { n += 1; t -= DAY; }
+  return n;
+}
+
+/* ============================== app state ============================== */
+
+var DICT = { packs: [], entries: [] };
+var INDEX = [];
+var view = { tab: "learn", packId: null, teachId: null, backTo: null,
+  query: "", queue: [], current: null, revealed: false, sessionDone: 0 };
+
+function allEntries() {
+  var custom = Object.keys(store.data.custom).map(function (k) { return store.data.custom[k]; });
+  return DICT.entries.concat(custom);
+}
+function entryById(id) {
+  if (store.data.custom[id]) return store.data.custom[id];
+  for (var i = 0; i < DICT.entries.length; i++) {
+    if (DICT.entries[i].id === id) return DICT.entries[i];
+  }
+  return null;
+}
+function packById(id) {
+  for (var i = 0; i < DICT.packs.length; i++) if (DICT.packs[i].id === id) return DICT.packs[i];
+  return null;
+}
+function rebuildIndex() { INDEX = buildIndex(allEntries()); }
+
+/* ============================== helpers ============================== */
+
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+function $(sel, root) { return (root || document).querySelector(sel); }
+function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+var toastTimer = null;
+function toast(msg) {
+  var t = $("#toast");
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { t.classList.remove("show"); }, 1900);
+}
+
+/* ============================== audio ============================== */
+
+var viVoice = null, voiceChecked = false, warnedNoVoice = false;
+function pickVoice() {
+  if (typeof speechSynthesis === "undefined") return null;
+  var vs = speechSynthesis.getVoices() || [];
+  for (var i = 0; i < vs.length; i++) {
+    if (vs[i].lang && vs[i].lang.toLowerCase().indexOf("vi") === 0) return vs[i];
+  }
+  return null;
+}
+function speak(text, slow) {
+  if (typeof speechSynthesis === "undefined") { toast("This browser has no speech support"); return; }
+  if (!voiceChecked) {
+    viVoice = pickVoice();
+    voiceChecked = true;
+    if (typeof speechSynthesis.onvoiceschanged !== "undefined") {
+      speechSynthesis.onvoiceschanged = function () { viVoice = pickVoice(); };
+    }
+  }
+  if (!viVoice) viVoice = pickVoice();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = "vi-VN";
+  if (viVoice) u.voice = viVoice;
+  else if (!warnedNoVoice) {
+    warnedNoVoice = true;
+    toast("No Vietnamese voice installed — audio is approximate");
+  }
+  u.rate = slow ? 0.6 : 0.92;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+/* ============================== rendering ============================== */
+
+function toneChipSVG(toneKey) {
+  var t = TONES[toneKey];
+  var dot = t.dot ? '<circle cx="19" cy="12.5" r="2.2" fill="var(--' + t.cls + ')"/>' : "";
+  return '<svg class="contour" width="28" height="16" viewBox="0 0 28 16" aria-hidden="true">' +
+    '<path d="' + t.path + '" fill="none" stroke="var(--' + t.cls + ')" stroke-width="2.4" stroke-linecap="round"/>' +
+    dot + "</svg>";
+}
+
+function syllablesHTML(vi) {
+  var syls = analyzePhrase(vi);
+  return '<div class="syllables">' + syls.map(function (s) {
+    var t = TONES[s.tone];
+    return '<div class="syl"><div class="syl-vi">' + esc(s.vi) + "</div>" +
+      '<div class="syl-say">' + esc(s.say) + "</div>" +
+      '<button class="syl-tone" data-tone="' + s.tone + '" title="' + esc(t.how) + '" type="button">' +
+      toneChipSVG(s.tone) + esc(t.vn) + "</button></div>";
+  }).join("") + "</div>";
+}
+
+function audioBtnsHTML(text) {
+  return '<div class="audio-btns">' +
+    '<button class="audio-btn" data-say="' + esc(text) + '" title="Play" aria-label="Play pronunciation">' +
+    '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"></polygon><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg></button>' +
+    '<button class="audio-btn slow" data-say="' + esc(text) + '" data-slow="1" title="Play slowly" aria-label="Play slowly">slow</button></div>';
+}
+
+function deckHas(entryId) { return !!store.data.cards[entryId]; }
+
+function teachCardHTML(e, opts) {
+  opts = opts || {};
+  var pack = packById(e.pack);
+  var inDeck = deckHas(e.id);
+  var html = '<div class="card word-card stack">';
+  html += '<div><p class="eyebrow">' + esc(pack ? pack.name : "Your card") + "</p>" +
+    '<div class="head-row"><div><h1 class="headword">' + esc(e.vi) + "</h1>" +
+    '<p class="gloss">' + esc(e.en) + "</p>" +
+    (e.lit ? '<p class="lit">literally: ' + esc(e.lit) + "</p>" : "") +
+    "</div>" + audioBtnsHTML(e.vi) + "</div></div>";
+  html += "<div><p class=\"eyebrow\">Say it — tap a tone to see how it moves</p>" + syllablesHTML(e.vi) +
+    (e.pron ? '<p class="hint">heads-up: said like <strong>' + esc(e.pron) + "</strong></p>" : "") +
+    "</div>";
+  if (e.ex && e.ex[0]) {
+    html += '<div><p class="eyebrow">In real life</p><div class="example">' +
+      '<div class="ex-vi">' + esc(e.ex[0]) + "</div>" +
+      '<div class="ex-en">' + esc(e.ex[1] || "") + "</div>" +
+      '<button class="link-btn" data-say="' + esc(e.ex[0]) + '" type="button">▸ hear it</button>' +
+      "</div></div>";
+  }
+  if (e.note) html += '<div class="note-box">' + esc(e.note) + "</div>";
+  html += '<div class="word-actions">' +
+    (inDeck
+      ? '<span class="in-deck">✓ In your deck</span>'
+      : '<button class="btn primary" data-act="add-card" data-id="' + esc(e.id) + '" type="button">+ Add to my deck</button>') +
+    (opts.back ? '<button class="btn ghost" data-act="back" type="button">Back</button>' : "") +
+    "</div></div>";
+  return html;
+}
+
+/* ------------------------------ learn tab ------------------------------ */
+
+var TRY_CHIPS = ["thank you", "phở", "iced coffee", "where is the bathroom", "delicious", "chào anh"];
+
+function renderLearn() {
+  var html = "";
+  var deckSize = Object.keys(store.data.cards).length;
+  if (deckSize === 0 && !view.query && !view.teachId) {
+    html += '<div class="card stack" style="margin-bottom:14px">' +
+      "<h2>Chào bạn! 👋</h2>" +
+      '<p class="sub">Type any word or phrase you want to learn — in English or Vietnamese. ' +
+      "You'll get the meaning, the tones (the melody of each syllable), and a real-life example. " +
+      "Then add it to your deck and the app will quiz you at just the right moments so it sticks.</p>" +
+      '<p class="sub">New to the six tones? Start with the <button class="link-btn" data-act="tone-guide" type="button">two-minute tone guide</button>.</p>' +
+      "</div>";
+  }
+  html += '<h2 class="hero-q">What do you want to say?</h2>' +
+    '<form class="search-row" id="search-form">' +
+    '<input id="search-input" type="text" autocomplete="off" autocapitalize="off" ' +
+    'placeholder="e.g. “thank you” or “cảm ơn”" value="' + esc(view.query) + '" aria-label="Word or phrase to learn">' +
+    '<button class="btn primary" type="submit">Teach me</button></form>';
+  html += '<div id="learn-results" class="stack" style="margin-top:16px"></div>';
+  if (!view.query) {
+    html += '<div class="chip-row">' + TRY_CHIPS.map(function (c) {
+      return '<button class="try-chip" data-try="' + esc(c) + '" type="button">' + esc(c) + "</button>";
+    }).join("") + "</div>";
+  }
+  $("#view").innerHTML = html;
+  if (view.teachId) {
+    var e = entryById(view.teachId);
+    if (e) $("#learn-results").innerHTML = teachCardHTML(e, { back: !!view.query });
+  } else if (view.query) {
+    showSearchResults(view.query);
+  }
+  var input = $("#search-input");
+  input.addEventListener("input", function () {
+    view.query = input.value;
+    view.teachId = null;
+    showSearchResults(input.value);
+  });
+  $("#search-form").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    submitSearch(input.value);
+  });
+}
+
+function showSearchResults(q) {
+  var box = $("#learn-results");
+  if (!box) return;
+  if (!q || norm(q).length < 2) { box.innerHTML = ""; return; }
+  var hits = searchEntries(INDEX, q);
+  if (hits.length === 0) { box.innerHTML = notFoundHTML(q, false); return; }
+  box.innerHTML = '<div class="result-list">' + hits.map(function (h) {
+    return '<button class="result-item" data-teach="' + esc(h.e.id) + '" type="button">' +
+      '<span class="vi">' + esc(h.e.vi) + '</span><span class="en">' + esc(h.e.en) + "</span></button>";
+  }).join("") + "</div>";
+}
+
+function submitSearch(q) {
+  view.query = q;
+  if (norm(q).length < 1) return;
+  var hits = searchEntries(INDEX, q);
+  if (hits.length > 0 && hits[0].s >= 62) {
+    view.teachId = hits[0].e.id;
+    renderLearn();
+  } else if (hits.length > 0) {
+    renderLearn();
+  } else {
+    view.teachId = null;
+    renderLearn();
+    $("#learn-results").innerHTML = notFoundHTML(q, true);
+  }
+}
+
+function notFoundHTML(q, full) {
+  var viet = isVietnameseText(q);
+  var html = '<div class="card stack">';
+  if (viet) {
+    html += "<div><p class=\"eyebrow\">Not in the phrasebook — but here's how to say it</p>" +
+      '<div class="head-row"><h1 class="headword">' + esc(q.trim()) + "</h1>" + audioBtnsHTML(q.trim()) + "</div></div>" +
+      syllablesHTML(q.trim()) +
+      '<p class="sub">I can read the tones from the spelling, but I don\'t know this one\'s meaning. ' +
+      "If you know it (from a menu, a friend, a translator), save it as your own card:</p>" +
+      '<button class="btn primary" data-act="custom-card" data-vi="' + esc(q.trim()) + '" type="button">Make it a flashcard</button>';
+  } else {
+    html += '<div><p class="eyebrow">Not in the phrasebook yet</p>' +
+      "<h3>I don't know “" + esc(q.trim()) + "” — yet</h3>" +
+      '<p class="sub">The built-in phrasebook covers ' + DICT.entries.length + " beginner words and phrases. " +
+      "If you have the Vietnamese for this (from a translator or a friend), make your own card — " +
+      "tones and pronunciation will be worked out automatically.</p></div>" +
+      '<button class="btn primary" data-act="custom-card" data-en="' + esc(q.trim()) + '" type="button">Make my own card</button>' +
+      '<p class="hint">Tip: try a simpler word — “toilet” instead of “lavatory”.</p>';
+  }
+  html += "</div>";
+  return html;
+}
+
+/* ------------------------------ review tab ------------------------------ */
+
+function buildQueue(now) {
+  view.queue = dueCards(store.data.cards, now, 0).map(function (c) { return c.id; });
+  view.sessionDone = 0;
+}
+
+/* strictly due + learning cards about to come back this session */
+function pendingCount(now) {
+  var strict = dueCards(store.data.cards, now, 0).length;
+  var soonLearn = dueCards(store.data.cards, now, 15 * MIN).filter(function (c) {
+    return c.state !== "review" && c.due > now;
+  }).length;
+  return strict + soonLearn;
+}
+
+function nextInQueue(now) {
+  /* refresh: learning cards graded "again" come back within the session */
+  var due = dueCards(store.data.cards, now, 0);
+  var soon = dueCards(store.data.cards, now, 15 * MIN).filter(function (c) { return c.state !== "review"; });
+  var pool = due.concat(soon.filter(function (c) {
+    return !due.some(function (d) { return d.id === c.id; });
+  }));
+  return pool.length ? pool[0] : null;
+}
+
+function renderReview(practiceAhead) {
+  var now = Date.now();
+  var total = Object.keys(store.data.cards).length;
+  if (total === 0) {
+    $("#view").innerHTML = '<div class="card empty">Your deck is empty.<br><br>' +
+      'Look something up in <button class="link-btn" data-goto="learn" type="button">Learn</button> or grab a starter set from ' +
+      '<button class="link-btn" data-goto="packs" type="button">Packs</button> — then come back here to practice.</div>';
+    return;
+  }
+  var card = nextInQueue(now);
+  if (!card && practiceAhead) {
+    var soonest = Object.keys(store.data.cards).map(function (k) { return store.data.cards[k]; })
+      .sort(function (a, b) { return a.due - b.due; });
+    card = soonest[0] || null;
+  }
+  if (!card) {
+    var soonestAll = Object.keys(store.data.cards).map(function (k) { return store.data.cards[k]; })
+      .sort(function (a, b) { return a.due - b.due; })[0];
+    var when = soonestAll ? fmtWhen(soonestAll.due - now) : "";
+    $("#view").innerHTML = '<div class="card done-banner stack">' +
+      '<div class="big">Giỏi quá! 🎉</div>' +
+      '<p class="sub">All caught up' + (view.sessionDone ? " — " + view.sessionDone + " reviewed" : "") +
+      ".</p>" + (when ? '<p class="sub">Next card is due ' + when + ".</p>" : "") +
+      '<div><button class="btn" data-act="practice-ahead" type="button">Practice ahead anyway</button></div></div>';
+    return;
+  }
+  view.current = card.id;
+  var e = entryById(card.id);
+  if (!e) { /* orphaned card (custom deleted) */
+    delete store.data.cards[card.id]; store.save(); renderReview(); return;
+  }
+  var dir = store.data.settings.dir || "ev";
+  var nDue = Math.max(1, pendingCount(now));
+  var front, frontLabel;
+  if (dir === "ev") { front = e.en; frontLabel = "Say it in Vietnamese"; }
+  else { front = e.vi; frontLabel = "What does it mean?"; }
+
+  var html = '<div class="card review-stage">' +
+    '<div class="review-count">' + nDue + " to review · " +
+    '<button class="link-btn" data-act="flip-dir" type="button" title="Switch question direction">' +
+    (dir === "ev" ? "EN → VI" : "VI → EN") + " ⇄</button></div>" +
+    '<p class="prompt-label">' + frontLabel + "</p>" +
+    '<div class="prompt-main">' + esc(front) + "</div>";
+  if (dir === "ve") html += '<div style="margin-top:6px">' + audioBtnsHTML(e.vi) + "</div>";
+
+  if (!view.revealed) {
+    html += '<div style="margin-top:22px"><button class="btn primary" data-act="reveal" type="button">Show answer</button></div>' +
+      '<p class="hint" style="margin-top:14px">Try to say it out loud first — that\'s where it sticks.</p>';
+  } else {
+    html += '<div class="answer-zone stack">' +
+      '<div class="head-row"><div><div class="prompt-main" style="margin:0">' + esc(e.vi) + "</div>" +
+      '<p class="prompt-sub">' + esc(e.en) + "</p></div>" + audioBtnsHTML(e.vi) + "</div>" +
+      syllablesHTML(e.vi) +
+      (e.ex && e.ex[0] ? '<div class="example"><div class="ex-vi">' + esc(e.ex[0]) + '</div><div class="ex-en">' + esc(e.ex[1] || "") + "</div></div>" : "") +
+      "</div>";
+    var pv = previewIntervals(store.data.cards[e.id], now);
+    var names = ["Again", "Hard", "Good", "Easy"];
+    html += '<div class="grade-row">' + names.map(function (n, i) {
+      return '<button class="grade-btn" data-grade="' + i + '" type="button">' +
+        '<span class="g-label">' + n + '</span><span class="g-when">' + pv[i] + "</span></button>";
+    }).join("") + "</div>" +
+      '<p class="hint" style="margin-top:12px">Keys: space = show · 1–4 = grade</p>';
+  }
+  html += "</div>";
+  $("#view").innerHTML = html;
+}
+
+function fmtWhen(ms) {
+  if (ms <= 0) return "now";
+  if (ms < 60 * MIN) return "in " + Math.max(1, Math.round(ms / MIN)) + " min";
+  if (ms < DAY) return "in about " + Math.max(1, Math.round(ms / (60 * MIN))) + " h";
+  return "in " + Math.round(ms / DAY) + " day" + (Math.round(ms / DAY) > 1 ? "s" : "");
+}
+
+function gradeCurrent(g) {
+  var now = Date.now();
+  var card = store.data.cards[view.current];
+  if (!card) return;
+  rateCard(card, g, now);
+  logReview(now);
+  store.save();
+  view.sessionDone += 1;
+  view.revealed = false;
+  updateChrome();
+  renderReview();
+}
+
+/* ------------------------------ packs tab ------------------------------ */
+
+function renderPacks() {
+  if (view.packId) return renderPackDetail(view.packId);
+  var html = '<h2 class="hero-q">No phrase in mind? Start here.</h2><div class="pack-grid">';
+  DICT.packs.forEach(function (p) {
+    var entries = DICT.entries.filter(function (e) { return e.pack === p.id; });
+    var got = entries.filter(function (e) { return deckHas(e.id); }).length;
+    html += '<button class="pack-card" data-pack="' + p.id + '" type="button">' +
+      '<span class="pack-name">' + esc(p.name) + "</span>" +
+      '<span class="pack-desc">' + esc(p.desc) + "</span>" +
+      '<span class="pack-meta">' + got + " of " + entries.length + " in your deck</span>" +
+      '<span class="pack-bar"><i style="width:' + (entries.length ? Math.round(100 * got / entries.length) : 0) + '%"></i></span>' +
+      "</button>";
+  });
+  html += "</div>";
+  $("#view").innerHTML = html;
+}
+
+function renderPackDetail(packId) {
+  var p = packById(packId);
+  var entries = DICT.entries.filter(function (e) { return e.pack === packId; });
+  var notIn = entries.filter(function (e) { return !deckHas(e.id); });
+  var html = '<button class="link-btn" data-act="packs-home" type="button">← All packs</button>' +
+    '<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:10px 0 14px">' +
+    "<div><h2>" + esc(p.name) + '</h2><p class="sub">' + esc(p.desc) + "</p></div>" +
+    (notIn.length ? '<button class="btn small" data-act="add-pack" data-pack="' + packId + '" type="button">+ Add all (' + notIn.length + ")</button>" : '<span class="in-deck">✓ all in deck</span>') +
+    "</div>";
+  html += '<div class="pack-list">' + entries.map(function (e) {
+    var added = deckHas(e.id);
+    return '<div class="pack-row">' +
+      '<button class="pr-main" data-teach-pack="' + esc(e.id) + '" type="button">' +
+      '<div class="pr-vi">' + esc(e.vi) + '</div><div class="pr-en">' + esc(e.en) + "</div></button>" +
+      '<button class="pr-add' + (added ? " added" : "") + '" data-add="' + esc(e.id) + '" type="button" ' +
+      (added ? 'disabled aria-label="Already in deck">✓' : 'aria-label="Add to deck">+') + "</button></div>";
+  }).join("") + "</div>";
+  $("#view").innerHTML = html;
+}
+
+/* ------------------------------ progress tab ------------------------------ */
+
+function renderProgress() {
+  var now = Date.now();
+  var cards = Object.keys(store.data.cards).map(function (k) { return store.data.cards[k]; });
+  var due = dueCards(store.data.cards, now, 0).length;
+  var mastered = cards.filter(function (c) { return c.ivl >= 21; }).length;
+  var streak = streakDays(store.data.log, now);
+  var totalReviews = Object.keys(store.data.log).reduce(function (a, k) { return a + store.data.log[k]; }, 0);
+
+  var html = '<h2 class="hero-q">Your progress</h2>';
+  html += '<div class="tile-row">' +
+    tile(cards.length, "in your deck") + tile(due, "due now") +
+    tile(mastered, "mastered (3wk+)") + tile(streak, streak === 1 ? "day streak" : "day streak") +
+    "</div>";
+
+  /* last 7 days of reviews */
+  var days = [], maxV = 0;
+  for (var i = 6; i >= 0; i--) {
+    var ts = now - i * DAY;
+    var v = store.data.log[dayKey(ts)] || 0;
+    maxV = Math.max(maxV, v);
+    days.push({ v: v, d: "SMTWTFS"[new Date(ts).getDay()], today: i === 0 });
+  }
+  html += '<div class="card chart-wrap" style="margin-top:14px">' +
+    '<div class="chart-title">Reviews, last 7 days' + (totalReviews ? " · " + totalReviews + " all-time" : "") + "</div>" +
+    '<div class="bars">' + days.map(function (d) {
+      var h = maxV ? Math.max(4, Math.round(78 * d.v / maxV)) : 4;
+      return '<div class="bar-col">' +
+        '<span class="bar-v">' + (d.v || "") + "</span>" +
+        '<span class="bar' + (d.v ? "" : " zero") + '" style="height:' + (d.v ? h : 3) + 'px" title="' + d.v + ' reviews"></span>' +
+        '<span class="bar-d"' + (d.today ? ' style="font-weight:700"' : "") + ">" + d.d + "</span></div>";
+    }).join("") + "</div><hr class=\"baseline\"></div>";
+
+  /* tricky words */
+  var tricky = cards.filter(function (c) { return c.lapses > 0; })
+    .sort(function (a, b) { return b.lapses - a.lapses; }).slice(0, 5);
+  if (tricky.length) {
+    html += '<div class="card" style="margin-top:14px"><p class="eyebrow">Worth another look</p><div class="word-list-mini">' +
+      tricky.map(function (c) {
+        var e = entryById(c.id);
+        if (!e) return "";
+        return '<div class="wl-row"><span class="wl-vi">' + esc(e.vi) + '</span><span class="wl-stage">forgotten ' +
+          c.lapses + "×</span></div>";
+      }).join("") + "</div></div>";
+  }
+  if (cards.length) {
+    var recent = cards.sort(function (a, b) { return b.added - a.added; }).slice(0, 5);
+    html += '<div class="card" style="margin-top:14px"><p class="eyebrow">Recently added</p><div class="word-list-mini">' +
+      recent.map(function (c) {
+        var e = entryById(c.id);
+        if (!e) return "";
+        var stage = c.state === "review" ? "every " + c.ivl + "d" : "learning";
+        return '<div class="wl-row"><span class="wl-vi">' + esc(e.vi) + '</span>' +
+          '<span style="flex:1;color:var(--ink-2);font-size:13px">' + esc(e.en) + "</span>" +
+          '<span class="wl-stage">' + stage + "</span></div>";
+      }).join("") + "</div></div>";
+  }
+  html += '<p class="footnote" style="margin-top:22px"><button data-act="reset-all" type="button">Erase all progress</button></p>';
+  $("#view").innerHTML = html;
+}
+
+function tile(num, label) {
+  return '<div class="tile"><div class="t-num">' + num + '</div><div class="t-label">' + esc(label) + "</div></div>";
+}
+
+/* ------------------------------ modals ------------------------------ */
+
+function openModal(html) {
+  $("#modal-root").innerHTML = '<div class="modal-scrim"><div class="modal" role="dialog" aria-modal="true">' + html + "</div></div>";
+  $(".modal-scrim").addEventListener("click", function (ev) {
+    if (ev.target === this) closeModal();
+  });
+}
+function closeModal() { $("#modal-root").innerHTML = ""; }
+
+function toneGuideHTML() {
+  var rows = TONE_ORDER.map(function (k) {
+    var t = TONES[k], demo = TONE_DEMO[k];
+    return '<div class="tone-row">' +
+      '<div><div class="tone-word">' + demo[0] + '</div><div style="text-align:center;font-size:11px;color:var(--muted)">' + esc(demo[1]) + "</div></div>" +
+      '<div style="text-align:center">' + toneChipSVG(k) + '<div style="font-size:11px;color:var(--muted)">' + t.vn + "</div></div>" +
+      '<div class="tone-desc"><strong>' + t.vn + " · " + t.en + "</strong> — " + esc(t.how) +
+      ' <button class="link-btn play-mini" data-say="' + demo[0] + '" type="button">▸ hear</button></div>' +
+      "</div>";
+  }).join("");
+  return '<div class="modal-head"><div><h2>The six tones</h2>' +
+    '<p class="sub">Same letters, different melody, completely different word. ' +
+    "The mark on the vowel tells you which melody to sing.</p></div>" +
+    '<button class="modal-close" data-act="close-modal" aria-label="Close" type="button">×</button></div>' +
+    '<div class="tone-table">' + rows + "</div>" +
+    '<p class="sub" style="margin-top:14px"><button class="link-btn" data-say="ma, má, mà, mả, mã, mạ" type="button">▸ Hear all six in a row</button></p>' +
+    '<hr class="divider">' +
+    "<h3>Sounds that surprise English speakers</h3>" +
+    '<div class="note-box" style="margin-top:8px">' +
+    "<p><strong>ư</strong> — say “oo” but smile while you do it (lips flat). · <strong>ơ</strong> — “uh” as in “fur”, no r. · " +
+    "<strong>â</strong> is a quick “uh”, <strong>ă</strong> a quick “ah”. · <strong>ê</strong> = “ay”, <strong>ô</strong> = “oh”, <strong>o</strong> = “aw”.</p>" +
+    "<p><strong>đ</strong> = d (plain <strong>d</strong> is “z”!) · <strong>ph</strong> = f · <strong>x</strong> = s · <strong>kh</strong> = throaty k (Bach) · " +
+    "<strong>ng</strong> = “ng” in <em>singing</em> — fine at the start of words · <strong>nh</strong> = “ny” in <em>canyon</em>.</p>" +
+    "<p><strong>North vs South:</strong> this app teaches Hanoi pronunciation. In Saigon, <strong>d/gi/r</strong> sound like “y”/“r” " +
+    "instead of “z”, and the dipping (hỏi) and broken (ngã) tones merge. Everyone will understand you either way.</p>" +
+    "</div>";
+}
+
+function customCardHTML(prefill) {
+  return '<div class="modal-head"><div><h2>Make your own card</h2>' +
+    '<p class="sub">Tones and pronunciation are worked out automatically from the Vietnamese spelling.</p></div>' +
+    '<button class="modal-close" data-act="close-modal" aria-label="Close" type="button">×</button></div>' +
+    '<form id="custom-form">' +
+    '<div class="field"><label for="cf-vi">Vietnamese (with accent marks)</label>' +
+    '<input id="cf-vi" required value="' + esc(prefill.vi || "") + '" placeholder="e.g. chúc mừng"></div>' +
+    '<div class="field"><label for="cf-en">Meaning in English</label>' +
+    '<input id="cf-en" required value="' + esc(prefill.en || "") + '" placeholder="e.g. congratulations"></div>' +
+    '<div class="field"><label for="cf-note">Note to self (optional)</label>' +
+    '<input id="cf-note" placeholder="where you heard it, who taught you…"></div>' +
+    '<button class="btn primary" type="submit">Add to my deck</button></form>';
+}
+
+/* ------------------------------ chrome ------------------------------ */
+
+function updateChrome() {
+  var now = Date.now();
+  var due = pendingCount(now);
+  var badge = $("#due-badge");
+  if (badge) badge.textContent = due > 0 ? String(due) : "";
+  var streak = streakDays(store.data.log, now);
+  var chip = $("#streak-chip");
+  if (chip) {
+    if (streak > 0) {
+      chip.hidden = false;
+      chip.innerHTML = "<strong>" + streak + "</strong> day" + (streak > 1 ? "s" : "") + " in a row 🔥";
+    } else chip.hidden = true;
+  }
+}
+
+function setTab(tab) {
+  view.tab = tab;
+  view.revealed = false;
+  if (tab !== "packs") view.packId = null;
+  $$(".tab-btn").forEach(function (b) {
+    b.setAttribute("aria-selected", b.getAttribute("data-tab") === tab ? "true" : "false");
+  });
+  render();
+}
+
+function render() {
+  updateChrome();
+  if (view.tab === "learn") renderLearn();
+  else if (view.tab === "review") renderReview(false);
+  else if (view.tab === "packs") renderPacks();
+  else renderProgress();
+}
+
+/* ------------------------------ actions ------------------------------ */
+
+function addToDeck(entryId, silent) {
+  if (store.data.cards[entryId]) return false;
+  store.data.cards[entryId] = newCard(entryId, Date.now());
+  store.save();
+  updateChrome();
+  if (!silent) toast("Added — it'll come up in Review");
+  return true;
+}
+
+function handleClick(ev) {
+  var el = ev.target.closest ? ev.target.closest("button") : null;
+  if (!el) return;
+  var act = el.getAttribute("data-act");
+
+  if (el.hasAttribute("data-say")) { speak(el.getAttribute("data-say"), el.getAttribute("data-slow") === "1"); return; }
+  if (el.hasAttribute("data-tab")) { setTab(el.getAttribute("data-tab")); return; }
+  if (el.hasAttribute("data-goto")) { setTab(el.getAttribute("data-goto")); return; }
+  if (el.hasAttribute("data-try")) {
+    view.query = el.getAttribute("data-try");
+    submitSearch(view.query);
+    return;
+  }
+  if (el.hasAttribute("data-teach")) {
+    view.teachId = el.getAttribute("data-teach");
+    renderLearn();
+    return;
+  }
+  if (el.hasAttribute("data-teach-pack")) {
+    view.teachId = el.getAttribute("data-teach-pack");
+    view.query = "";
+    setTab("learn");
+    return;
+  }
+  if (!act && el.hasAttribute("data-pack")) { view.packId = el.getAttribute("data-pack"); renderPacks(); return; }
+  if (el.hasAttribute("data-add")) {
+    addToDeck(el.getAttribute("data-add"));
+    renderPacks();
+    return;
+  }
+  if (el.hasAttribute("data-tone")) { openModal(toneGuideHTML()); return; }
+
+  if (!act) return;
+  switch (act) {
+    case "add-card":
+      addToDeck(el.getAttribute("data-id"));
+      render();
+      break;
+    case "back":
+      view.teachId = null;
+      renderLearn();
+      var inp = $("#search-input"); if (inp) inp.focus();
+      break;
+    case "tone-guide": openModal(toneGuideHTML()); break;
+    case "close-modal": closeModal(); break;
+    case "custom-card":
+      openModal(customCardHTML({ vi: el.getAttribute("data-vi") || "", en: el.getAttribute("data-en") || "" }));
+      var form = $("#custom-form");
+      form.addEventListener("submit", function (e2) {
+        e2.preventDefault();
+        var vi = $("#cf-vi").value.trim(), en = $("#cf-en").value.trim(), note = $("#cf-note").value.trim();
+        if (!vi || !en) return;
+        var id = "c-" + Date.now();
+        store.data.custom[id] = { id: id, vi: vi, en: en, pack: "custom", ex: null, note: note || null };
+        store.save();
+        rebuildIndex();
+        addToDeck(id, true);
+        closeModal();
+        view.teachId = id; view.query = "";
+        renderLearn();
+        toast("Saved to your deck");
+      });
+      break;
+    case "reveal": view.revealed = true; renderReview(false); break;
+    case "flip-dir":
+      store.data.settings.dir = (store.data.settings.dir === "ve") ? "ev" : "ve";
+      store.save();
+      renderReview(false);
+      break;
+    case "practice-ahead": renderReview(true); break;
+    case "add-pack":
+      var pid = el.getAttribute("data-pack");
+      var n = 0;
+      DICT.entries.filter(function (e3) { return e3.pack === pid; }).forEach(function (e3) {
+        if (addToDeck(e3.id, true)) n++;
+      });
+      toast("Added " + n + " cards");
+      renderPacks();
+      break;
+    case "reset-all":
+      if (typeof confirm === "undefined" || confirm("Erase your whole deck and all review history? This cannot be undone.")) {
+        store.data = { cards: {}, custom: {}, log: {}, settings: { dir: "ev" } };
+        store.save();
+        rebuildIndex();
+        setTab("learn");
+        toast("Fresh start");
+      }
+      break;
+  }
+  if (el.hasAttribute("data-grade")) { /* handled below */ }
+}
+
+function handleGrade(ev) {
+  var el = ev.target.closest ? ev.target.closest(".grade-btn") : null;
+  if (!el) return;
+  gradeCurrent(parseInt(el.getAttribute("data-grade"), 10));
+}
+
+function handleKeys(ev) {
+  if (view.tab !== "review") return;
+  var tag = (ev.target.tagName || "").toLowerCase();
+  if (tag === "input" || tag === "textarea") return;
+  if (ev.key === " " && !view.revealed && view.current) {
+    ev.preventDefault(); view.revealed = true; renderReview(false);
+  } else if (view.revealed && ["1", "2", "3", "4"].indexOf(ev.key) >= 0) {
+    gradeCurrent(parseInt(ev.key, 10) - 1);
+  }
+}
+
+/* ------------------------------ boot ------------------------------ */
+
+function boot() {
+  var dataEl = document.getElementById("dict-data");
+  DICT = JSON.parse(dataEl.textContent);
+  store.load();
+  rebuildIndex();
+  document.addEventListener("click", function (ev) { handleClick(ev); handleGrade(ev); });
+  document.addEventListener("keydown", handleKeys);
+  var tg = document.getElementById("tone-guide-link");
+  if (tg) tg.addEventListener("click", function () { openModal(toneGuideHTML()); });
+  setTab("learn");
+}
+
+if (typeof document !== "undefined" && document.getElementById) {
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+}
+
+/* expose internals for tests (harmless in browser) */
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { TONES, TONE_MAP, detone, analyzeSyllable, analyzePhrase,
+    isVietnameseText, norm, buildIndex, searchEntries, newCard, rateCard,
+    previewIntervals, dueCards, streakDays, respellRime, dayKey };
+}
+
+</script>
+
+</body>
+</html>
