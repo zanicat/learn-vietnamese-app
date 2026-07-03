@@ -769,35 +769,100 @@ function toast(msg) {
 
 /* ============================== audio ============================== */
 
-var viVoice = null, voiceChecked = false, warnedNoVoice = false;
+/* A genuine Vietnamese voice or nothing: an utterance with lang="vi-VN" but no
+   vi voice installed gets read by the browser's default (English) voice, which
+   mangles every tone. So: use a local vi-* voice if one exists, otherwise fetch
+   real Vietnamese TTS from Google Translate, and on failure say so instead of
+   mispronouncing. */
+
+var viVoice = null, voiceChecked = false;
 function pickVoice() {
   if (typeof speechSynthesis === "undefined") return null;
   var vs = speechSynthesis.getVoices() || [];
   for (var i = 0; i < vs.length; i++) {
-    if (vs[i].lang && vs[i].lang.toLowerCase().indexOf("vi") === 0) return vs[i];
+    var lang = (vs[i].lang || "").toLowerCase().replace("_", "-");
+    if (lang.indexOf("vi") === 0) return vs[i];
   }
   return null;
 }
-function speak(text, slow) {
-  if (typeof speechSynthesis === "undefined") { toast("This browser has no speech support"); return; }
+function localViVoice() {
+  if (typeof speechSynthesis === "undefined") return null;
   if (!voiceChecked) {
-    viVoice = pickVoice();
     voiceChecked = true;
+    viVoice = pickVoice();
     if (typeof speechSynthesis.onvoiceschanged !== "undefined") {
       speechSynthesis.onvoiceschanged = function () { viVoice = pickVoice(); };
     }
   }
   if (!viVoice) viVoice = pickVoice();
-  var u = new SpeechSynthesisUtterance(text);
-  u.lang = "vi-VN";
-  if (viVoice) u.voice = viVoice;
-  else if (!warnedNoVoice) {
-    warnedNoVoice = true;
-    toast("No Vietnamese voice installed — audio is approximate");
+  return viVoice;
+}
+
+var ttsEl = null, ttsCache = {}, ttsCacheKeys = [], playToken = 0;
+function stopSpeaking() {
+  playToken++;
+  if (typeof speechSynthesis !== "undefined") speechSynthesis.cancel();
+  if (ttsEl) { ttsEl.pause(); ttsEl = null; }
+}
+function remoteTTSUrl(text, slow) {
+  return "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi" +
+    "&ttsspeed=" + (slow ? "0.24" : "1") + "&q=" + encodeURIComponent(text);
+}
+/* The TTS endpoint caps requests around 200 chars; split long text at
+   punctuation/spaces and play the pieces back to back. */
+function chunkText(text) {
+  var parts = [], rest = text.trim(), seps = [". ", "! ", "? ", "; ", ", ", " "];
+  while (rest.length > 190) {
+    var cut = -1;
+    for (var i = 0; i < seps.length && cut < 40; i++) cut = rest.lastIndexOf(seps[i], 189);
+    if (cut < 40) cut = 189;
+    parts.push(rest.slice(0, cut + 1).trim());
+    rest = rest.slice(cut + 1).trim();
   }
+  if (rest) parts.push(rest);
+  return parts;
+}
+function speakLocal(text, slow, v) {
+  var u = new SpeechSynthesisUtterance(text);
+  u.voice = v;
+  u.lang = v.lang || "vi-VN";
   u.rate = slow ? 0.6 : 0.92;
-  speechSynthesis.cancel();
   speechSynthesis.speak(u);
+}
+function speakRemote(text, slow) {
+  var chunks = chunkText(text), tok = playToken, idx = 0;
+  function next() {
+    if (tok !== playToken || idx >= chunks.length) return;
+    var chunk = chunks[idx++];
+    var key = (slow ? "s|" : "n|") + chunk;
+    var a = ttsCache[key];
+    if (!a) {
+      a = new Audio(remoteTTSUrl(chunk, slow));
+      a.preload = "auto";
+      ttsCache[key] = a;
+      ttsCacheKeys.push(key);
+      if (ttsCacheKeys.length > 48) delete ttsCache[ttsCacheKeys.shift()];
+    }
+    a.onended = next;
+    a.onerror = function () {
+      delete ttsCache[key];
+      if (tok !== playToken) return;
+      var v = localViVoice();
+      if (v) speakLocal(text, slow, v);
+      else toast("Couldn't load Vietnamese audio — check your connection");
+    };
+    ttsEl = a;
+    try { a.currentTime = 0; } catch (e) {}
+    var p = a.play();
+    if (p && typeof p.catch === "function") p.catch(function () {});
+  }
+  next();
+}
+function speak(text, slow) {
+  stopSpeaking();
+  var v = localViVoice();
+  if (v) speakLocal(text, slow, v);
+  else speakRemote(text, slow);
 }
 
 /* ============================== rendering ============================== */
