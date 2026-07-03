@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The Google Translate TTS endpoint 404s any request carrying a cross-site
+     Referer, and <audio> has no per-element referrerpolicy, so suppress the
+     header page-wide or remote audio breaks everywhere except file://. -->
+<meta name="referrer" content="no-referrer">
 <title>Từng từ — Vietnamese, word by word</title>
 <style>
   :root {
