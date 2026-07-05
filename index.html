@@ -9,69 +9,70 @@
 <meta name="referrer" content="no-referrer">
 <title>Từng từ — Vietnamese, word by word</title>
 <style>
+  /* ============ Porcelain & Lacquer ============
+     Warm porcelain ground, tea-green ink, lacquer red for the one action
+     that matters, jade for progress, gold for celebration. Charter serif
+     carries the Vietnamese; the UI stays quiet in system sans. */
   :root {
-    --paper: #F6F3EA;
-    --card: #FDFBF4;
-    --card-2: #F0ECDF;
-    --ink: #26322B;
-    --ink-2: #5C6B60;
-    --muted: #8B978C;
-    --line: #E2DECF;
-    --accent: #B0402C;
-    --on-accent: #FFF6EE;
-    --accent-wash: rgba(176, 64, 44, 0.07);
-    --jade: #2E7B5F;
-    --jade-wash: rgba(46, 123, 95, 0.10);
-    --shadow: 0 1px 2px rgba(38, 50, 43, 0.06), 0 4px 16px rgba(38, 50, 43, 0.05);
+    --paper: #F7F4EC;
+    --card: #FEFCF6;
+    --card-2: #EFEAE0;
+    --ink: #2B3230;
+    --ink-2: #5F6B64;
+    --muted: #93998F;
+    --line: #E7E2D4;
+    --accent: #B4452E;
+    --on-accent: #FFF7F0;
+    --accent-wash: rgba(180, 69, 46, 0.08);
+    --jade: #337F63;
+    --jade-wash: rgba(51, 127, 99, 0.10);
+    --gold: #C08A2D;
+    --gold-wash: rgba(192, 138, 45, 0.13);
+    --shadow: 0 1px 2px rgba(43, 50, 48, 0.04), 0 6px 24px rgba(43, 50, 48, 0.06);
     --t-ngang: #2a78d6; --t-sac: #1baf7a; --t-huyen: #eda100;
     --t-hoi: #008300; --t-nga: #4a3aa7; --t-nang: #e34948;
-    --bar: #2a78d6;
-    --grade-again: #d03b3b; --grade-hard: #c96a24; --grade-good: #2E7B5F; --grade-easy: #2a78d6;
+    --bar: #337F63;
+    --grade-again: #C43D3D; --grade-hard: #C0742A; --grade-good: #337F63; --grade-easy: #3B77C2;
     --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, "Times New Roman", serif;
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #141815;
-      --card: #1D231F;
-      --card-2: #242B26;
-      --ink: #E9E6D8;
-      --ink-2: #A9B3A6;
-      --muted: #75816F;
-      --line: #2E352F;
-      --accent: #D9704F;
-      --on-accent: #1A120E;
-      --accent-wash: rgba(217, 112, 79, 0.11);
-      --jade: #66B896;
-      --jade-wash: rgba(102, 184, 150, 0.12);
-      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+      --paper: #161916; --card: #1E221F; --card-2: #262B27;
+      --ink: #ECE8DC; --ink-2: #A9B3A6; --muted: #798474; --line: #30362F;
+      --accent: #E07B5A; --on-accent: #221310; --accent-wash: rgba(224, 123, 90, 0.12);
+      --jade: #6FBF9C; --jade-wash: rgba(111, 191, 156, 0.13);
+      --gold: #D9A84E; --gold-wash: rgba(217, 168, 78, 0.14);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 24px rgba(0, 0, 0, 0.25);
       --t-ngang: #3987e5; --t-sac: #199e70; --t-huyen: #c98500;
-      --t-hoi: #008300; --t-nga: #9085e9; --t-nang: #e66767;
-      --bar: #3987e5;
-      --grade-again: #e05c5c; --grade-hard: #d98a4a; --grade-good: #66B896; --grade-easy: #3987e5;
+      --t-hoi: #3da13d; --t-nga: #9085e9; --t-nang: #e66767;
+      --bar: #6FBF9C;
+      --grade-again: #e05c5c; --grade-hard: #d98a4a; --grade-good: #6FBF9C; --grade-easy: #6FA7E8;
     }
   }
   :root[data-theme="light"] {
-    --paper: #F6F3EA; --card: #FDFBF4; --card-2: #F0ECDF;
-    --ink: #26322B; --ink-2: #5C6B60; --muted: #8B978C; --line: #E2DECF;
-    --accent: #B0402C; --on-accent: #FFF6EE; --accent-wash: rgba(176, 64, 44, 0.07);
-    --jade: #2E7B5F; --jade-wash: rgba(46, 123, 95, 0.10);
-    --shadow: 0 1px 2px rgba(38, 50, 43, 0.06), 0 4px 16px rgba(38, 50, 43, 0.05);
+    --paper: #F7F4EC; --card: #FEFCF6; --card-2: #EFEAE0;
+    --ink: #2B3230; --ink-2: #5F6B64; --muted: #93998F; --line: #E7E2D4;
+    --accent: #B4452E; --on-accent: #FFF7F0; --accent-wash: rgba(180, 69, 46, 0.08);
+    --jade: #337F63; --jade-wash: rgba(51, 127, 99, 0.10);
+    --gold: #C08A2D; --gold-wash: rgba(192, 138, 45, 0.13);
+    --shadow: 0 1px 2px rgba(43, 50, 48, 0.04), 0 6px 24px rgba(43, 50, 48, 0.06);
     --t-ngang: #2a78d6; --t-sac: #1baf7a; --t-huyen: #eda100;
     --t-hoi: #008300; --t-nga: #4a3aa7; --t-nang: #e34948;
-    --bar: #2a78d6;
-    --grade-again: #d03b3b; --grade-hard: #c96a24; --grade-good: #2E7B5F; --grade-easy: #2a78d6;
+    --bar: #337F63;
+    --grade-again: #C43D3D; --grade-hard: #C0742A; --grade-good: #337F63; --grade-easy: #3B77C2;
   }
   :root[data-theme="dark"] {
-    --paper: #141815; --card: #1D231F; --card-2: #242B26;
-    --ink: #E9E6D8; --ink-2: #A9B3A6; --muted: #75816F; --line: #2E352F;
-    --accent: #D9704F; --on-accent: #1A120E; --accent-wash: rgba(217, 112, 79, 0.11);
-    --jade: #66B896; --jade-wash: rgba(102, 184, 150, 0.12);
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.25);
+    --paper: #161916; --card: #1E221F; --card-2: #262B27;
+    --ink: #ECE8DC; --ink-2: #A9B3A6; --muted: #798474; --line: #30362F;
+    --accent: #E07B5A; --on-accent: #221310; --accent-wash: rgba(224, 123, 90, 0.12);
+    --jade: #6FBF9C; --jade-wash: rgba(111, 191, 156, 0.13);
+    --gold: #D9A84E; --gold-wash: rgba(217, 168, 78, 0.14);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 24px rgba(0, 0, 0, 0.25);
     --t-ngang: #3987e5; --t-sac: #199e70; --t-huyen: #c98500;
-    --t-hoi: #008300; --t-nga: #9085e9; --t-nang: #e66767;
-    --bar: #3987e5;
-    --grade-again: #e05c5c; --grade-hard: #d98a4a; --grade-good: #66B896; --grade-easy: #3987e5;
+    --t-hoi: #3da13d; --t-nga: #9085e9; --t-nang: #e66767;
+    --bar: #6FBF9C;
+    --grade-again: #e05c5c; --grade-hard: #d98a4a; --grade-good: #6FBF9C; --grade-easy: #6FA7E8;
   }
 
   * { box-sizing: border-box; }
@@ -81,103 +82,148 @@
     color: var(--ink);
     font-family: var(--sans);
     font-size: 16px;
-    line-height: 1.55;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
   button { font: inherit; color: inherit; cursor: pointer; background: none; border: none; padding: 0; }
   button:focus-visible, input:focus-visible, a:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
-    border-radius: 4px;
+    border-radius: 6px;
   }
   input { font: inherit; color: inherit; }
 
-  #app { max-width: 640px; margin: 0 auto; padding: 0 16px 96px; }
+  #app {
+    max-width: 620px; margin: 0 auto;
+    padding: 0 20px calc(92px + env(safe-area-inset-bottom, 0px));
+  }
+  @media (min-width: 640px) { #app { padding-bottom: 56px; } }
 
   /* ---------- header ---------- */
   .top {
-    display: flex; align-items: baseline; justify-content: space-between;
-    padding: 22px 2px 10px; gap: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 2px 14px; gap: 12px;
   }
-  .brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-  .brand-vi { font-family: var(--serif); font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
+  .brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; min-width: 0; }
+  .brand-vi { font-family: var(--serif); font-size: 25px; font-weight: 700; letter-spacing: -0.01em; }
   .brand-vi .dot { color: var(--accent); }
-  .brand-sub { font-size: 13px; color: var(--muted); }
+  .brand-sub { font-size: 12.5px; color: var(--muted); }
+  @media (max-width: 400px) { .brand-sub { display: none; } }
   .streak-chip {
-    font-size: 13px; color: var(--ink-2); white-space: nowrap;
-    padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px;
-    background: var(--card);
+    font-size: 13px; color: var(--ink-2); white-space: nowrap; flex: none;
+    padding: 4px 12px; border: 1px solid transparent; border-radius: 999px;
+    background: var(--gold-wash);
   }
-  .streak-chip strong { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .streak-chip strong { color: var(--gold); font-variant-numeric: tabular-nums; }
 
-  /* ---------- tabs ---------- */
-  .tabs {
-    position: sticky; top: 0; z-index: 20;
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
-    background: var(--card-2); border: 1px solid var(--line);
-    padding: 4px; border-radius: 12px; margin-bottom: 20px;
+  /* ---------- navigation ----------
+     Phones: fixed bottom bar, thumb reach. ≥640px: centered pill row. */
+  .bottomnav {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    display: flex; justify-content: center; gap: 0;
+    background: var(--card); border-top: 1px solid var(--line);
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
   }
-  .tabs::before {
-    content: ""; position: absolute; inset: -24px -16px 100% -16px;
-    background: var(--paper); z-index: -1;
+  .nav-btn {
+    position: relative; flex: 1; max-width: 92px; min-width: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 5px 2px 4px; border-radius: 12px;
+    color: var(--muted); font-size: 10.5px; font-weight: 600; letter-spacing: 0.02em;
   }
-  .tab-btn {
-    position: relative; text-align: center; padding: 8px 4px; border-radius: 9px;
-    font-size: 14.5px; font-weight: 500; color: var(--ink-2);
-  }
-  .tab-btn[aria-selected="true"] { background: var(--card); color: var(--ink); box-shadow: var(--shadow); font-weight: 600; }
-  .tab-btn .due-badge {
-    position: absolute; top: 2px; right: 6px;
-    min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px;
+  .nav-btn svg { width: 22px; height: 22px; flex: none; }
+  .nav-btn[aria-selected="true"] { color: var(--accent); }
+  .due-badge {
+    position: absolute; top: -1px; left: calc(50% + 6px);
+    min-width: 17px; height: 17px; padding: 0 4px; border-radius: 999px;
     background: var(--accent); color: var(--on-accent);
-    font-size: 11px; font-weight: 700; line-height: 18px;
+    font-size: 10.5px; font-weight: 700; line-height: 17px; text-align: center;
     font-variant-numeric: tabular-nums;
   }
-  .tab-btn .due-badge:empty { display: none; }
+  .due-badge:empty { display: none; }
+  @media (min-width: 640px) {
+    .bottomnav {
+      position: static; width: fit-content; margin: 0 auto 24px;
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 5px; gap: 2px; box-shadow: var(--shadow);
+    }
+    .nav-btn {
+      flex-direction: row; gap: 7px; max-width: none;
+      font-size: 13.5px; padding: 7px 15px; border-radius: 999px;
+    }
+    .nav-btn svg { width: 16px; height: 16px; }
+    .nav-btn[aria-selected="true"] { background: var(--accent-wash); }
+    .due-badge { position: static; margin-left: 4px; }
+  }
 
   /* ---------- generic ---------- */
   .card {
     background: var(--card); border: 1px solid var(--line);
-    border-radius: 14px; padding: 20px; box-shadow: var(--shadow);
+    border-radius: 18px; padding: 22px; box-shadow: var(--shadow);
   }
-  .stack > * + * { margin-top: 14px; }
-  h2 { font-size: 19px; margin: 0 0 4px; text-wrap: balance; }
-  h3 { font-size: 16px; margin: 0; }
-  .sub { color: var(--ink-2); font-size: 14px; margin: 0; }
+  .stack > * + * { margin-top: 16px; }
+  h2 { font-family: var(--serif); font-size: 21px; margin: 0 0 4px; text-wrap: balance; letter-spacing: -0.01em; }
+  h3 { font-size: 15.5px; margin: 0; }
+  .sub { color: var(--ink-2); font-size: 14.5px; margin: 0; }
   .eyebrow {
-    font-size: 11.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--muted); margin: 0 0 6px;
   }
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-    border-radius: 10px; padding: 9px 16px; font-size: 15px; font-weight: 600;
+    border-radius: 12px; padding: 10px 18px; font-size: 15px; font-weight: 600;
     border: 1px solid var(--line); background: var(--card); color: var(--ink);
     transition: transform 0.06s ease;
   }
   .btn:active { transform: scale(0.98); }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-  .btn.ghost { background: transparent; }
-  .btn.small { padding: 6px 12px; font-size: 13.5px; border-radius: 8px; }
+  .btn.ghost { background: transparent; border-color: transparent; color: var(--ink-2); }
+  .btn.small { padding: 7px 13px; font-size: 13.5px; border-radius: 10px; }
   .btn[disabled] { opacity: 0.45; cursor: default; }
+  .btn-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
   .link-btn { color: var(--accent); font-weight: 600; font-size: 14px; }
   .icon { width: 17px; height: 17px; flex: none; }
 
+  /* page header for sub-views: back button + title on one calm line */
+  .page-head { display: flex; align-items: flex-start; gap: 12px; margin: 2px 0 16px; }
+  .page-head .ph-main { flex: 1; min-width: 0; }
+  .page-head h2 { margin-bottom: 2px; }
+  .back-btn {
+    flex: none; width: 38px; height: 38px; border-radius: 999px; margin-top: 2px;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink-2);
+    display: inline-flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .back-btn:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* session shell: lesson & scenario screens share this chrome */
+  .session-bar { display: flex; align-items: center; gap: 12px; margin: 6px 0 6px; }
+  .session-track { flex: 1; height: 6px; border-radius: 3px; background: var(--card-2); overflow: hidden; }
+  .session-fill { display: block; height: 100%; border-radius: 3px; background: var(--jade); transition: width 0.25s ease; }
+  .session-x {
+    flex: none; width: 36px; height: 36px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--card); color: var(--muted);
+    display: inline-flex; align-items: center; justify-content: center; font-size: 17px; line-height: 1;
+  }
+  .session-x:hover { color: var(--accent); border-color: var(--accent); }
+  .session-eyebrow { margin: 0 0 14px; }
+  .session-nav { display: flex; justify-content: space-between; gap: 10px; margin-top: 16px; }
+  .session-nav .btn { min-width: 110px; }
+
   /* ---------- learn / search ---------- */
   .hero-q {
-    font-family: var(--serif); font-size: 22px; font-weight: 700; margin: 4px 0 12px;
-    text-wrap: balance;
+    font-family: var(--serif); font-size: 22px; font-weight: 700; margin: 6px 0 14px;
+    text-wrap: balance; letter-spacing: -0.01em;
   }
   .search-row { display: flex; gap: 8px; }
   .search-row input {
     flex: 1; min-width: 0; background: var(--card); border: 1.5px solid var(--line);
-    border-radius: 12px; padding: 12px 16px; font-size: 16.5px;
+    border-radius: 14px; padding: 12px 18px; font-size: 16.5px;
   }
   .search-row input::placeholder { color: var(--muted); }
   .search-row input:focus { border-color: var(--accent); outline: none; }
   .hint { font-size: 13px; color: var(--muted); margin-top: 8px; }
-  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
   .try-chip {
-    font-size: 13.5px; padding: 5px 12px; border-radius: 999px;
+    font-size: 13.5px; padding: 6px 13px; border-radius: 999px;
     border: 1px solid var(--line); background: var(--card); color: var(--ink-2);
   }
   .try-chip:hover { border-color: var(--accent); color: var(--ink); }
@@ -186,8 +232,8 @@
   .result-item {
     display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
     text-align: left; width: 100%;
-    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-    padding: 12px 16px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 13px 18px;
   }
   .result-item:hover { border-color: var(--accent); }
   .result-item .vi { font-family: var(--serif); font-size: 18px; font-weight: 700; }
@@ -197,7 +243,7 @@
   .piece-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
   .piece-chip {
     display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px;
-    text-align: left; padding: 7px 12px; border-radius: 10px;
+    text-align: left; padding: 7px 12px; border-radius: 12px;
     border: 1px dashed var(--line); background: var(--card); color: var(--ink);
   }
   button.piece-chip:hover { border-color: var(--accent); }
@@ -210,12 +256,12 @@
     font-family: var(--serif); font-size: 34px; font-weight: 700; line-height: 1.25;
     letter-spacing: -0.01em; margin: 2px 0 0; text-wrap: balance;
   }
-  .word-card .gloss { font-size: 17px; color: var(--ink-2); margin: 2px 0 0; }
-  .word-card .lit { font-size: 13.5px; color: var(--muted); font-style: italic; margin-top: 2px; }
+  .word-card .gloss { font-size: 17px; color: var(--ink-2); margin: 3px 0 0; }
+  .word-card .lit { font-size: 13.5px; color: var(--muted); font-style: italic; margin-top: 3px; }
   .head-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
   .audio-btns { display: flex; gap: 6px; flex: none; margin-top: 6px; }
   .audio-btn {
-    width: 40px; height: 40px; border-radius: 999px; border: 1px solid var(--line);
+    width: 42px; height: 42px; border-radius: 999px; border: 1px solid var(--line);
     display: inline-flex; align-items: center; justify-content: center;
     background: var(--card-2); color: var(--ink-2);
   }
@@ -224,7 +270,7 @@
 
   .syllables { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
   .syl {
-    border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px 9px;
+    border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px 9px;
     background: var(--card-2); text-align: center; min-width: 78px;
   }
   .syl .syl-vi { font-family: var(--serif); font-size: 20px; font-weight: 700; line-height: 1.2; }
@@ -239,7 +285,7 @@
 
   .example {
     border-left: 3px solid var(--jade); background: var(--jade-wash);
-    border-radius: 0 10px 10px 0; padding: 10px 14px;
+    border-radius: 0 12px 12px 0; padding: 11px 15px;
   }
   .example .ex-vi { font-family: var(--serif); font-size: 17px; font-weight: 600; }
   .example .ex-en { font-size: 14px; color: var(--ink-2); margin-top: 1px; }
@@ -252,7 +298,7 @@
   .tone-table { display: flex; flex-direction: column; gap: 10px; }
   .tone-row {
     display: grid; grid-template-columns: 64px 56px 1fr; gap: 12px; align-items: center;
-    border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; background: var(--card);
   }
   .tone-row .tone-word { font-family: var(--serif); font-size: 24px; font-weight: 700; text-align: center; }
   .tone-row .tone-desc { font-size: 13.5px; color: var(--ink-2); }
@@ -260,16 +306,16 @@
   .tone-row .play-mini { color: var(--muted); }
   .tone-row .play-mini:hover { color: var(--accent); }
 
-  /* ---------- review ---------- */
-  .review-stage { text-align: center; padding: 28px 20px 24px; }
+  /* ---------- review / practice stage ---------- */
+  .review-stage { text-align: center; padding: 30px 20px 24px; }
   .review-count { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: 0.06em; }
-  .prompt-label { font-size: 12px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); margin-top: 14px; }
+  .prompt-label { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 16px; }
   .prompt-main { font-family: var(--serif); font-size: 30px; font-weight: 700; margin: 8px 0 2px; text-wrap: balance; line-height: 1.3; }
   .prompt-sub { color: var(--ink-2); font-size: 15px; }
-  .answer-zone { margin-top: 18px; border-top: 1px dashed var(--line); padding-top: 18px; text-align: left; }
-  .grade-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
+  .answer-zone { margin-top: 20px; border-top: 1px dashed var(--line); padding-top: 20px; text-align: left; }
+  .grade-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 22px; }
   .grade-btn {
-    border-radius: 10px; padding: 10px 4px 8px; border: 1px solid var(--line);
+    border-radius: 12px; padding: 11px 4px 9px; border: 1px solid var(--line);
     background: var(--card); display: flex; flex-direction: column; gap: 1px; align-items: center;
   }
   .grade-btn .g-label { font-weight: 700; font-size: 14.5px; }
@@ -279,15 +325,19 @@
   .grade-btn[data-grade="2"] .g-label { color: var(--grade-good); }
   .grade-btn[data-grade="3"] .g-label { color: var(--grade-easy); }
   .grade-btn:hover { border-color: var(--muted); }
-  .done-banner { text-align: center; padding: 36px 20px; }
-  .done-banner .big { font-family: var(--serif); font-size: 28px; font-weight: 700; }
+  .done-banner { text-align: center; padding: 34px 22px; }
+  .done-banner .big { font-family: var(--serif); font-size: 27px; font-weight: 700; }
+  .done-banner.celebrate { background: linear-gradient(180deg, var(--gold-wash), transparent 65%), var(--card); }
+
+  .quiz-check { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px; }
+  .quiz-check .btn.miss { color: var(--grade-again); }
 
   /* ---------- packs ---------- */
   .pack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   @media (max-width: 480px) { .pack-grid { grid-template-columns: 1fr; } }
   .pack-card {
-    text-align: left; border: 1px solid var(--line); border-radius: 14px;
-    padding: 16px; background: var(--card); display: flex; flex-direction: column; gap: 4px;
+    text-align: left; border: 1px solid var(--line); border-radius: 16px;
+    padding: 17px 18px; background: var(--card); display: flex; flex-direction: column; gap: 4px;
   }
   .pack-card:hover { border-color: var(--accent); }
   .pack-card .pack-name { font-weight: 700; font-size: 15.5px; }
@@ -299,7 +349,7 @@
   .pack-list { display: flex; flex-direction: column; gap: 8px; }
   .pack-row {
     display: flex; align-items: center; gap: 12px;
-    border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; background: var(--card);
+    border: 1px solid var(--line); border-radius: 14px; padding: 10px 15px; background: var(--card);
   }
   .pack-row .pr-main { flex: 1; min-width: 0; text-align: left; }
   .pack-row .pr-vi { font-family: var(--serif); font-size: 17px; font-weight: 700; }
@@ -315,16 +365,16 @@
   /* ---------- progress ---------- */
   .tile-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
   @media (max-width: 520px) { .tile-row { grid-template-columns: 1fr 1fr; } }
-  .tile { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--card); }
-  .tile .t-num { font-size: 26px; font-weight: 700; line-height: 1.15; }
+  .tile { border: 1px solid var(--line); border-radius: 14px; padding: 13px 15px; background: var(--card); }
+  .tile .t-num { font-family: var(--serif); font-size: 26px; font-weight: 700; line-height: 1.15; }
   .tile .t-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
   .chart-wrap { margin-top: 6px; }
   .chart-title { font-size: 13px; font-weight: 600; color: var(--ink-2); margin-bottom: 8px; }
   .bars { display: flex; align-items: flex-end; gap: 6px; height: 88px; }
   .bar-col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; height: 100%; }
   .bar-col .bar-v { font-size: 11px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
-  .bar-col .bar { width: 100%; max-width: 34px; background: var(--bar); border-radius: 4px 4px 0 0; min-height: 2px; }
-  .bar-col .bar.zero { background: var(--card-2); }
+  .bar-col .bar { width: 100%; max-width: 34px; background: var(--bar); border-radius: 4px 4px 0 0; min-height: 2px; opacity: 0.85; }
+  .bar-col .bar.zero { background: var(--card-2); opacity: 1; }
   .bar-col .bar-d { font-size: 11px; color: var(--muted); }
   .baseline { border-top: 1px solid var(--line); margin-top: 0; }
   .word-list-mini { display: flex; flex-direction: column; gap: 6px; }
@@ -335,13 +385,13 @@
 
   /* ---------- modal ---------- */
   .modal-scrim {
-    position: fixed; inset: 0; background: rgba(15, 20, 16, 0.45); z-index: 50;
+    position: fixed; inset: 0; background: rgba(20, 24, 21, 0.45); z-index: 50;
     display: flex; align-items: flex-end; justify-content: center; padding: 16px;
   }
   @media (min-width: 520px) { .modal-scrim { align-items: center; } }
   .modal {
-    background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
-    max-width: 560px; width: 100%; max-height: 86vh; overflow-y: auto; padding: 22px;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 20px;
+    max-width: 560px; width: 100%; max-height: 86vh; overflow-y: auto; padding: 24px;
     box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
   }
   .modal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
@@ -351,24 +401,80 @@
   .field label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-2); margin-bottom: 4px; }
   .field input {
     width: 100%; background: var(--card); border: 1.5px solid var(--line);
-    border-radius: 10px; padding: 10px 13px; font-size: 16px;
+    border-radius: 12px; padding: 10px 14px; font-size: 16px;
   }
   .field input:focus { border-color: var(--accent); outline: none; }
 
   /* ---------- toast ---------- */
   #toast {
-    position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(8px);
+    position: fixed; left: 50%; bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%) translateY(8px);
     background: var(--ink); color: var(--paper); font-size: 14px; font-weight: 600;
     padding: 10px 18px; border-radius: 999px; opacity: 0; pointer-events: none;
     transition: opacity 0.18s ease, transform 0.18s ease; z-index: 60; max-width: 90vw;
     text-align: center;
   }
   #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  @media (min-width: 640px) { #toast { bottom: 24px; } }
 
   .empty { text-align: center; color: var(--muted); padding: 28px 16px; font-size: 14.5px; }
   .divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
-  .footnote { font-size: 12.5px; color: var(--muted); margin-top: 20px; text-align: center; }
+  .footnote { font-size: 12.5px; color: var(--muted); margin-top: 26px; text-align: center; }
   .footnote button { color: var(--ink-2); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ---------- today: buddy, lessons, curriculum map ---------- */
+  .buddy-row { display: flex; align-items: flex-start; gap: 10px; margin-top: 4px; }
+  .buddy-ava {
+    flex: none; width: 52px; height: 52px; border-radius: 999px;
+    background: var(--card-2); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .buddy-ava svg { display: block; }
+  .buddy-bubble {
+    position: relative; flex: 1; min-width: 0;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 4px 16px 16px 16px; padding: 10px 15px 11px;
+    font-size: 14.5px; box-shadow: var(--shadow); overflow-wrap: break-word;
+  }
+  .buddy-bubble .buddy-name {
+    display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 2px;
+  }
+  .scene-banner {
+    border-left: 3px solid var(--accent); background: var(--accent-wash);
+    border-radius: 0 12px 12px 0; padding: 11px 15px;
+    font-size: 14px; color: var(--ink-2); font-style: italic;
+  }
+  .row-card {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 14px 18px; margin-top: 10px; box-shadow: var(--shadow);
+  }
+  .row-card .rc-main { flex: 1; min-width: 0; }
+  .row-card .rc-main .sub { font-size: 13px; }
+  .row-card .btn { flex: none; }
+  .week-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin: 20px 0 8px;
+  }
+  .week-label:first-of-type { margin-top: 0; }
+  .lesson-row {
+    display: flex; align-items: center; gap: 12px; width: 100%; text-align: left;
+    border: 1px solid var(--line); border-radius: 14px; padding: 11px 15px; background: var(--card);
+  }
+  .lesson-row:not([disabled]):hover { border-color: var(--accent); }
+  .lesson-row[disabled] { opacity: 0.5; cursor: default; }
+  .lesson-row .l-idx {
+    flex: none; width: 30px; height: 30px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; background: var(--card-2); color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .lesson-row.done .l-idx { background: var(--jade-wash); color: var(--jade); }
+  .lesson-row.current .l-idx { background: var(--accent); color: var(--on-accent); }
+  .lesson-row .l-main { flex: 1; min-width: 0; }
+  .lesson-row .l-name { font-weight: 600; font-size: 14.5px; }
+  .lesson-row .l-sub { font-size: 12.5px; color: var(--muted); }
 
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; animation: none !important; }
@@ -387,11 +493,22 @@
     <span class="streak-chip" id="streak-chip" hidden></span>
   </header>
 
-  <nav class="tabs" role="tablist" aria-label="Sections">
-    <button class="tab-btn" role="tab" data-tab="learn" aria-selected="true">Learn</button>
-    <button class="tab-btn" role="tab" data-tab="review" aria-selected="false">Review<span class="due-badge" id="due-badge"></span></button>
-    <button class="tab-btn" role="tab" data-tab="packs" aria-selected="false">Packs</button>
-    <button class="tab-btn" role="tab" data-tab="progress" aria-selected="false">Progress</button>
+  <nav class="bottomnav" role="tablist" aria-label="Sections">
+    <button class="nav-btn" role="tab" data-tab="today" aria-selected="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5V5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8"></path></svg>
+      Today</button>
+    <button class="nav-btn" role="tab" data-tab="learn" aria-selected="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.2-4.2"></path></svg>
+      Learn</button>
+    <button class="nav-btn" role="tab" data-tab="review" aria-selected="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="13" height="13" rx="2.5"></rect><path d="M8 8V6a2.5 2.5 0 0 1 2.5-2.5H18A2.5 2.5 0 0 1 20.5 6v7.5A2.5 2.5 0 0 1 18 16h-2"></path></svg>
+      Review<span class="due-badge" id="due-badge"></span></button>
+    <button class="nav-btn" role="tab" data-tab="packs" aria-selected="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="2"></rect><rect x="13" y="3.5" width="7.5" height="7.5" rx="2"></rect><rect x="3.5" y="13" width="7.5" height="7.5" rx="2"></rect><rect x="13" y="13" width="7.5" height="7.5" rx="2"></rect></svg>
+      Packs</button>
+    <button class="nav-btn" role="tab" data-tab="progress" aria-selected="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 20v-6M11 20V6M17 20v-9"></path><path d="M3 20.5h18"></path></svg>
+      Progress</button>
   </nav>
 
   <main id="view"></main>
@@ -1189,7 +1306,8 @@ var KEY = "tungtu-v1";
 var store = {
   data: null,
   load: function () {
-    var fallback = { cards: {}, custom: {}, log: {}, settings: { dir: "ev", accent: "south" } };
+    var fallback = { cards: {}, custom: {}, log: {}, settings: { dir: "ev", accent: "south" },
+      lessons: { done: {} }, buddy: { seen: 0 } };
     try {
       var raw = localStorage.getItem(KEY);
       this.data = raw ? JSON.parse(raw) : fallback;
@@ -1198,6 +1316,8 @@ var store = {
       if (!this.data.log) this.data.log = {};
       if (!this.data.settings) this.data.settings = { dir: "ev", accent: "south" };
       if (!this.data.settings.accent) this.data.settings.accent = "south";
+      if (!this.data.lessons || !this.data.lessons.done) this.data.lessons = { done: {} };
+      if (!this.data.buddy) this.data.buddy = { seen: 0 };
     } catch (e) { this.data = fallback; }
     return this.data;
   },
@@ -1237,8 +1357,9 @@ function streakDays(log, now) {
 
 var DICT = { packs: [], entries: [] };
 var INDEX = [];
-var view = { tab: "learn", packId: null, teachId: null, backTo: null,
-  query: "", fullSearch: false, queue: [], current: null, revealed: false, sessionDone: 0 };
+var view = { tab: "today", packId: null, teachId: null, backTo: null,
+  query: "", fullSearch: false, queue: [], current: null, revealed: false, sessionDone: 0,
+  lesson: null, scen: null };
 
 function allEntries() {
   var custom = Object.keys(store.data.custom).map(function (k) { return store.data.custom[k]; });
@@ -1425,12 +1546,15 @@ function teachCardHTML(e, opts) {
       "</div></div>";
   }
   if (e.note) html += '<div class="note-box">' + esc(e.note) + "</div>";
-  html += '<div class="word-actions">' +
-    (inDeck
-      ? '<span class="in-deck">✓ In your deck</span>'
-      : '<button class="btn primary" data-act="add-card" data-id="' + esc(e.id) + '" type="button">+ Add to my deck</button>') +
-    (opts.back ? '<button class="btn ghost" data-act="back" type="button">Back</button>' : "") +
-    "</div></div>";
+  if (!opts.embed) {
+    html += '<div class="word-actions">' +
+      (inDeck
+        ? '<span class="in-deck">✓ In your deck</span>'
+        : '<button class="btn primary" data-act="add-card" data-id="' + esc(e.id) + '" type="button">+ Add to my deck</button>') +
+      (opts.back ? '<button class="btn ghost" data-act="back" type="button">Back</button>' : "") +
+      "</div>";
+  }
+  html += "</div>";
   return html;
 }
 
@@ -1480,6 +1604,90 @@ function composeFailHTML(c, hits) {
     "If you get the right Vietnamese from a friend or a translator, save it and I’ll work out the tones and pronunciation:</p></div>" +
     '<button class="btn primary" data-act="custom-card" data-en="' + esc(c.raw || "") + '" type="button">Make my own card</button>' +
     "</div>" + altHitsHTML(hits);
+}
+
+/* ---------------------------- Gemini lookup ---------------------------- */
+/* Anything the phrasebook can't answer can be asked of Gemini — via a proxy
+   that holds the API key, so the key never reaches this page. Two proxies
+   speak the same protocol:
+     · local dev:  `node server.js` in this folder (localhost)
+     · deployed:   the Cloudflare Worker in worker.js — after
+                   `npx wrangler deploy`, paste its URL into LOOKUP_DEPLOYED
+                   below, keeping the /api/lookup path.
+   Lookups try the likelier endpoint for where the page is running, then
+   fall back to the other. */
+
+var LOOKUP_LOCAL = "http://localhost:8787/api/lookup";
+var LOOKUP_DEPLOYED = "https://tungtu-lookup.bennysimba.workers.dev/api/lookup"; /* e.g. "https://tungtu-lookup.YOUR-SUBDOMAIN.workers.dev/api/lookup" */
+var LOOKUP_ENDPOINTS = (function () {
+  var isLocal = typeof location === "undefined" || location.protocol === "file:" ||
+    /^(localhost|127\.|192\.168\.|\[::1\])/.test(String(location.hostname || ""));
+  return (isLocal ? [LOOKUP_LOCAL, LOOKUP_DEPLOYED] : [LOOKUP_DEPLOYED, LOOKUP_LOCAL])
+    .filter(function (u) { return !!u; });
+})();
+var lookupToken = 0;
+
+function geminiFootHTML(q) {
+  return '<p class="hint" style="text-align:center;margin-top:14px">Not what you meant? ' +
+    '<button class="link-btn" data-act="gemini-lookup" data-q="' + esc(q) + '" type="button">Ask Gemini about “' + esc(q) + '”</button></p>';
+}
+
+function geminiCardHTML(r) {
+  var html = '<div class="card word-card stack">';
+  html += '<div><p class="eyebrow">Gemini says — double-check anything important</p>' +
+    '<div class="head-row"><div><h1 class="headword">' + esc(r.vi) + "</h1>" +
+    '<p class="gloss">' + esc(r.en) + "</p>" +
+    (r.literal ? '<p class="lit">literally: ' + esc(r.literal) + "</p>" : "") +
+    "</div>" + audioBtnsHTML(r.vi) + "</div></div>";
+  html += '<div><p class="eyebrow">Say it (' + accentShort() + " accent) — tap a tone to see how it moves</p>" +
+    syllablesHTML(r.vi) + "</div>";
+  if (r.note) html += '<div class="note-box">' + esc(r.note) + "</div>";
+  html += '<div class="word-actions"><button class="btn primary" data-act="custom-card" data-vi="' +
+    esc(r.vi) + '" data-en="' + esc(r.en) + '" type="button">Make it a flashcard</button></div></div>';
+  return html;
+}
+
+function geminiErrorHTML(msg) {
+  return '<div class="card stack"><p class="eyebrow">Gemini lookup didn\'t work</p>' +
+    "<h3>" + esc(msg) + "</h3>" +
+    '<p class="sub">The lookup runs through a small local server so the API key stays out of this page. ' +
+    "Start it from the app folder with <strong>node server.js</strong> — setup lives in the README.</p></div>";
+}
+
+function geminiLookup(q) {
+  q = String(q || "").trim();
+  var box = $("#learn-results");
+  if (!box || !q) return;
+  var tok = ++lookupToken;
+  box.innerHTML = '<div class="card empty">Asking Gemini about “' + esc(q) + '”…</div>';
+  var finish = function (html) {
+    if (tok !== lookupToken) return; /* a newer search took over */
+    var b = $("#learn-results");
+    if (b) b.innerHTML = html;
+  };
+  if (typeof fetch === "undefined") { finish(geminiErrorHTML("This browser has no fetch support.")); return; }
+  var urls = LOOKUP_ENDPOINTS.slice();
+  if (!urls.length) { finish(geminiErrorHTML("No lookup server is configured — see the README.")); return; }
+  function attempt() {
+    var url = urls.shift();
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: q })
+    }).then(function (r) {
+      return r.json().then(function (body) { return { ok: r.ok, body: body }; });
+    }).then(function (r) {
+      /* the server answered — success or a definitive error; don't retry elsewhere */
+      if (!r.ok || r.body.error) finish(geminiErrorHTML(r.body.error || "The lookup server returned an error."));
+      else if (!r.body.vi || !r.body.en) finish(geminiErrorHTML("Gemini's answer was missing pieces — try again."));
+      else finish(geminiCardHTML(r.body));
+    }).catch(function () {
+      if (tok !== lookupToken) return;
+      if (urls.length) attempt(); /* unreachable — fall back to the other proxy */
+      else finish(geminiErrorHTML("Couldn't reach a lookup server."));
+    });
+  }
+  attempt();
 }
 
 /* ------------------------------ learn tab ------------------------------ */
@@ -1538,10 +1746,10 @@ function showSearchResults(q, full) {
   var hits = searchEntries(INDEX, q);
   /* an exact phrasebook entry always wins; otherwise try building the phrase */
   var comp = (hits.length && hits[0].s >= 92) ? null : composePhrase(q);
-  if (comp && comp.ok) { box.innerHTML = composedCardHTML(comp) + altHitsHTML(hits); return; }
-  if (comp && full) { box.innerHTML = composeFailHTML(comp, hits); return; }
+  if (comp && comp.ok) { box.innerHTML = composedCardHTML(comp) + altHitsHTML(hits) + geminiFootHTML(q); return; }
+  if (comp && full) { box.innerHTML = composeFailHTML(comp, hits) + geminiFootHTML(q); return; }
   if (hits.length === 0) { box.innerHTML = notFoundHTML(q, !!full); return; }
-  box.innerHTML = hitListHTML(hits);
+  box.innerHTML = hitListHTML(hits) + geminiFootHTML(q);
 }
 
 function submitSearch(q) {
@@ -1563,15 +1771,19 @@ function notFoundHTML(q, full) {
       '<div class="head-row"><h1 class="headword">' + esc(q.trim()) + "</h1>" + audioBtnsHTML(q.trim()) + "</div></div>" +
       syllablesHTML(q.trim()) +
       '<p class="sub">I can read the tones from the spelling, but I don\'t know this one\'s meaning. ' +
-      "If you know it (from a menu, a friend, a translator), save it as your own card:</p>" +
-      '<button class="btn primary" data-act="custom-card" data-vi="' + esc(q.trim()) + '" type="button">Make it a flashcard</button>';
+      "If you know it (from a menu, a friend, a translator), save it as your own card — or ask Gemini:</p>" +
+      '<div class="word-actions">' +
+      '<button class="btn primary" data-act="gemini-lookup" data-q="' + esc(q.trim()) + '" type="button">Ask Gemini what it means</button>' +
+      '<button class="btn" data-act="custom-card" data-vi="' + esc(q.trim()) + '" type="button">Make it a flashcard</button></div>';
   } else {
     html += '<div><p class="eyebrow">Not in the phrasebook yet</p>' +
       "<h3>I don't know “" + esc(q.trim()) + "” — yet</h3>" +
       '<p class="sub">The built-in phrasebook covers ' + DICT.entries.length + " beginner words and phrases. " +
-      "If you have the Vietnamese for this (from a translator or a friend), make your own card — " +
-      "tones and pronunciation will be worked out automatically.</p></div>" +
-      '<button class="btn primary" data-act="custom-card" data-en="' + esc(q.trim()) + '" type="button">Make my own card</button>' +
+      "Ask Gemini for a translation, or make your own card if you already have the Vietnamese — " +
+      "tones and pronunciation are worked out automatically either way.</p></div>" +
+      '<div class="word-actions">' +
+      '<button class="btn primary" data-act="gemini-lookup" data-q="' + esc(q.trim()) + '" type="button">Ask Gemini</button>' +
+      '<button class="btn" data-act="custom-card" data-en="' + esc(q.trim()) + '" type="button">Make my own card</button></div>' +
       '<p class="hint">Tip: try a simpler word — “toilet” instead of “lavatory”.</p>';
   }
   html += "</div>";
@@ -1623,11 +1835,19 @@ function renderReview(practiceAhead) {
     var soonestAll = Object.keys(store.data.cards).map(function (k) { return store.data.cards[k]; })
       .sort(function (a, b) { return a.due - b.due; })[0];
     var when = soonestAll ? fmtWhen(soonestAll.due - now) : "";
-    $("#view").innerHTML = '<div class="card done-banner stack">' +
+    var doneLine = view.sessionDone
+      ? pickLine(BUDDY_LINES.reviewDone).split("{n}").join(String(view.sessionDone))
+      : pickLine(BUDDY_LINES.reviewNone);
+    var streakNow = streakDays(store.data.log, now);
+    if (view.sessionDone && STREAK_LINES[streakNow]) doneLine = STREAK_LINES[streakNow];
+    $("#view").innerHTML = buddyHTML("cheer", esc(doneLine)) +
+      '<div class="card done-banner celebrate stack" style="margin-top:14px">' +
       '<div class="big">Giỏi quá! 🎉</div>' +
       '<p class="sub">All caught up' + (view.sessionDone ? " — " + view.sessionDone + " reviewed" : "") +
       ".</p>" + (when ? '<p class="sub">Next card is due ' + when + ".</p>" : "") +
-      '<div><button class="btn" data-act="practice-ahead" type="button">Practice ahead anyway</button></div></div>';
+      '<div class="btn-row">' +
+      (completedLessons().length ? '<button class="btn" data-act="scen-start" type="button">Practice a scene</button>' : "") +
+      '<button class="btn" data-act="practice-ahead" type="button">Practice ahead anyway</button></div></div>';
     return;
   }
   view.current = card.id;
@@ -1714,10 +1934,10 @@ function renderPackDetail(packId) {
   var p = packById(packId);
   var entries = DICT.entries.filter(function (e) { return e.pack === packId; });
   var notIn = entries.filter(function (e) { return !deckHas(e.id); });
-  var html = '<button class="link-btn" data-act="packs-home" type="button">← All packs</button>' +
-    '<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:10px 0 14px">' +
-    "<div><h2>" + esc(p.name) + '</h2><p class="sub">' + esc(p.desc) + "</p></div>" +
-    (notIn.length ? '<button class="btn small" data-act="add-pack" data-pack="' + packId + '" type="button">+ Add all (' + notIn.length + ")</button>" : '<span class="in-deck">✓ all in deck</span>') +
+  var html = '<div class="page-head">' +
+    '<button class="back-btn" data-act="packs-home" type="button" aria-label="Back to all packs">←</button>' +
+    '<div class="ph-main"><h2>' + esc(p.name) + '</h2><p class="sub">' + esc(p.desc) + "</p></div>" +
+    (notIn.length ? '<button class="btn small" data-act="add-pack" data-pack="' + packId + '" type="button">+ Add all (' + notIn.length + ")</button>" : '<span class="in-deck">✓ all</span>') +
     "</div>";
   html += '<div class="pack-list">' + entries.map(function (e) {
     var added = deckHas(e.id);
@@ -1794,6 +2014,614 @@ function renderProgress() {
 
 function tile(num, label) {
   return '<div class="tile"><div class="t-num">' + num + '</div><div class="t-label">' + esc(label) + "</div></div>";
+}
+
+/* ============================ daily lessons ============================ */
+/* Four weeks of short scenario lessons built from phrasebook entries.
+   Finishing a lesson drops its words into the SRS deck, so Review keeps
+   them alive afterwards; quiz answers count into the daily review log. */
+
+var WEEK_THEMES = { 1: "Arrive & be polite", 2: "Eat like a local",
+  3: "Out and about", 4: "Making friends" };
+
+var CURRICULUM = [
+  /* ---- week 1 ---- */
+  { id: "w1d1", w: 1, d: 1, title: "Touchdown: say hello",
+    scene: "Bags in hand, you step out of the airport into the warm, buzzing evening. Your driver waves — and everyone you're about to meet gets a slightly different hello.",
+    entries: ["xin-chao", "chao-anh", "chao-chi", "chao-em", "tam-biet", "hen-gap-lai"],
+    mission: [["Greet your driver — a man a bit older than you", "chao-anh"],
+      ["The receptionist is younger than you — say hi", "chao-em"],
+      ["Hop out, wave, and say goodbye", "tam-biet"]] },
+  { id: "w1d2", w: 1, d: 2, title: "The magic words",
+    scene: "Your first market walk. You drop your map, bump an elbow, get handed a mango sample — the polite words do all the work.",
+    entries: ["cam-on", "cam-on-nhieu", "khong-co-gi", "xin-loi", "khong-sao"],
+    mission: [["A stranger rescues your runaway map — thank her a lot", "cam-on-nhieu"],
+      ["You clip someone's shoulder in the crowd", "xin-loi"],
+      ["He apologizes right back — tell him it's no problem", "khong-sao"]] },
+  { id: "w1d3", w: 1, d: 3, title: "Yes, no, please",
+    scene: "Your homestay host keeps offering things — tea, fruit, a third helping of rice. Time to accept and decline gracefully.",
+    entries: ["da", "khong", "lam-on", "duoc", "a-particle", "cho-mot-chut"],
+    mission: [["She offers tea — give her a soft southern yes", "da"],
+      ["A third helping? Politely: no", "khong"],
+      ["She asks if 7 a.m. breakfast works — “that works!”", "duoc"],
+      ["You need a second to think — ask her to wait a moment", "cho-mot-chut"]] },
+  { id: "w1d4", w: 1, d: 4, title: "Who's who",
+    scene: "Vietnamese has no plain “you” — you call everyone a family word instead. Get these right and strangers warm up instantly.",
+    entries: ["toi", "ban", "anh", "chi", "em", "chu", "co-aunt"],
+    mission: [["The word for yourself", "toi"],
+      ["A woman a little older than you", "chi"],
+      ["A man about your parents' age", "chu"],
+      ["Your new friend, about your age", "ban"]] },
+  { id: "w1d5", w: 1, d: 5, title: "Nice to meet you",
+    scene: "Dinner at the homestay. The whole family wants to know who you are — and tonight you can actually answer.",
+    entries: ["ban-ten-la-gi", "toi-ten-la", "ban-khoe-khong", "toi-khoe", "rat-vui-duoc-gap-ban"],
+    mission: [["Ask the daughter her name", "ban-ten-la-gi"],
+      ["Start introducing yourself: “my name is…”", "toi-ten-la"],
+      ["Tell them you're happy to meet them", "rat-vui-duoc-gap-ban"]] },
+  { id: "w1d6", w: 1, d: 6, title: "Rescue phrases",
+    scene: "The xe ôm driver fires off three sentences. You caught maybe one word. These phrases turn panic into a conversation.",
+    entries: ["toi-khong-hieu", "noi-cham-lai", "noi-lai", "noi-tieng-anh", "noi-duoc-mot-chut", "toi-khong-biet", "khong-biet-noi"],
+    mission: [["Admit you didn't catch that", "toi-khong-hieu"],
+      ["Ask him to slow down", "noi-cham-lai"],
+      ["Point at something and ask how to say it in Vietnamese", "khong-biet-noi"],
+      ["Announce, proudly, that you speak a little Vietnamese", "noi-duoc-mot-chut"]] },
+  { id: "w1d7", w: 1, d: 7, title: "Morning to night",
+    scene: "A full day at the homestay, from breakfast smells to lights-out — including the friendliest greeting in Vietnam: “have you eaten yet?”",
+    entries: ["chao-buoi-sang", "buoi-sang", "buoi-toi", "an-com-chua", "chuc-ngu-ngon"],
+    mission: [["Greet the family at breakfast", "chao-buoi-sang"],
+      ["Throw the classic friendly “eaten yet?” at a friend", "an-com-chua"],
+      ["Heading to bed — good night!", "chuc-ngu-ngon"]] },
+  /* ---- week 2 ---- */
+  { id: "w2d1", w: 2, d: 1, title: "Street-food hall of fame",
+    scene: "First proper food crawl. Plastic stools, charcoal smoke, and the dishes people fly across the world for.",
+    entries: ["pho-bo", "banh-mi", "com", "bun-cha", "goi-cuon", "nem-ran"],
+    mission: [["Name the beef noodle soup with the queue", "pho-bo"],
+      ["The crackly baguette sandwich", "banh-mi"],
+      ["The fresh — not fried — spring rolls", "goi-cuon"]] },
+  { id: "w2d2", w: 2, d: 2, title: "Getting served",
+    scene: "A packed bún chả joint. No menu in sight, no waiter looking your way. You know what to do.",
+    entries: ["em-oi", "cho-toi", "toi-muon", "thuc-don", "mot-suat"],
+    mission: [["Call the young server over", "em-oi"],
+      ["Kick off your order: “I'll have…”", "cho-toi"],
+      ["Ask for one portion", "mot-suat"]] },
+  { id: "w2d3", w: 2, d: 3, title: "Coffee o'clock",
+    scene: "A tiny café, tinier stools, condensed milk doing the lord's work. Order like you've been here for years.",
+    entries: ["ca-phe", "ca-phe-sua-da", "ca-phe-den", "tra-da", "it-ngot", "it-da"],
+    mission: [["Order the classic — iced milk coffee", "ca-phe-sua-da"],
+      ["Ask for it less sweet", "it-ngot"],
+      ["…and easy on the ice", "it-da"]] },
+  { id: "w2d4", w: 2, d: 4, title: "Thirsty work",
+    scene: "Thirty-four degrees and you've walked ten thousand steps before lunch. Hydration, in every delicious form.",
+    entries: ["nuoc", "nuoc-suoi", "bia", "nuoc-mia", "sinh-to", "khat-nuoc"],
+    mission: [["Order a sealed bottle of water", "nuoc-suoi"],
+      ["Fresh-pressed sugarcane juice — the street-corner special", "nuoc-mia"],
+      ["Tell your friend you're thirsty", "khat-nuoc"]] },
+  { id: "w2d5", w: 2, d: 5, title: "At the table",
+    scene: "Dinner with new friends. Dishes keep landing, someone hands you chopsticks, and the cook is watching your face for a verdict.",
+    entries: ["dua", "them", "ngon-qua", "cay", "khong-cay", "no-roi"],
+    mission: [["Deliver the verdict: so delicious!", "ngon-qua"],
+      ["Warn your friend — that one's spicy", "cay"],
+      ["Wave off the next dish: you're full", "no-roi"]] },
+  { id: "w2d6", w: 2, d: 6, title: "Special orders",
+    scene: "Your friend is vegetarian, you have an allergy, and lunch needs to travel. Kitchens are happy to help — if you can ask.",
+    entries: ["chay", "di-ung", "thit", "rau", "an-o-day", "mang-ve"],
+    mission: [["Ask for the vegetarian version", "chay"],
+      ["“No meat, please” — the word for meat", "thit"],
+      ["Make it takeaway", "mang-ve"],
+      ["Start “I'm allergic to…”", "di-ung"]] },
+  { id: "w2d7", w: 2, d: 7, title: "Settle up",
+    scene: "The table is a battlefield of empty bowls. Time to get the bill — and find out whether plastic works here.",
+    entries: ["tinh-tien", "bao-nhieu-tien", "tien-mat", "the", "tien-thua"],
+    mission: [["Call for the check", "tinh-tien"],
+      ["Ask how much it is", "bao-nhieu-tien"],
+      ["Ask if you can pay by card", "the"],
+      ["The money that comes back — your change", "tien-thua"]] },
+  /* ---- week 3 ---- */
+  { id: "w3d1", w: 3, d: 1, title: "Count to five",
+    scene: "Numbers unlock everything — ordering for the table, bus seats, prices. Start with a handful.",
+    entries: ["mot", "hai", "ba", "bon", "nam-5"],
+    mission: [["Order two (beers) — with your fingers AND your words", "hai"],
+      ["Three bánh mì for the road", "ba"],
+      ["High five: the number itself", "nam-5"]] },
+  { id: "w3d2", w: 3, d: 2, title: "Six to eleven",
+    scene: "Hotel room 8, platform 9, table 10 — the rest of the small numbers, plus your first teen.",
+    entries: ["sau", "bay", "tam", "chin", "muoi-10", "muoi-mot"],
+    mission: [["Your room number: eight", "tam"],
+      ["Ten — the building block of every big number", "muoi-10"],
+      ["Eleven — literally “ten one”", "muoi-mot"]] },
+  { id: "w3d3", w: 3, d: 3, title: "Think in thousands",
+    scene: "Vietnamese prices come with a lot of zeros. A coffee is thirty thousand; a feast is half a million. Learn to hear big numbers without blinking.",
+    entries: ["mot-tram", "mot-nghin", "muoi-nghin", "mot-tram-nghin", "mot-trieu", "tien"],
+    mission: [["Say “ten thousand” — small-change territory", "muoi-nghin"],
+      ["“One hundred thousand” — lunch for two", "mot-tram-nghin"],
+      ["“One million” — sounds rich, buys a nice dinner", "mot-trieu"]] },
+  { id: "w3d4", w: 3, d: 4, title: "Where is…?",
+    scene: "The eternal traveler question. Vietnamese flips it around: name the thing first, then ask “at where?”",
+    entries: ["o-dau", "nha-ve-sinh", "o-day", "dang-kia", "gan", "xa"],
+    mission: [["The two words you tack on to ask “where is…?”", "o-dau"],
+      ["The room you'll need to find most urgently", "nha-ve-sinh"],
+      ["Point: “over there”", "dang-kia"]] },
+  { id: "w3d5", w: 3, d: 5, title: "Wheels",
+    scene: "Taxis, motorbikes, and a driver who thinks he's in a video game. Get where you're going — at a survivable speed.",
+    entries: ["xe-may", "xe-buyt", "san-bay", "khach-san", "cham-thoi", "bao-lau"],
+    mission: [["Tell the driver: the airport", "san-bay"],
+      ["He's flying — ask him to slow down, politely", "cham-thoi"],
+      ["Ask how long the ride will take", "bao-lau"],
+      ["Name the two-wheeled king of the road", "xe-may"]] },
+  { id: "w3d6", w: 3, d: 6, title: "Turn here",
+    scene: "You're on the back of a motorbike taxi, phone map in hand. Congratulations: you're the navigator now.",
+    entries: ["ben-trai", "ben-phai", "re-trai", "re-phai", "di-thang", "dung-lai"],
+    mission: [["Turn left!", "re-trai"],
+      ["Keep going straight", "di-thang"],
+      ["This is it — stop!", "dung-lai"]] },
+  { id: "w3d7", w: 3, d: 7, title: "Market haggle",
+    scene: "A shirt catches your eye. The seller names a price with a grin. The dance begins — friendly, theatrical, and fully expected.",
+    entries: ["mua", "cai-nay", "cai-kia", "dat-qua", "re", "giam-gia", "chi-xem-thoi"],
+    mission: [["Point at it: “this one”", "cai-nay"],
+      ["Gasp at the price: too expensive!", "dat-qua"],
+      ["Ask for a better price", "giam-gia"],
+      ["Escape the hard sell: just looking", "chi-xem-thoi"]] },
+  /* ---- week 4 ---- */
+  { id: "w4d1", w: 4, d: 1, title: "Doing words",
+    scene: "Six little verbs that power half of everything you'll ever say: eat, drink, go, want, like, have.",
+    entries: ["an", "uong", "di", "muon", "thich", "co-have"],
+    mission: [["To eat", "an"],
+      ["To want — the engine of every order", "muon"],
+      ["To like", "thich"]] },
+  { id: "w4d2", w: 4, d: 2, title: "More doing words",
+    scene: "Know, say, hear, watch, do, need — the other half of your sentence toolbox.",
+    entries: ["biet", "noi", "nghe", "xem", "lam", "can"],
+    mission: [["To know", "biet"],
+      ["To need", "can"],
+      ["To do — or to make", "lam"]] },
+  { id: "w4d3", w: 4, d: 3, title: "How you feel",
+    scene: "After a day of temples, traffic, and twelve thousand steps, your body has opinions. Share them.",
+    entries: ["vui", "buon", "met", "doi", "nong", "lanh"],
+    mission: [["Collapse onto a stool: “tired”", "met"],
+      ["Stomach growling: “hungry”", "doi"],
+      ["Saigon at noon: “hot”", "nong"]] },
+  { id: "w4d4", w: 4, d: 4, title: "Sweet talk",
+    scene: "The café cat, your friend's karaoke solo, a sunset over the river — Vietnam gives you plenty to gush about.",
+    entries: ["dep", "de-thuong", "dep-trai", "gioi-qua", "troi-oi", "rat", "qua-intensifier"],
+    mission: [["The café cat: “cute!”", "de-thuong"],
+      ["Your friend nails a tone: “so good!”", "gioi-qua"],
+      ["The all-purpose gasp — “oh my god!”", "troi-oi"]] },
+  { id: "w4d5", w: 4, d: 5, title: "Your story",
+    scene: "New friends want the basics: where you're from, your age (yes, they'll ask — it decides which “you” they call you), your family.",
+    entries: ["ban-den-tu-dau", "toi-den-tu-my", "toi-la-nguoi-my", "bao-nhieu-tuoi", "toi-tuoi", "gia-dinh"],
+    mission: [["Ask where they're from", "ban-den-tu-dau"],
+      ["Say you're from the US", "toi-den-tu-my"],
+      ["The word for family", "gia-dinh"]] },
+  { id: "w4d6", w: 4, d: 6, title: "Talking time",
+    scene: "Making plans: what time is it, what about tomorrow, are you free this weekend?",
+    entries: ["hom-nay", "ngay-mai", "hom-qua", "bay-gio", "may-gio-roi", "cuoi-tuan"],
+    mission: [["Suggest tomorrow", "ngay-mai"],
+      ["Ask what time it is", "may-gio-roi"],
+      ["Pitch the weekend", "cuoi-tuan"]] },
+  { id: "w4d7", w: 4, d: 7, title: "Just in case",
+    scene: "Hopefully you'll never need these. But a sore stomach at midnight is exactly when you don't want to be learning new vocabulary.",
+    entries: ["giup-toi", "hieu-thuoc", "benh-vien", "bac-si", "toi-bi-om", "dau", "cong-an"],
+    mission: [["Ask someone to please help you", "giup-toi"],
+      ["The green-cross shop you're looking for", "hieu-thuoc"],
+      ["Tell the pharmacist you're sick", "toi-bi-om"],
+      ["Lost passport — who you go find", "cong-an"]] }
+];
+
+function lessonById(id) {
+  for (var i = 0; i < CURRICULUM.length; i++) if (CURRICULUM[i].id === id) return CURRICULUM[i];
+  return null;
+}
+function lessonIndex(id) {
+  for (var i = 0; i < CURRICULUM.length; i++) if (CURRICULUM[i].id === id) return i;
+  return -1;
+}
+function firstIncompleteLesson() {
+  for (var i = 0; i < CURRICULUM.length; i++) {
+    if (!store.data.lessons.done[CURRICULUM[i].id]) return CURRICULUM[i];
+  }
+  return null;
+}
+function completedLessons() {
+  return CURRICULUM.filter(function (l) { return !!store.data.lessons.done[l.id]; });
+}
+function lessonDoneToday(now) {
+  var k = dayKey(now), done = store.data.lessons.done;
+  for (var id in done) if (done.hasOwnProperty(id) && dayKey(done[id]) === k) return true;
+  return false;
+}
+
+/* ============================== buddy ============================== */
+/* Trâu the water buffalo — a small, warm presence that reacts to streaks,
+   lessons, and review sessions. Face is drawn inline so it follows the
+   palette in both themes. */
+
+function buddySVG(mood) {
+  var eyes, mouth, extra = "";
+  if (mood === "cheer") {
+    eyes = '<path d="M13.5 19.5 Q15.5 16.8 17.5 19.5" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>' +
+      '<path d="M24.5 19.5 Q26.5 16.8 28.5 19.5" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>';
+    mouth = '<ellipse cx="21" cy="30" rx="2.6" ry="2" fill="var(--ink-2)"/>';
+    extra = '<circle cx="10.5" cy="23" r="2.4" fill="var(--accent-wash)"/><circle cx="31.5" cy="23" r="2.4" fill="var(--accent-wash)"/>';
+  } else if (mood === "sleep") {
+    eyes = '<path d="M13.5 19 L17.5 19 M24.5 19 L28.5 19" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/>';
+    mouth = '<path d="M19.5 30.5 Q21 31.8 22.5 30.5" fill="none" stroke="var(--ink-2)" stroke-width="1.6" stroke-linecap="round"/>';
+    extra = '<text x="31" y="10" font-size="7" fill="var(--muted)" font-family="sans-serif">z</text>';
+  } else { /* happy */
+    eyes = '<circle cx="15.5" cy="19" r="1.7" fill="var(--ink)"/><circle cx="26.5" cy="19" r="1.7" fill="var(--ink)"/>';
+    mouth = '<path d="M18 30 Q21 32.6 24 30" fill="none" stroke="var(--ink-2)" stroke-width="1.6" stroke-linecap="round"/>';
+  }
+  return '<svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">' +
+    '<path d="M9 12 C3 10 3 3 10 4.5" fill="none" stroke="var(--ink-2)" stroke-width="2.2" stroke-linecap="round"/>' +
+    '<path d="M33 12 C39 10 39 3 32 4.5" fill="none" stroke="var(--ink-2)" stroke-width="2.2" stroke-linecap="round"/>' +
+    '<ellipse cx="21" cy="22" rx="13.5" ry="12.5" fill="var(--card)" stroke="var(--ink-2)" stroke-width="1.6"/>' +
+    '<path d="M16 10.5 Q21 7.5 26 10.5" fill="none" stroke="var(--ink-2)" stroke-width="1.6" stroke-linecap="round"/>' +
+    eyes + extra +
+    '<ellipse cx="21" cy="28" rx="7.5" ry="5" fill="var(--card-2)" stroke="var(--line)"/>' +
+    '<circle cx="18.2" cy="27" r="1" fill="var(--ink-2)"/><circle cx="23.8" cy="27" r="1" fill="var(--ink-2)"/>' +
+    mouth + "</svg>";
+}
+
+function buddyHTML(mood, innerHTML) {
+  return '<div class="buddy-row"><div class="buddy-ava">' + buddySVG(mood) + "</div>" +
+    '<div class="buddy-bubble"><span class="buddy-name">Trâu · your buddy</span>' + innerHTML + "</div></div>";
+}
+
+var BUDDY_LINES = {
+  fresh: [
+    "Chào bạn! I'm Trâu, your study buddy. The plan is simple: one small lesson a day, and I handle the remembering schedule. Ready?"
+  ],
+  morning: [
+    "Chào buổi sáng! A few words now, and they'll simmer in your head all day.",
+    "Morning! Coffee in one hand, five new words in the other — best way to start.",
+    "Chào bạn! The day is young. Shall we sneak a lesson in before it gets busy?"
+  ],
+  afternoon: [
+    "Chào bạn! Perfect time for a five-minute lesson — I checked.",
+    "Afternoon slump? A little Vietnamese is basically a nap for your brain. Sort of.",
+    "Back again! Five minutes, a few words, and you're ahead of yesterday."
+  ],
+  evening: [
+    "Tối rồi! One little lesson before the day clocks out?",
+    "Evening study hits different — quiet brain, sticky words.",
+    "Almost bedtime. Chúc ngủ ngon comes later — lesson first?"
+  ],
+  comeback: [
+    "Bạn ơi, you're back! I kept your words warm. No catch-up guilt — today's lesson is plenty.",
+    "There you are! Your deck waited patiently, like a good deck. Let's ease back in."
+  ],
+  lessonDone: [
+    "Giỏi quá! {n} more words in your pocket. I'll bring them back in Review right when you'd start to forget.",
+    "Xong rồi — done! That scene is yours now. See you in Review, little words.",
+    "Beautiful. {n} words in one sitting — future you is already grateful."
+  ],
+  lessonRedo: [
+    "A replay! Repetition is how words move in permanently. Nice work.",
+    "Back through the scene again — that's how it becomes reflex."
+  ],
+  reviewDone: [
+    "{n} reviews down — cảm ơn from your future self.",
+    "That's {n} words kept alive. This quiet part is where it actually sticks.",
+    "{n} done, zero left. Your streak thanks you."
+  ],
+  reviewNone: [
+    "Nothing due right now — your memory is holding the line. Fancy replaying a scene instead?",
+    "All quiet! Come back when the words get wobbly — I'll have them queued."
+  ],
+  scenDone: [
+    "Scene complete! Next time it happens for real, you'll be ready.",
+    "Rehearsal done — real life won't know what hit it."
+  ]
+};
+
+var STREAK_LINES = {
+  3: "Three days in a row! 🔥 That's officially a habit sprouting.",
+  7: "Một tuần — a whole week! 🔥 Trâu is doing a little buffalo dance.",
+  14: "Two weeks straight! Your ears are changing. Can you feel it?",
+  21: "Twenty-one days! They say that's when a habit sets. I say it already has.",
+  30: "Ba mươi ngày — thirty days! 🔥 You and me, we're unstoppable.",
+  50: "FIFTY days. Trâu has known ponds less deep than your dedication.",
+  100: "One HUNDRED days. Trời ơi. I'm speechless in two languages."
+};
+
+function pickLine(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+var BUDDY_AWAY = 0; /* days since last visit, computed once at boot */
+
+function buddyGreeting(now) {
+  var streak = streakDays(store.data.log, now);
+  var hasAny = Object.keys(store.data.cards).length > 0 || completedLessons().length > 0;
+  if (!hasAny) return { mood: "cheer", text: pickLine(BUDDY_LINES.fresh) };
+  if (BUDDY_AWAY >= 3) return { mood: "happy", text: pickLine(BUDDY_LINES.comeback) };
+  if (STREAK_LINES[streak]) return { mood: "cheer", text: STREAK_LINES[streak] };
+  var h = new Date(now).getHours();
+  if (h < 12) return { mood: "happy", text: pickLine(BUDDY_LINES.morning) };
+  if (h < 18) return { mood: "happy", text: pickLine(BUDDY_LINES.afternoon) };
+  return { mood: "sleep", text: pickLine(BUDDY_LINES.evening) };
+}
+
+/* ---------------------------- lesson engine ---------------------------- */
+/* view.lesson = { id, step, quiz, qi, missed, revealed, added }
+   step 0 = scene intro · 1..N = one word each · N+1 = practice · N+2 = done */
+
+function shuffleList(a) {
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function startLesson(id) {
+  var l = lessonById(id);
+  if (!l) return;
+  view.lesson = { id: id, step: 0, quiz: null, qi: 0, missed: 0, revealed: false, added: 0 };
+  view.scen = null;
+  if (view.tab !== "today") setTab("today"); else render();
+}
+
+function buildQuiz(l) {
+  var cues = {};
+  (l.mission || []).forEach(function (m) { cues[m[1]] = m[0]; });
+  return shuffleList(l.entries.slice()).map(function (id) {
+    return { id: id, cue: cues[id] || null };
+  });
+}
+
+function lessonNext() {
+  var L = view.lesson;
+  if (!L) return;
+  var l = lessonById(L.id);
+  L.step += 1;
+  if (L.step === l.entries.length + 1) { L.quiz = buildQuiz(l); L.qi = 0; L.revealed = false; }
+  render();
+}
+
+function lessonPrev() {
+  var L = view.lesson;
+  if (!L || L.step <= 0) return;
+  L.step -= 1;
+  render();
+}
+
+function quizAnswer(got) {
+  var L = view.lesson;
+  if (!L || !L.quiz || L.qi >= L.quiz.length) return;
+  logReview(Date.now()); /* a real recall attempt — counts toward streak & chart */
+  if (!got) { L.missed += 1; L.quiz.push(L.quiz[L.qi]); }
+  L.qi += 1;
+  L.revealed = false;
+  if (L.qi >= L.quiz.length) finishLesson();
+  else { updateChrome(); render(); }
+}
+
+function finishLesson() {
+  var L = view.lesson, l = lessonById(L.id), now = Date.now();
+  var added = 0;
+  l.entries.forEach(function (id) { if (addToDeck(id, true)) added += 1; });
+  var redo = !!store.data.lessons.done[l.id];
+  store.data.lessons.done[l.id] = now;
+  store.save();
+  L.added = added;
+  L.redo = redo;
+  L.step = l.entries.length + 2;
+  updateChrome();
+  render();
+}
+
+/* shared chrome for lesson & scenario screens: progress + always-there exit */
+function sessionBarHTML(fraction, exitAct) {
+  var pct = Math.max(0, Math.min(100, Math.round(fraction * 100)));
+  return '<div class="session-bar">' +
+    '<div class="session-track"><i class="session-fill" style="width:' + pct + '%"></i></div>' +
+    '<button class="session-x" data-act="' + exitAct + '" type="button" aria-label="Leave">×</button></div>';
+}
+
+function renderLesson() {
+  var L = view.lesson, l = lessonById(L.id);
+  if (!l) { view.lesson = null; renderToday(); return; }
+  var N = l.entries.length;
+  /* progress spans intro (0) → words (1..N) → practice (N+1) */
+  var head = sessionBarHTML(Math.min(L.step, N + 1) / (N + 1), "lesson-exit") +
+    '<p class="eyebrow session-eyebrow">Week ' + l.w + " · Day " + l.d + " — " + esc(l.title) + "</p>";
+  var html = head;
+
+  if (L.step === 0) {
+    html += '<div class="card stack">' +
+      "<h2>" + esc(l.title) + "</h2>" +
+      '<div class="scene-banner">' + esc(l.scene) + "</div>" +
+      '<p class="sub">' + N + " words & phrases, one quick practice run at the end — about five minutes.</p>" +
+      '<div><button class="btn primary" data-act="lesson-next" type="button">Let\'s go</button></div>' +
+      "</div>";
+  } else if (L.step <= N) {
+    var e = entryById(l.entries[L.step - 1]);
+    html += e ? teachCardHTML(e, { embed: true }) : "";
+    html += '<div class="session-nav">' +
+      '<button class="btn ghost" data-act="lesson-prev" type="button">‹ Back</button>' +
+      '<button class="btn primary" data-act="lesson-next" type="button">' +
+      (L.step === N ? "Try the scene →" : "Next →") + "</button></div>";
+  } else if (L.step === N + 1) {
+    var item = L.quiz[L.qi], qe = entryById(item.id);
+    html += '<div class="card review-stage">' +
+      '<div class="review-count">practice · ' + (L.qi + 1) + " of " + L.quiz.length + "</div>";
+    if (item.cue) {
+      html += '<p class="prompt-label">Your moment</p>' +
+        '<div class="prompt-main">' + esc(item.cue) + "</div>" +
+        '<p class="prompt-sub">' + esc(qe.en) + "</p>";
+    } else {
+      html += '<p class="prompt-label">Say it in Vietnamese</p>' +
+        '<div class="prompt-main">' + esc(qe.en) + "</div>";
+    }
+    if (!L.revealed) {
+      html += '<div style="margin-top:22px"><button class="btn primary" data-act="quiz-reveal" type="button">Show answer</button></div>' +
+        '<p class="hint" style="margin-top:14px">Say it out loud first — that\'s where it sticks.</p>';
+    } else {
+      html += '<div class="answer-zone stack">' +
+        '<div class="head-row"><div><div class="prompt-main" style="margin:0">' + esc(qe.vi) + "</div>" +
+        '<p class="prompt-sub">' + esc(qe.en) + "</p></div>" + audioBtnsHTML(qe.vi) + "</div>" +
+        syllablesHTML(qe.vi) +
+        (qe.ex && qe.ex[0] ? '<div class="example"><div class="ex-vi">' + esc(qe.ex[0]) + '</div><div class="ex-en">' + esc(qe.ex[1] || "") + "</div></div>" : "") +
+        "</div>" +
+        '<div class="quiz-check">' +
+        '<button class="btn miss" data-act="quiz-miss" type="button">Not yet</button>' +
+        '<button class="btn primary" data-act="quiz-got" type="button">Got it</button></div>';
+    }
+    html += "</div>";
+  } else {
+    var now = Date.now();
+    var streak = streakDays(store.data.log, now);
+    var line = STREAK_LINES[streak] ||
+      (L.redo && L.added === 0 ? pickLine(BUDDY_LINES.lessonRedo)
+        : pickLine(BUDDY_LINES.lessonDone).split("{n}").join(String(N)));
+    var due = pendingCount(now);
+    html = buddyHTML("cheer", esc(line)) +
+      '<div class="card done-banner celebrate stack" style="margin-top:14px">' +
+      '<div class="big">Xong rồi! 🎉</div>' +
+      '<p class="sub">' + (L.added > 0
+        ? L.added + (L.added === 1 ? " word" : " words") + " joined your deck — Review will bring them back right on time."
+        : "All these words were already in your deck — pure extra reps.") + "</p>" +
+      (L.missed > 0 ? '<p class="sub">The tricky ones will circle back — that\'s the system working, not you failing.</p>' : "") +
+      '<div class="btn-row">' +
+      '<button class="btn primary" data-act="lesson-exit" type="button">Back to Today</button>' +
+      (due > 0 ? '<button class="btn" data-goto="review" type="button">Review ' + due + " due</button>" : "") +
+      "</div></div>";
+  }
+  $("#view").innerHTML = html;
+}
+
+/* --------------------------- scenario practice --------------------------- */
+/* Replays the mission lines of a completed lesson — reachable from Today
+   and from the Review all-caught-up screen. view.scen = { id, qi, revealed, items } */
+
+function startScenario(id) {
+  var pool = completedLessons();
+  if (!pool.length) return;
+  var l = id ? lessonById(id) : pool[Math.floor(Math.random() * pool.length)];
+  if (!l) return;
+  var items = (l.mission && l.mission.length)
+    ? shuffleList(l.mission.slice())
+    : l.entries.map(function (eid) { return [null, eid]; });
+  view.scen = { id: l.id, qi: 0, revealed: false, items: items };
+  view.lesson = null;
+  render();
+}
+
+function scenNext() {
+  var S = view.scen;
+  if (!S) return;
+  logReview(Date.now());
+  S.qi += 1;
+  S.revealed = false;
+  updateChrome();
+  render();
+}
+
+function renderScenario() {
+  var S = view.scen, l = lessonById(S.id);
+  if (!l) { view.scen = null; render(); return; }
+  var html;
+  if (S.qi >= S.items.length) {
+    html = buddyHTML("cheer", esc(pickLine(BUDDY_LINES.scenDone))) +
+      '<div class="card done-banner celebrate stack" style="margin-top:14px">' +
+      '<div class="big">' + esc(l.title) + " — replayed</div>" +
+      '<div class="btn-row">' +
+      (completedLessons().length > 1 ? '<button class="btn" data-act="scen-start" type="button">Another scene</button>' : "") +
+      '<button class="btn primary" data-act="scen-exit" type="button">Done</button>' +
+      "</div></div>";
+    $("#view").innerHTML = html;
+    return;
+  }
+  var it = S.items[S.qi], e = entryById(it[1]);
+  if (!e) { S.qi += 1; renderScenario(); return; }
+  html = sessionBarHTML(S.qi / S.items.length, "scen-exit") +
+    '<p class="eyebrow session-eyebrow">Scene replay — ' + esc(l.title) + "</p>" +
+    (S.qi === 0 ? '<div class="scene-banner" style="margin:0 0 14px">' + esc(l.scene) + "</div>" : "") +
+    '<div class="card review-stage">' +
+    '<div class="review-count">' + (S.qi + 1) + " of " + S.items.length + "</div>" +
+    '<p class="prompt-label">Your moment</p>' +
+    '<div class="prompt-main">' + esc(it[0] || "Say it in Vietnamese: " + e.en) + "</div>";
+  if (!S.revealed) {
+    html += '<div style="margin-top:22px"><button class="btn primary" data-act="scen-reveal" type="button">Show answer</button></div>' +
+      '<p class="hint" style="margin-top:14px">Out loud — the market can\'t hear you thinking.</p>';
+  } else {
+    html += '<div class="answer-zone stack">' +
+      '<div class="head-row"><div><div class="prompt-main" style="margin:0">' + esc(e.vi) + "</div>" +
+      '<p class="prompt-sub">' + esc(e.en) + "</p></div>" + audioBtnsHTML(e.vi) + "</div>" +
+      syllablesHTML(e.vi) +
+      (e.ex && e.ex[0] ? '<div class="example"><div class="ex-vi">' + esc(e.ex[0]) + '</div><div class="ex-en">' + esc(e.ex[1] || "") + "</div></div>" : "") +
+      "</div>" +
+      '<div style="margin-top:18px"><button class="btn primary" data-act="scen-next" type="button">' +
+      (S.qi + 1 >= S.items.length ? "Finish" : "Next →") + "</button></div>";
+  }
+  html += "</div>";
+  $("#view").innerHTML = html;
+}
+
+/* ------------------------------ today tab ------------------------------ */
+
+function renderToday() {
+  if (view.lesson) { renderLesson(); return; }
+  var now = Date.now();
+  var g = buddyGreeting(now);
+  var html = buddyHTML(g.mood, esc(g.text));
+
+  var next = firstIncompleteLesson();
+  var doneToday = lessonDoneToday(now);
+  html += '<div class="card stack" style="margin-top:14px">';
+  if (!next) {
+    html += '<p class="eyebrow">Curriculum complete</p>' +
+      "<h2>All " + CURRICULUM.length + " lessons done 🎓</h2>" +
+      '<p class="sub">Every scene below is yours to replay, and Review keeps the words fresh for the real thing.</p>';
+  } else {
+    html += '<p class="eyebrow">' + (doneToday ? "Up next" : "Today's lesson") +
+      " · Week " + next.w + ", day " + next.d + " — " + esc(WEEK_THEMES[next.w]) + "</p>" +
+      "<h2>" + esc(next.title) + "</h2>" +
+      '<div class="scene-banner">' + esc(next.scene) + "</div>" +
+      '<p class="sub">' + next.entries.length + " words & phrases · about 5 minutes</p>";
+    if (doneToday) {
+      html += '<p class="sub">You\'ve already done a lesson today — giỏi quá! One a day is the rhythm, but Trâu won\'t stop you.</p>' +
+        '<div><button class="btn" data-act="open-lesson" data-lesson="' + next.id + '" type="button">Start it anyway</button></div>';
+    } else {
+      html += '<div><button class="btn primary" data-act="open-lesson" data-lesson="' + next.id + '" type="button">Start today\'s lesson</button></div>';
+    }
+  }
+  html += "</div>";
+
+  var due = pendingCount(now);
+  if (due > 0) {
+    html += '<div class="row-card">' +
+      '<div class="rc-main"><h3>' + due + (due === 1 ? " card is" : " cards are") + " ready in Review</h3>" +
+      '<p class="sub">Two minutes now saves relearning later.</p></div>' +
+      '<button class="btn small primary" data-goto="review" type="button">Review</button></div>';
+  }
+  if (completedLessons().length > 0) {
+    html += '<div class="row-card">' +
+      '<div class="rc-main"><h3>Replay a scene</h3>' +
+      '<p class="sub">Rerun a lesson\'s moments before real life asks.</p></div>' +
+      '<button class="btn small" data-act="scen-start" type="button">Practice</button></div>';
+  }
+
+  html += '<h2 class="hero-q" style="margin-top:28px">Your four weeks</h2>';
+  var curIdx = next ? lessonIndex(next.id) : CURRICULUM.length;
+  var lastWeek = 0;
+  CURRICULUM.forEach(function (l, idx) {
+    if (l.w !== lastWeek) {
+      if (lastWeek !== 0) html += "</div>";
+      html += '<p class="week-label">Week ' + l.w + " — " + esc(WEEK_THEMES[l.w]) + "</p>" +
+        '<div class="pack-list">';
+      lastWeek = l.w;
+    }
+    var done = !!store.data.lessons.done[l.id];
+    var current = idx === curIdx;
+    var locked = !done && idx > curIdx;
+    html += '<button class="lesson-row' + (done ? " done" : "") + (current ? " current" : "") + '"' +
+      (locked ? " disabled" : ' data-act="open-lesson" data-lesson="' + l.id + '"') + ' type="button">' +
+      '<span class="l-idx">' + (done ? "✓" : l.d) + "</span>" +
+      '<span class="l-main"><span class="l-name">' + esc(l.title) + "</span><br>" +
+      '<span class="l-sub">' + l.entries.length + " words" + (done ? " · done — tap to replay" : (current ? " · up next" : "")) + "</span></span>" +
+      "</button>";
+  });
+  html += "</div>";
+  $("#view").innerHTML = html;
 }
 
 /* ------------------------------ modals ------------------------------ */
@@ -1889,8 +2717,9 @@ function updateChrome() {
 function setTab(tab) {
   view.tab = tab;
   view.revealed = false;
+  view.scen = null;
   if (tab !== "packs") view.packId = null;
-  $$(".tab-btn").forEach(function (b) {
+  $$(".nav-btn").forEach(function (b) {
     b.setAttribute("aria-selected", b.getAttribute("data-tab") === tab ? "true" : "false");
   });
   render();
@@ -1898,7 +2727,9 @@ function setTab(tab) {
 
 function render() {
   updateChrome();
-  if (view.tab === "learn") renderLearn();
+  if (view.scen) renderScenario();
+  else if (view.tab === "today") renderToday();
+  else if (view.tab === "learn") renderLearn();
   else if (view.tab === "review") renderReview(false);
   else if (view.tab === "packs") renderPacks();
   else renderProgress();
@@ -1979,6 +2810,21 @@ function handleClick(ev) {
       });
       break;
     case "reveal": view.revealed = true; renderReview(false); break;
+    case "open-lesson": startLesson(el.getAttribute("data-lesson")); break;
+    case "lesson-exit": view.lesson = null; render(); break;
+    case "lesson-next": lessonNext(); break;
+    case "lesson-prev": lessonPrev(); break;
+    case "quiz-reveal": if (view.lesson) { view.lesson.revealed = true; render(); } break;
+    case "quiz-got": quizAnswer(true); break;
+    case "quiz-miss": quizAnswer(false); break;
+    case "scen-start": startScenario(el.getAttribute("data-lesson") || null); break;
+    case "scen-reveal": if (view.scen) { view.scen.revealed = true; render(); } break;
+    case "scen-next": scenNext(); break;
+    case "scen-exit": view.scen = null; render(); break;
+    case "gemini-lookup":
+      view.teachId = null;
+      geminiLookup(el.getAttribute("data-q") || view.query);
+      break;
     case "flip-accent":
       store.data.settings.accent = accent() === "south" ? "north" : "south";
       store.save();
@@ -2003,7 +2849,8 @@ function handleClick(ev) {
       break;
     case "reset-all":
       if (typeof confirm === "undefined" || confirm("Erase your whole deck and all review history? This cannot be undone.")) {
-        store.data = { cards: {}, custom: {}, log: {}, settings: { dir: "ev", accent: "south" } };
+        store.data = { cards: {}, custom: {}, log: {}, settings: { dir: "ev", accent: "south" },
+          lessons: { done: {} }, buddy: { seen: 0 } };
         store.save();
         rebuildIndex();
         setTab("learn");
@@ -2021,7 +2868,7 @@ function handleGrade(ev) {
 }
 
 function handleKeys(ev) {
-  if (view.tab !== "review") return;
+  if (view.tab !== "review" || view.scen || view.lesson) return;
   var tag = (ev.target.tagName || "").toLowerCase();
   if (tag === "input" || tag === "textarea") return;
   if (ev.key === " " && !view.revealed && view.current) {
@@ -2038,11 +2885,15 @@ function boot() {
   DICT = JSON.parse(dataEl.textContent);
   store.load();
   rebuildIndex();
+  var now = Date.now();
+  if (store.data.buddy.seen) BUDDY_AWAY = Math.floor((now - store.data.buddy.seen) / DAY);
+  store.data.buddy.seen = now;
+  store.save();
   document.addEventListener("click", function (ev) { handleClick(ev); handleGrade(ev); });
   document.addEventListener("keydown", handleKeys);
   var tg = document.getElementById("tone-guide-link");
   if (tg) tg.addEventListener("click", function () { openModal(toneGuideHTML()); });
-  setTab("learn");
+  setTab("today");
 }
 
 if (typeof document !== "undefined" && document.getElementById) {
@@ -2056,6 +2907,11 @@ if (typeof module !== "undefined" && module.exports) {
     isVietnameseText, norm, canonEn, buildIndex, searchEntries, newCard, rateCard,
     previewIntervals, dueCards, streakDays, respellRime, dayKey,
     composePhrase,
+    CURRICULUM, WEEK_THEMES, lessonById, firstIncompleteLesson, completedLessons,
+    lessonDoneToday, buddyGreeting, buddySVG, buddyHTML,
+    startLesson, lessonNext, lessonPrev, quizAnswer, startScenario, scenNext,
+    setTab, render, view, entryById, addToDeck,
+    geminiLookup, geminiCardHTML, geminiErrorHTML, notFoundHTML, showSearchResults,
     _loadDict: function (d) { DICT = d; store.load(); rebuildIndex(); },
     _setAccent: function (a) { store.data.settings.accent = a; } };
 }

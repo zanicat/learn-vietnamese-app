@@ -1,0 +1,9 @@
+# Cloudflare Worker config for the Gemini lookup proxy (worker.js).
+# Deploy: npx wrangler login && npx wrangler secret put GEMINI_API_KEY && npx wrangler deploy
+name = "tungtu-lookup"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+
+# Optional model override (the API key is a secret, never put it here):
+# [vars]
+# GEMINI_MODEL = "gemini-2.5-flash"
